@@ -113,20 +113,26 @@
     };
   };
 
-  # Misc. hardware settings
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
   sound.enable = true;
-  powerManagement.powertop.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nix.autoOptimiseStore = true;
 
   environment = {
+    pathsToLink = ["/libexec"];  # i3wm
+
     systemPackages = with pkgs; [
       killall
       file
       neovim
       wireshark
       openvpn
+      dconf
     ];
     shellAliases = {
       ls = "ls -h --color=auto";
@@ -142,26 +148,57 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    autosuggestions = {
+  programs = {
+    light.enable = true;
+    zsh = {
       enable = true;
-      extraConfig = {
-         "ZSH_AUTOSUGGEST_USE_ASYNC" = "true";
+      autosuggestions = {
+        enable = true;
+        extraConfig = {
+           "ZSH_AUTOSUGGEST_USE_ASYNC" = "true";
+        };
       };
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = [ "main" "brackets" "pattern" "cursor" "line" ];
+      };
+      vteIntegration = true;
+      shellInit = ''
+        bindkey -e
+      '';
     };
-    syntaxHighlighting = {
-      enable = true;
-      highlighters = [ "main" "brackets" "pattern" "cursor" "line" ];
-    };
-    vteIntegration = true;
-    shellInit = ''
-      bindkey -e
-    '';
   };
 
   services = {
+    blueman.enable = true;  # TODO: ehh, desktop specific
     xserver = {
+      desktopManager = {
+        xterm.enable = false;
+      };
+
+      displayManager = {
+        lightdm.greeters.mini = {
+          enable = true;
+          user = "juozas";
+          extraConfig = ''
+            [greeter]
+            show-password-label = false
+            [greeter-theme]
+            background-image = "/usr/share/backgrounds/forest.jpg"
+          '';
+        };
+        defaultSession = "none+i3";
+      };
+
+      windowManager.i3 = {
+        enable = true;
+        extraPackages = with pkgs; [
+          dmenu
+          i3status
+          i3lock
+        ];
+      };
+
       # Enable touchpad support.
       libinput.enable = true;
 
@@ -169,12 +206,8 @@
       enable = true;
       layout = "gb";
 
-      # Enable the KDE Desktop Environment.
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
-
-      # Make CAPS an additional ESC
-      xkbOptions = "caps:escape";
+      # Make CAPS an additional backspace for ergonomics
+      xkbOptions = "caps:backspace";
     };
 
     # Enable periodic SSD trimming for sustained long-term SSD performance
@@ -196,6 +229,20 @@
       "vboxusers"
     ];
     home = "/home/juozas";
+  };
+
+  security.sudo = {
+    enable = true;
+    extraRules = [
+      {
+        users = [ "juozas" ];
+        runAs = "root";
+        commands = [ { 
+          command = "/run/current-system/sw/bin/bluetooth";
+          options = [ "NOPASSWD" ]; 
+        } ]; 
+      }
+    ];
   };
 
   virtualisation.docker.enable = true;

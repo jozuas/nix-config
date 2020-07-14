@@ -30,6 +30,24 @@ in {
   };
 
   home.packages = with pkgs; [
+    gnome3.cheese  # TODO
+
+    nerdfonts
+
+    # TODO: i3wm specific
+    polybarFull
+    xss-lock
+    lightlocker
+    networkmanagerapplet
+    redshift
+    unclutter
+    copyq
+    arandr
+    feh
+    copyq
+    playerctl
+    pavucontrol
+
     # CLI Tools
     ranger
     neofetch
@@ -74,6 +92,9 @@ in {
     android-file-transfer
 
     # CLI Utilities
+    xorg.xev
+    xorg.xrandr
+    xorg.xmodmap
     zip
     unzip
     xclip
@@ -99,7 +120,7 @@ in {
           title = "Terminal";
         };
         font = {
-          family = "DejaVu Sans Mono";
+          family = "DejaVuSansMono Nerd";
           style = "Book";
           bold_style = "Bold";
           italic_style = "Italic";
