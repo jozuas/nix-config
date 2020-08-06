@@ -8,6 +8,7 @@
     [ 
       ./hardware-configuration.nix
       ./machine/current.nix
+      ./desktop/current.nix
     ];
 
   boot = {
@@ -124,15 +125,12 @@
   nix.autoOptimiseStore = true;
 
   environment = {
-    pathsToLink = ["/libexec"];  # i3wm
-
     systemPackages = with pkgs; [
       killall
       file
       neovim
       wireshark
       openvpn
-      dconf
     ];
     shellAliases = {
       ls = "ls -h --color=auto";
@@ -170,35 +168,7 @@
   };
 
   services = {
-    blueman.enable = true;  # TODO: ehh, desktop specific
     xserver = {
-      desktopManager = {
-        xterm.enable = false;
-      };
-
-      displayManager = {
-        lightdm.greeters.mini = {
-          enable = true;
-          user = "juozas";
-          extraConfig = ''
-            [greeter]
-            show-password-label = false
-            [greeter-theme]
-            background-image = "/usr/share/backgrounds/forest.jpg"
-          '';
-        };
-        defaultSession = "none+i3";
-      };
-
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-          i3status
-          i3lock
-        ];
-      };
-
       # Enable touchpad support.
       libinput.enable = true;
 
