@@ -6,18 +6,18 @@
 
     systemPackages = with pkgs; [
       dconf
+      libsecret
     ];
   };
+
+  security.pam.services.lightdm.enableGnomeKeyring = true;
+
+  programs.seahorse.enable = true;
 
   services = {
     blueman.enable = true;
 
-    gnome3 = {
-      gnome-keyring.enable = true;
-      seahorse.enable = true;
-    };
-
-    pam.services.lighdm.enable = true;
+    gnome3.gnome-keyring.enable = true;
 
     xserver = {
       desktopManager = {
