@@ -6,7 +6,7 @@
 
     systemPackages = with pkgs; [
       dconf
-      libsecret
+      libsecret  # Gnome-Keyring
     ];
   };
 
