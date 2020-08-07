@@ -1,1 +1,4 @@
-home.nix
+# Symlinks pointing to the current file
+desktop/current.nix
+machine/current.nix
+user/current.nix
