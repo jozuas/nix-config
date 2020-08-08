@@ -16,6 +16,8 @@
   programs.seahorse.enable = true;
 
   services = {
+    tlp.enable = true;
+
     blueman.enable = true;
 
     gnome3.gnome-keyring.enable = true;

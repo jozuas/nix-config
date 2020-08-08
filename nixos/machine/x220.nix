@@ -29,6 +29,12 @@ in
     };
   };
 
-  # TODO: ensure we use this package definition format everywhere
-  services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${x220Layout}";
+  services = {
+    udev.extraHwdb = ''
+       LIBINPUT_MODEL_LENOVO_X220_TOUCHPAD_FW81=1
+    '';
+
+    # TODO: ensure we use this package definition format everywhere
+    xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${x220Layout}";
+  };
 }
