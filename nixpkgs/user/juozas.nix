@@ -30,8 +30,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    gnome3.cheese  # TODO
-
     nerdfonts
 
     # TODO: i3wm specific
@@ -40,9 +38,10 @@ in {
     lightlocker
     networkmanagerapplet
     redshift
-    unclutter
+    unclutter-xfixes
     copyq
     arandr
+    xdotool
     feh
     copyq
     playerctl
@@ -101,10 +100,6 @@ in {
     nix-prefetch-git
     python38
     python38Packages.bpython
-
-    # TODO: Should be desktop specific
-    xcalib
-    kdeFrameworks.kirigami2
   ];
 
   programs = {
@@ -202,6 +197,7 @@ in {
         filetype indent on        "load filetype-specific indent files
 
         set tabstop=2
+        set expandtab
         set shiftwidth=2
         set textwidth=87          "Ensure you never go over 88 characters a line
         set backspace=2           "change backspace behaviour to normal"
@@ -406,6 +402,8 @@ in {
         bitwarden
         facebook-container
         react-devtools
+        leechblock-ng
+        greasemonkey
       ];
     };
     git = {
