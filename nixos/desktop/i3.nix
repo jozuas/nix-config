@@ -7,7 +7,6 @@
     systemPackages = with pkgs; [
       dconf
       libsecret  # Gnome-Keyring
-      picom
     ];
   };
 
