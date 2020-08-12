@@ -108,6 +108,10 @@ in {
 
   programs = {
     direnv.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     alacritty = {
       enable = true;
       settings = {
@@ -178,6 +182,7 @@ in {
       vimdiffAlias = true;
       plugins = with pkgs.vimPlugins; [
         vim-airline
+        vim-airline-themes
         youcompleteme
         vim-polyglot
         ale
@@ -262,6 +267,9 @@ in {
           autocmd BufEnter,WinEnter * call matchadd("Error", "\\s\\+$", -1)
           autocmd BufRead,BufNewFile * syn match parens /[(){}]/ | hi parens gui=bold ctermfg=red
         augroup END
+
+        "" On leave reset cursor
+        autocmd VimLeave * set guicursor=a:ver25
       '';
     };
     zsh = {
@@ -322,7 +330,6 @@ in {
 
         # VI-like tmux selection
         set-window-option -g mode-keys vi
-        bind Escape copy-mode-vi
         unbind p
         bind p paste-buffer
         unbind-key -T copy-mode-vi v
@@ -337,6 +344,14 @@ in {
         set -g message-style fg=black,bg=red
         set-window-option -g window-status-current-format '#I:#W'
         set-window-option -g window-status-format '#I:#W'
+
+        # Hide status bar if only 1 window is present
+        if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"
+        set-hook -g window-linked 'if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"'
+        set-hook -g window-unlinked 'if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"'
+
+        # Destroy sessions that are not explicitly deattached
+        set-option destroy-unattached
       '';
     };
     irssi = {
