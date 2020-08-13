@@ -1,0 +1,159 @@
+[colors]
+my_background = ${xrdb:background}
+my_foreground = #fff
+my_color0 = ${xrdb:color0}
+my_color1 = ${xrdb:color1}
+my_color2 = ${xrdb:color2}
+my_color3 = ${xrdb:color3}
+my_color4 = ${xrdb:color4}
+my_color5 = ${xrdb:color5}
+my_color6 = ${xrdb:color6}
+my_color7 = ${xrdb:color7}
+my_color8 = ${xrdb:color8}
+my_color9 = ${xrdb:color9}
+my_color10 = ${xrdb:color10}
+my_color11 = ${xrdb:color11}
+my_color12 = ${xrdb:color12}
+my_color13 = ${xrdb:color13}
+my_color14 = ${xrdb:color14}
+my_color15 = ${xrdb:color15}
+
+[bar/bar]
+font-0 = UbuntuNerdFont:fontformat=truetype:size=14;1
+enable-ipc = true
+bottom = false
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = true
+background = ${colors.my_background}
+foreground = ${colors.my_foreground}
+line-size = 3
+line-color = ${colors.my_color4}
+border-size = 0
+border-color = ${colors.my_color4}
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 1
+modules-left = i3
+modules-center = date
+modules-right = openweathermap volume battery
+;tray-position = right
+tray-padding = 9
+tray-offset-y = 0%
+tray-offset-x = 0%
+tray-maxsize = 16
+tray-detached = false
+tray-background = ${colors.my_background}
+
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+label-unfocused-background = ${colors.my_background}
+label-unfocused-foreground = ${colors.my_foreground}
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.my_color4}
+label-focused = %index%
+label-focused-foreground = ${colors.my_foreground}
+label-focused-background = ${colors.my_background}
+label-focused-underline = ${colors.my_color4}
+label-focused-padding = 2
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-visible = %index%
+label-visible-underline = ${colors.my_foreground}
+label-visible-padding = 4
+label-urgent = %index%
+label-urgent-foreground = ${colors.my_foreground}
+label-urgent-background = ${colors.my_background}
+label-urgent-underline = ${colors.my_color8}
+label-urgent-padding = 2
+
+[module/date]
+type = internal/date
+interval = 1
+date = %a %d,
+time = %H:%M:%S
+format = <label>
+format-padding = 1
+label =  %date% %time%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 99
+format-full-background = ${colors.my_background}
+format-charging-background = ${colors.my_background}
+format-charging = "⁣⚡<animation-charging> <label-charging> "
+format-charging-underline = ${colors.my_color2}
+format-discharging-background = ${colors.my_background}
+format-discharging = "⁣ <ramp-capacity> <label-discharging> "
+format-discharging-underline = ${self.format-charging-underline}
+format-full = " <label-full>"
+format-full-prefix-foreground = ${colors.my_background}
+format-full-underline = ${self.format-charging-underline}
+format-full-padding = 1
+format-charing-background = ${colors.my_background}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-10 = 
+ramp-capacity-foreground = ${colors.my_foreground}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
+animation-charging-7 = 
+animation-charging-8 = 
+animation-charging-9 = 
+animation-charging-10 = 
+animation-charging-foreground = ${colors.my_foreground}
+animation-charging-framerate = 750
+
+[module/volume]
+type = internal/alsa
+format-volume = %{A3:pavucontrol &:}<ramp-volume> <label-volume>%{A}
+format-muted = <label-muted>
+label-volume = %percentage%%
+label-muted = 婢
+label-muted-foreground = ${colors.my_foreground}
+format-volume-padding = 1
+format-muted-padding = 1
+format-volume-underline = ${colors.my_color5}
+format-muted-underline = ${colors.my_color1}
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-3 = 墳
+ramp-headphones-0 = 
+
+[module/openweathermap]
+type = custom/script
+exec = ~/nix-config/scripts/polybar/openweathermap.sh
+interval = 600
+label-font = 3
+format-padding = 1
+format-underline = ${colors.my_color4}
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

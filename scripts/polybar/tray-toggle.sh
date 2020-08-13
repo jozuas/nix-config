@@ -8,4 +8,4 @@ else
   sed -i 's/tray-position\ =\ right/;tray-position\ =\ right/' $polybar_config
 fi
 
-bash ~/.nix-config/scripts/polybar/launch.sh
+bash ~/nix-config/scripts/polybar/launch.sh

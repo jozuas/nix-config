@@ -21,6 +21,8 @@ let
   brightMagenta = "0xff49cb";
   brightCyan = "0x18e3c8";
   brightWhite = "0xfdfdfd";
+
+  fdExclude = "--exclude .git --exclude node_modules --exclude result";
 in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
@@ -38,9 +40,6 @@ in {
     polybarFull
     xss-lock
     lightlocker
-    networkmanagerapplet
-    redshift
-    unclutter-xfixes
     copyq
     arandr
     xdotool
@@ -58,6 +57,7 @@ in {
     tldr
     maim
     jq
+    fd
 
     # Networking
     traceroute
@@ -111,6 +111,20 @@ in {
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      defaultCommand = "${pkgs.fd}/bin/fd --type f ${fdExclude}";
+      changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d ${fdExclude}";
+      changeDirWidgetOptions = [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
+      fileWidgetCommand = "${pkgs.fd}/bin/fd --type f ${fdExclude}";
+      fileWidgetOptions = [ "--preview 'head {}'" ];
+      defaultOptions = [
+        "--exact"
+        "--no-mouse"
+        "--height 50%"
+        "--reverse"
+        "--tabstop=4"
+        "--color=16"
+        "--inline-info"
+      ];
     };
     alacritty = {
       enable = true;
@@ -275,6 +289,13 @@ in {
     zsh = {
       enable = true;
       defaultKeymap = "emacs";
+      history = {
+        expireDuplicatesFirst = true;
+        ignoreDups = true;
+        ignoreSpace = true;
+        save = 5000;
+        size = 5000;
+      };
       shellAliases = {
         cd = ">/dev/null cd";
         gg = "git ack";
@@ -287,6 +308,16 @@ in {
         CDPATH = ".:~:~/dev:~/documents";  # TODO: doesn't work
       };
       initExtra = ''
+        # extra history config
+        setopt HIST_IGNORE_ALL_DUPS
+        setopt HIST_FIND_NO_DUPS
+        setopt HIST_SAVE_NO_DUPS
+
+        # pushd
+        setopt PUSHD_IGNORE_DUPS
+        setopt PUSHD_SILENT
+        setopt PUSHD_TO_HOME
+
         function ranger-cd {
           tempfile=$(mktemp -t tmp.XXXXXX)
           /home/juozas/.nix-profile/bin/ranger --choosedir="$tempfile" "$(pwd)"
@@ -465,9 +496,9 @@ in {
       enable = true;
       fullscreen = true;
       # TODO: Should probably be ubuntu
-      font = "DejaVuSansMono Nerd Font Book 14"; 
+      font = "DejaVuSansMono Nerd Font Book 14";
       terminal = "~/.nix-profile/bin/alacritty";
-      theme = "~/.nix-config/dotfiles/rofi-theme.rasi";
+      theme = "~/nix-config/dotfiles/rofi-theme.rasi";
     };
     gpg.enable = true;
   };
@@ -493,9 +524,9 @@ in {
           format = "%s\n%b";
           frame_width = 1;
           # By urgency
-          sort = "no";  
+          sort = "no";
           # Show number of hidden messages
-          indicate_hidden = "yes";  
+          indicate_hidden = "yes";
           # Text alignment
           alignment = "center";
           bounce_freq = "0";
@@ -537,7 +568,7 @@ in {
 
           # Browser for opening urls in context menu.
           browser = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition -new-tab";
-          
+
           # Align icons left/right/off
           icon_position = "off";
           max_icon_size = "80";
@@ -574,6 +605,21 @@ in {
         };
       };
     };
+    # TODO: WM specific
+    redshift = {
+      enable = true;
+      latitude = "55.953";
+      longitude = "-3.189";
+      temperature = {
+        day = 6500;
+        night = 1900;
+      };
+    };
+    unclutter = {
+      enable = true;
+      package = pkgs.unclutter-xfixes;
+    };
+    network-manager-applet.enable = true;
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800;

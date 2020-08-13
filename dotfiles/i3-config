@@ -1,0 +1,144 @@
+# Colour definitions
+set $bg_colour "#15161d"
+set $fg_colour "#18e3c3"
+
+# Variables are defined below
+set $TERMINAL "alacritty"
+set $LOCK "light-locker-command -l"
+
+# Autostart applications
+exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/launch.sh"
+exec --no-startup-id "copyq"
+exec --no-startup-id "light-locker &"
+exec --no-startup-id "xss-lock -- light-locker-command -l &"
+exec --no-startup-id "feh --bg-fill /usr/share/backgrounds/forest.jpg"
+
+# Open specific applications in floating mode
+for_window [class="Pavucontrol"] floating enable
+for_window [title="Android Emulator[.]*"] floating enable
+for_window [class="Alacritty" title="floating-terminal"] floating enable border pixel 2
+
+# Controls
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 2%-"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 2%+"
+bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
+bindsym XF86AudioMicMute exec --no-startup-id "amixer set Capture toggle"
+bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 5"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5"
+bindsym XF86Bluetooth exec --no-startup-id sudo bluetooth toggle
+bindsym Print exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
+bindsym Mod4+Ctrl+s exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
+bindsym Mod4+Ctrl+t exec --no-startup-id "bash /home/juozas/nix-config/scripts/touchpad-toggle.sh"
+bindsym Mod4+Ctrl+p exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/tray-toggle.sh"
+bindsym Mod4+Ctrl+i exec --no-startup-id "bash /home/juozas/nix-config/scripts/invert-colour.sh"
+bindsym Mod4+Ctrl+c exec --no-startup-id "pkill picom"
+bindsym Mod4+Ctrl+l exec --no-startup-id $LOCK
+bindsym Mod4+d exec --no-startup-id rofi -show drun -display-drun "> " -fullscreen
+bindsym Mod4+Return exec --no-startup-id $TERMINAL
+bindsym Mod4+Ctrl+Return exec --no-startup-id "alacritty -t 'floating-terminal'"
+bindsym Mod4+Ctrl+slash exec --no-startup-id "playerctl play-pause"
+bindsym Mod4+Ctrl+less exec --no-startup-id "playerctl previous"
+bindsym Mod4+Ctrl+greater exec --no-startup-id "playerctl next"
+
+# WM Controls
+bindsym Mod4+s layout stacking
+bindsym Mod4+g layout toggle split
+bindsym Mod4+Shift+backslash split h;exec notify-send "Tile horizontally"
+bindsym Mod4+minus split v;exec notify-send "Tile vertically"
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+Shift+space floating toggle
+bindsym Mod4+space focus mode_toggle
+floating_modifier Mod4
+bindsym Mod4+a focus parent
+bindsym Mod4+Shift+s move scratchpad;exec notify-send "Moved to scratchpad"
+bindsym Mod4+Shift+Return scratchpad show
+bindsym Mod4+Shift+q kill
+bindsym Mod4+Shift+r restart
+bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod4+r mode "resize"
+mode "resize" {
+  bindsym h resize shrink width 5 px or 5 ppt
+  bindsym j resize grow height 5 px or 5 ppt
+  bindsym k resize shrink height 5 px or 5 ppt
+  bindsym l resize grow width 5 px or 5 ppt
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+focus_follows_mouse no
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+
+# Set shut down, restart and locking features
+bindsym Mod4+0 mode "$power_options"
+set $power_options [l]ock, [r]eboot, [s]hutdown
+mode "$power_options" {
+    bindsym l exec $LOCK, mode "default"
+    bindsym r exec "systemctl reboot", mode "default"
+    bindsym s exec "systemctl poweroff", mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Border style
+new_window pixel 1
+new_float normal
+hide_edge_borders smart
+
+# Font for window titles
+font "pango:Ubuntu Nerd Font Book 10"
+
+# Theme colors
+# class                 border     backgr.    text       indic.     child_border
+client.focused          $fg_colour $fg_colour $bg_colour $fg_colour $fg_colour
+client.focused_inactive $bg_colour $bg_colour $fg_colour $bg_colour $bg_colour
+client.unfocused        $bg_colour $bg_colour $fg_colour $bg_colour $bg_colour
+client.urgent           $bg_colour $bg_colour $fg_colour $bg_colour $bg_colour
+client.placeholder      $bg_colour $bg_colour $fg_colour $bg_colour $bg_colour
+client.background       $bg_colour
+
+# Workspace settings
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+bindsym Mod4+1 workspace $ws1
+bindsym Mod4+2 workspace $ws2
+bindsym Mod4+3 workspace $ws3
+bindsym Mod4+4 workspace $ws4
+bindsym Mod4+5 workspace $ws5
+bindsym Mod4+6 workspace $ws6
+bindsym Mod4+7 workspace $ws7
+bindsym Mod4+8 workspace $ws8
+bindsym Mod4+9 workspace $ws9
+bindsym Mod4+Ctrl+1 move container to workspace $ws1
+bindsym Mod4+Ctrl+2 move container to workspace $ws2
+bindsym Mod4+Ctrl+3 move container to workspace $ws3
+bindsym Mod4+Ctrl+4 move container to workspace $ws4
+bindsym Mod4+Ctrl+5 move container to workspace $ws5
+bindsym Mod4+Ctrl+6 move container to workspace $ws6
+bindsym Mod4+Ctrl+7 move container to workspace $ws7
+bindsym Mod4+Ctrl+8 move container to workspace $ws8
+bindsym Mod4+Ctrl+9 move container to workspace $ws9
+bindsym Mod4+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym Mod4+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym Mod4+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym Mod4+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym Mod4+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym Mod4+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym Mod4+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym Mod4+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym Mod4+Shift+9 move container to workspace $ws9; workspace $ws9
+
