@@ -49,6 +49,8 @@ in {
     pavucontrol
     picom
     libnotify
+    gnome3.nautilus
+    bibata-cursors
 
     # CLI Tools
     ranger
@@ -106,6 +108,51 @@ in {
     python38Packages.bpython
   ];
 
+  # i3 / machine specific
+  gtk = {
+    enable = true;
+    font = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans 10";
+    };
+    theme = {
+      package = pkgs.matcha;
+      name = "Matcha-dark-sea";
+    };
+    iconTheme = {
+      package = pkgs.papirus-maia-icon-theme;
+      name = "Papirus-Dark-Maia";
+    };
+    gtk2.extraConfig = ''
+      gtk-cursor-theme-name="Bibata_Ice"
+      gtk-cursor-theme-size=0
+      gtk-toolbar-style=GTK_TOOLBAR_BOTH
+      gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+      gtk-button-images=1
+      gtk-menu-images=1
+      gtk-enable-event-sounds=1
+      gtk-enable-input-feedback-sounds=1
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle="hintslight"
+      gtk-xft-rgba="rgb"
+    '';
+    gtk3.extraConfig = {
+      gtk-cursor-theme-name="Bibata_Ice";
+      gtk-cursor-theme-size="0";
+      gtk-toolbar-style="GTK_TOOLBAR_BOTH";
+      gtk-toolbar-icon-size="GTK_ICON_SIZE_LARGE_TOOLBAR";
+      gtk-button-images="1";
+      gtk-menu-images="1";
+      gtk-enable-event-sounds="1";
+      gtk-enable-input-feedback-sounds="1";
+      gtk-xft-antialias="1";
+      gtk-xft-hinting="1";
+      gtk-xft-hintstyle="hintslight";
+      gtk-xft-rgba="rgb";
+    };
+  };
+
   programs = {
     direnv.enable = true;
     bat = {
@@ -144,7 +191,7 @@ in {
         "--preview '${pkgs.tree}/bin/tree -C {} | head -200'"
       ];
       fileWidgetCommand = "${pkgs.fd}/bin/fd --type f ${fdExclude}";
-      fileWidgetOptions = [ 
+      fileWidgetOptions = [
         "--preview '(bat --color=always {} || cat {}) 2> /dev/null'"
       ];
     };
