@@ -1,0 +1,7 @@
+set preview_files!
+
+# Mimics the behaviour of find, but filtering files as you type
+map f console scout -ftsea%space
+
+# Move to the Rubbish Bin
+map DD shell mv %s /home/${USER}/.local/share/Trash/files/

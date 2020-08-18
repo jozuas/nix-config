@@ -15,3 +15,5 @@ ln -sf ~/nix-config/dotfiles/polybar-config ~/.config/polybar/config
 mkdir -p ~/.config/i3
 ln -sf ~/nix-config/dotfiles/i3-config ~/.config/i3/config
 
+mkdir -p ~/.config/ranger
+ln -sf ~/nix-config/dotfiles/ranger-config ~/.config/ranger/rc.conf
