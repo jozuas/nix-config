@@ -2,12 +2,12 @@
 
 {
   environment = {
-    pathsToLink = ["/libexec"];  # i3wm
+    pathsToLink = [ "/libexec" ]; # i3wm
 
     systemPackages = with pkgs; [
       dconf
-      libsecret  # Gnome-Keyring
-      gnome3.adwaita-icon-theme  # Fallback theme
+      libsecret # Gnome-Keyring
+      gnome3.adwaita-icon-theme # Fallback theme
     ];
   };
 
@@ -16,15 +16,13 @@
   programs.seahorse.enable = true;
 
   services = {
-    tlp.enable = true;
-
     blueman.enable = true;
 
     gnome3.gnome-keyring.enable = true;
 
     # Mounting and Trash support for Nautilus
-    gvfs.enable = true;  
-    udisks2.enable = true;  
+    gvfs.enable = true;
+    udisks2.enable = true;
 
     xserver = {
       desktopManager = {

@@ -1,11 +1,11 @@
-# System-wide configuration
+# Core System-wide configuration.
+# Machine and desktop specific settings are pointed by current.nix symlinks.
 
 { config, pkgs, ... }:
 
 {
-  # Include the results of the hardware scan.
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
       ./machine/current.nix
       ./desktop/current.nix
@@ -26,32 +26,18 @@
       efi.canTouchEfiVariables = true;
     };
 
-    initrd.luks.devices.root = {
-      preLVM = true;  # First lukOpen, then LVM scan
-      allowDiscards = true;  # Enable TRIM requests
-    };
-
     cleanTmpDir = true;
-    kernelPackages = pkgs.linuxPackages_latest;  # Use the latest kernel
+    kernelPackages = pkgs.linuxPackages_latest; # Use the latest kernel
   };
-
-  # SSD performance fine-tuning
-  fileSystems."/".options = [ "noatime" "nodiratime" "commit=60" ];
 
   networking = {
     hostName = "nixos";
     tcpcrypt.enable = true;
 
-    networkmanager = {
-      enable = true;
-      wifi.backend = "wpa_supplicant";
-      wifi.powersave = true;
-    };
-
     firewall = {
       enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
     };
 
     hosts = {
@@ -77,11 +63,10 @@
       serif = [ "DejaVu Serif" ];
     };
 
-    penultimate.enable = true;  # Better fonts
+    penultimate.enable = true; # Better fonts
   };
 
   hardware = {
-    acpilight.enable = true;  # Enable the use of xbacklight
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
 
@@ -107,16 +92,6 @@
         daemonize = "no";
       };
     };
-
-    bluetooth = {
-      enable = true;
-      package = pkgs.bluezFull;
-    };
-  };
-
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
   };
 
   sound.enable = true;
@@ -147,13 +122,12 @@
   };
 
   programs = {
-    light.enable = true;
     zsh = {
       enable = true;
       autosuggestions = {
         enable = true;
         extraConfig = {
-           "ZSH_AUTOSUGGEST_USE_ASYNC" = "true";
+          "ZSH_AUTOSUGGEST_USE_ASYNC" = "true";
         };
       };
       syntaxHighlighting = {
@@ -169,22 +143,15 @@
 
   services = {
     xserver = {
-      # Enable touchpad support.
+      # Support for most mice and keyboards
       libinput.enable = true;
 
       # Enable the X11 windowing system.
       enable = true;
       layout = "gb";
 
-      # Make CAPS an additional backspace for ergonomics
-      xkbOptions = "caps:backspace";
+      xkbOptions = "caps:escape";
     };
-
-    # Enable periodic SSD trimming for sustained long-term SSD performance
-    fstrim.enable = true;
-    fstrim.interval = "weekly";
-
-    tlp.enable = true;
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -201,22 +168,8 @@
     home = "/home/juozas";
   };
 
-  security.sudo = {
-    enable = true;
-    extraRules = [
-      {
-        users = [ "juozas" ];
-        runAs = "root";
-        commands = [ { 
-          command = "/run/current-system/sw/bin/bluetooth";
-          options = [ "NOPASSWD" ]; 
-        } ]; 
-      }
-    ];
-  };
-
   virtualisation.docker.enable = true;
 
   system.autoUpgrade.enable = true;
-  system.stateVersion = "19.09";  # DO NOT CHANGE, unless NixOS tells you to
+  system.stateVersion = "19.09"; # DO NOT CHANGE, unless NixOS tells you to
 }

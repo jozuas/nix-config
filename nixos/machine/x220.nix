@@ -1,20 +1,18 @@
 { config, pkgs, ... }:
 
 let
-    x220Layout = pkgs.writeText "xkb-layout" ''
-      ! Make ThinkVantage a bluetooth toggle key
-      keycode 156 = XF86Bluetooth
+  x220Layout = pkgs.writeText "xkb-layout" ''
+    ! Make the ThinkVantage button a bluetooth toggle key
+    keycode 156 = XF86Bluetooth
 
-      ! Make Menu key a Print key to match t480s
-      keycode 135 = Print
-
-      ! Make AltGR a return for ergonomics
-      keycode 108 = Return
-    '';
+    ! Make Menu key a Print key to match t480s
+    keycode 135 = Print
+  '';
 in
 {
   imports = [
     <nixos-hardware/lenovo/thinkpad/x220>
+    ./laptop-general.nix
   ];
 
   boot.initrd.luks.devices.root = {
@@ -31,10 +29,9 @@ in
 
   services = {
     udev.extraHwdb = ''
-       LIBINPUT_MODEL_LENOVO_X220_TOUCHPAD_FW81=1
+      LIBINPUT_MODEL_LENOVO_X220_TOUCHPAD_FW81=1
     '';
 
-    # TODO: ensure we use this package definition format everywhere
     xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${x220Layout}";
   };
 }
