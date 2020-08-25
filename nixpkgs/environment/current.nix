@@ -1,1 +1,0 @@
-/home/juozas/nix-config/nixpkgs/environment/linux.nix

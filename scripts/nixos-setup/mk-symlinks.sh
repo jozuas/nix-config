@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mkdir -p ~/.config/
-ln -sfn ~/nix-config/nixpkgs ~/.config/nixpkgs
+ln -sfn ~/nix-config/home-manager ~/.config/nixpkgs
 
 mkdir -p ~/.irssi
 ln -sf ~/nix-config/dotfiles/irssi.theme ~/.irssi/default.theme

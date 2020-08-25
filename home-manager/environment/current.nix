@@ -1,0 +1,1 @@
+/home/juozas/nix-config/home-manager/environment/linux.nix
