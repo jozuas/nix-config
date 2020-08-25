@@ -7,7 +7,7 @@
   imports = [
     ./machine/current.nix
     ./desktop/current.nix
-    ./user/current.nix
+    ./environment/current.nix
   ];
 
   # This value determines the Home Manager release that your

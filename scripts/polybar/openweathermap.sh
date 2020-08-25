@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /home/juozas/nix-config/secrets.env
+source /home/juozas/nix-config/variables.env
 
 get_icon() {
   case $1 in
