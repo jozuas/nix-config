@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     # CLI Tools
     ranger
+    icdiff
     htop
     tldr
     jq
