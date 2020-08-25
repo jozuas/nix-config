@@ -8,4 +8,3 @@ ln -sf "${machine_dir}/x220.nix" "${machine_dir}/current.nix"
 
 user_dir="/home/juozas/nix-config/nixpkgs/user"
 ln -sf "${user_dir}/juozas.nix" "${user_dir}/current.nix"
-
