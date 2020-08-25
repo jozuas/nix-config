@@ -280,6 +280,7 @@ in {
         youcompleteme
         vim-polyglot
         ale
+        neoformat
       ];
       extraConfig = ''
         set encoding=utf-8
@@ -347,6 +348,10 @@ in {
 
         let g:ycm_autoclose_preview_window_after_completion = 1
         let g:ycm_autoclose_preview_window_after_insertion = 1
+
+        "" Autoformatters
+        nnoremap FF ggVG:Neoformat<CR>
+        let g:shfmt_opt="-ci -i 2"
 
         "" Per filetype settings
         augroup configgroup
