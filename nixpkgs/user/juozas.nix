@@ -32,11 +32,18 @@ in {
   };
 
   home.packages = with pkgs; [
+    
+    # Programming language tooling
+    ## Bash
+    shellcheck
+    shfmt
+    ## Nix
     nixpkgs-fmt
 
     nerdfonts
 
     # TODO: i3wm specific
+    pamixer
     polybarFull
     xss-lock
     lightlocker
@@ -60,6 +67,7 @@ in {
     maim
     jq
     fd
+    binutils
 
     # Networking
     traceroute
@@ -67,6 +75,7 @@ in {
     whois
     speedtest-cli
     curl
+    transmission-gtk
 
     # Dev
     jetbrains.idea-ultimate
@@ -120,8 +129,10 @@ in {
       name = "Matcha-dark-sea";
     };
     iconTheme = {
-      package = pkgs.papirus-maia-icon-theme;
-      name = "Papirus-Dark-Maia";
+      # package = pkgs.papirus-maia-icon-theme;
+      # name = "Papirus-Dark-Maia";
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
     gtk2.extraConfig = ''
       gtk-cursor-theme-name="Bibata_Ice"
@@ -374,7 +385,7 @@ in {
         BROWSER = "firefox-devedition";
         TERMINAL = "alacritty";
         DIRENV_LOG_FORMAT= "";
-        CDPATH = ".:~:~/dev:~/documents";  # TODO: doesn't work
+        CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
       };
       initExtra = ''
         # extra history config
@@ -574,6 +585,8 @@ in {
 
   services = {
     # TODO: wm specific
+    blueman-applet.enable = true;
+
     dunst = {
       enable = true;
       settings = {
@@ -697,12 +710,19 @@ in {
     lorri.enable = true;
   };
 
-  xdg.userDirs = {
-    download = "\$HOME/downloads";
-    documents = "\$HOME/documents";
-    pictures = "\$HOME/pictures";
-    videos = "\$HOME/videos";
-    music = "\$HOME/music";
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      desktop = "\$HOME/desktop";
+      documents = "\$HOME/documents";
+      download = "\$HOME/downloads";
+      music = "\$HOME/music";
+      pictures = "\$HOME/pictures";
+      videos = "\$HOME/videos";
+      templates = "\$HOME/templates";
+      publicShare = "\$HOME/public";
+    };
   };
 
   # TODO: sync-up with let-in at the start of the file

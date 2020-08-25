@@ -7,6 +7,7 @@
     systemPackages = with pkgs; [
       dconf
       libsecret  # Gnome-Keyring
+      gnome3.adwaita-icon-theme  # Fallback theme
     ];
   };
 
@@ -20,6 +21,10 @@
     blueman.enable = true;
 
     gnome3.gnome-keyring.enable = true;
+
+    # Mounting and Trash support for Nautilus
+    gvfs.enable = true;  
+    udisks2.enable = true;  
 
     xserver = {
       desktopManager = {
