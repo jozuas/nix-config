@@ -2,6 +2,9 @@
 hardware-configuration.nix
 result
 
+# The state version that depends on when NixOS was installed
+state-version.nix
+
 # Symlinks to current config
 machine/current.nix
 desktop/current.nix

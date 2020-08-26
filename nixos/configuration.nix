@@ -6,6 +6,7 @@
 {
   imports =
     [
+      ./state-version.nix
       ./hardware-configuration.nix
       ./machine/current.nix
       ./desktop/current.nix
@@ -171,5 +172,4 @@
   virtualisation.docker.enable = true;
 
   system.autoUpgrade.enable = true;
-  system.stateVersion = "19.09"; # DO NOT CHANGE, unless NixOS tells you to
 }
