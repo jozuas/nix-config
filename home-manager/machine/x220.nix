@@ -1,8 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.alacritty.settings.font.size = 8;
-  programs.rofi.font = "DejaVuSansMono Nerd Font Book 14";
+  programs = {
+    alacritty.settings.font.size = 8;
+
+    rofi.font = "DejaVuSansMono Nerd Font Book 14";
+  };
 
   services.dunst.settings = {
     global = {
