@@ -104,6 +104,7 @@
     systemPackages = with pkgs; [
       killall
       file
+      parted
       neovim
       git
       wireshark
