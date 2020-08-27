@@ -56,15 +56,23 @@
     keyMap = "uk";
   };
 
-  fonts.fontconfig = {
-    defaultFonts = {
-      emoji = [ "Noto Color Emoji" ];
-      monospace = [ "DejaVu Sans Mono" ];
-      sansSerif = [ "DejaVu Sans" ];
-      serif = [ "DejaVu Serif" ];
-    };
+  fonts = {
+    fonts = with pkgs; [
+      dejavu_fonts
+      ubuntu_font_family
+      corefonts
+      nerdfonts
+    ];
+    fontconfig = {
+     defaultFonts = {
+       emoji = [ "Noto Color Emoji" ];
+       monospace = [ "DejaVu Sans Mono" ];
+       sansSerif = [ "DejaVu Sans" ];
+       serif = [ "DejaVu Serif" ];
+     };
 
-    penultimate.enable = true; # Better fonts
+     penultimate.enable = true; # Better fonts
+    };
   };
 
   hardware = {
@@ -105,7 +113,6 @@
       killall
       file
       neovim
-      wireshark
       openvpn
     ];
     shellAliases = {
@@ -139,6 +146,10 @@
       shellInit = ''
         bindkey -e
       '';
+    };
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
     };
   };
 
