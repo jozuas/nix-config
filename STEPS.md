@@ -118,6 +118,13 @@ reboot
 8. Run `configure.sh` as normal user from the `scripts/nixos-setup` directory.
 9. `chown -R root:root /home/juozas/nix-config/nixos`
 
+### Dev
+Generate a GPG Key with `gpg --full-generate-key`. Put the signature into the machine git
+config as all commits will be signed with this key.
+
+Generate an SSH Key with `ssh-keygen -t rsa -b 4096 -C "norkus@norkus.net`
+and run `ssh-add ~/.ssh/id_rsa` to add the key into the keychain.
+
 ### Firefox
 
 Set `layers.acceleration.force-enabled` to `true` to get rid of screen tearing on Firefox.
