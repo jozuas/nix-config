@@ -34,6 +34,7 @@
     maim
     whois
     curl
+    wget
     nmap
     speedtest-cli
     traceroute
@@ -59,7 +60,6 @@
     vscodium
     transmission-gtk
     zathura
-    notable
     bitwarden
     android-file-transfer
     chromium
@@ -67,13 +67,10 @@
     tdesktop
     skypeforlinux
     discord
-    zoom-us
-    teamviewer
     spotify
 
     # Theming
     bibata-cursors
-    nerdfonts
   ];
 
   programs = {

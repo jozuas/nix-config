@@ -19,11 +19,12 @@ my_color14 = ${xrdb:color14}
 my_color15 = ${xrdb:color15}
 
 [bar/bar]
-font-0 = UbuntuNerdFont:fontformat=truetype:size=14;1
+monitor = ${env:MONITOR:}
+font-0 = UbuntuNerdFont:fontformat=truetype:size=16;1
 enable-ipc = true
 bottom = false
 width = 100%
-height = 25
+height = 30
 offset-x = 0
 offset-y = 0
 radius = 0.0

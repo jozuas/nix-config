@@ -9,15 +9,17 @@
       };
     };
 
-    rofi.font = "DejaVuSansMono Nerd Font Book 14";
+    rofi.font = "Ubuntu Light 18";
+
+    git.signing.key = "3C5AA30C300E6439E3D49283DB6D4A68B6AFA263";
   };
 
 
   services.dunst.settings = {
     global = {
-      font = "DejaVuSansMono Nerd Font Book 12";
+      font = "Ubuntu Light 14";
     };
   };
 
-  gtk.font.name = "DejaVu Sans 10";
+  gtk.font.name = "Ubuntu Light 14";
 }

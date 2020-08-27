@@ -12,6 +12,8 @@ exec --no-startup-id "copyq"
 exec --no-startup-id "light-locker &"
 exec --no-startup-id "xss-lock -- light-locker-command -l &"
 exec --no-startup-id "feh --bg-fill /usr/share/backgrounds/forest.jpg"
+# t480s specific
+exec --no-startup-id "bash ~/scripts/displays/small.sh"
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
@@ -87,13 +89,27 @@ mode "$power_options" {
     bindsym Escape mode "default"
 }
 
+# Set easy display switching
+bindsym Mod4+m mode "$monitor_selection"
+set $monitor_selection [s]mall, [b]ig, [h]uge
+mode "$monitor_selection" {
+    bindsym s exec "bash ~/scripts/displays/small.sh", mode "default"
+    bindsym b exec "bash ~/scripts/displays/big.sh", mode "default"
+    bindsym h exec "bash ~/scripts/displays/bigger.sh", mode "default"
+    bindsym m exec "bash ~/scripts/displays/mirrored.sh", mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # Border style
 new_window pixel 1
 new_float normal
 hide_edge_borders smart
 
 # Font for window titles
-font "pango:Ubuntu Nerd Font Book 10"
+font "pango:DejaVu Sans Mono Book 10"
 
 # Theme colors
 # class                 border     backgr.    text       indic.     child_border

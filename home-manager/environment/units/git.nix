@@ -6,7 +6,6 @@
     package = pkgs.gitAndTools.gitFull;
     userEmail = "norkus@norkus.net";
     userName = "Juozas Norkus";
-    signing.key = "6D11AC468819E2EA41232CB52FE519DA622AF155";
     signing.signByDefault = true;
     aliases = {
       "ack" = "-c color.grep.linenumber=\"bold yellow\" \

@@ -98,6 +98,11 @@
         appname = "NetworkManager";
         timeout = "3";
       };
+      Spotify = {
+        appname = "Spotify";
+        timeout = "-1";
+        format = "";
+      };
     };
   };
 }
