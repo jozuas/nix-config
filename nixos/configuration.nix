@@ -105,6 +105,7 @@
       killall
       file
       neovim
+      git
       wireshark
       openvpn
     ];
