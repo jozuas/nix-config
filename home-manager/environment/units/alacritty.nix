@@ -1,30 +1,13 @@
 { config, lib, pkgs, ... }:
 
 let
-  background = "0x15161d";
-  foreground = "0xfdfdfd";
-
-  black = "0x15161d";
-  red = "0xff4971";
-  green = "0x89ff49";
-  yellow = "0xfffc3d";
-  blue = "0x49b0ff";
-  magenta = "0xff49cb";
-  cyan = "0x18e3c8";
-  white = "0xaeb7f5";
-
-  brightBlack = "0x4b4f69";
-  brightRed = "0xff4971";
-  brightGreen = "0x89ff49";
-  brightYellow = "0xfffc3d";
-  brightBlue = "0x49b0ff";
-  brightMagenta = "0xff49cb";
-  brightCyan = "0x18e3c8";
-  brightWhite = "0xfdfdfd";
+  # Temporary, I want Alacritty VI mode
+  unstable = import <nixos-unstable> { };
 in
 {
   programs.alacritty = {
     enable = true;
+    package = unstable.alacritty;
     settings = {
       window = {
         padding = {
@@ -45,31 +28,31 @@ in
       };
       colors = {
         primary = {
-          background = background;
-          foreground = foreground;
+          background = "0x15161d";
+          foreground = "0xfdfdfd";
         };
         normal = {
-          black = black;
-          red = red;
-          green = green;
-          yellow = yellow;
-          blue = blue;
-          magenta = magenta;
-          cyan = cyan;
-          white = white;
+          black = "0x15161d";
+          red = "0xff4971";
+          green = "0x89ff49";
+          yellow = "0xfffc3d";
+          blue = "0x49b0ff";
+          magenta = "0xff49cb";
+          cyan = "0x18e3c8";
+          white = "0xaeb7f5";
         };
         bright = {
-          black = brightBlack;
-          red = brightRed;
-          green = brightGreen;
-          yellow = brightYellow;
-          blue = brightBlue;
-          magenta = brightMagenta;
-          cyan = brightCyan;
-          white = brightWhite;
+          black = "0x4b4f69";
+          red = "0xff4971";
+          green = "0x89ff49";
+          yellow = "0xfffc3d";
+          blue = "0x49b0ff";
+          magenta = "0xff49cb";
+          cyan = "0x18e3c8";
+          white = "0xfdfdfd";
         };
       };
-      visual_bell = {
+      bell = {
         animation = "EaseOutExpo";
         color = "0xffffff";
         duration = 0;
