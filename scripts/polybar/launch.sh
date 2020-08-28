@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Script has been called" >>/tmp/polybar.log
+
 # Terminate already running bar instances
 pkill polybar
 
