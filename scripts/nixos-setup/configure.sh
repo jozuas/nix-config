@@ -13,6 +13,7 @@ ln -sfn /home/juozas/nix-config/resources /home/juozas/pictures/resources
 
 # Add home manager and nix-hardware channels
 sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --update
 
 sudo nixos-rebuild switch
