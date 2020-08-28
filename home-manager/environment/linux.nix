@@ -39,6 +39,7 @@
     speedtest-cli
     traceroute
     python38Packages.bpython
+    jdk11 # JShell
 
     # Programming language tooling
     shellcheck
