@@ -5,7 +5,7 @@
     enable = true;
     networks = {
       freenode = {
-        nick = "jnorkus";
+        nick = "noreferences";
         server = {
           address = "chat.freenode.net";
           port = 6697;
