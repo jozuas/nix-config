@@ -24,6 +24,7 @@
 
   home.packages = with pkgs; [
     # CLI Tools
+    screenkey
     ranger
     icdiff
     htop
