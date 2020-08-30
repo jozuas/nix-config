@@ -13,6 +13,10 @@
       vim-polyglot
       ale
       neoformat
+
+      vim-markdown
+      limelight-vim
+      goyo
     ];
     extraConfig = ''
       set encoding=utf-8
@@ -62,7 +66,7 @@
       "" Syntax
       hi Error ctermfg=Red ctermbg=None
 
-      "" Plugin settings
+      "" General plugin settings
       let g:airline#extensions#tabline#enabled = 1
       let g:airline_theme='angr'
       let g:airline#extensions#ale#enabled = 1
@@ -73,13 +77,26 @@
       let g:ale_sign_column_always = 1
       let g:ale_sign_error = '>>'
       let g:ale_sign_warning = '--'
-      let g:ale_python_auto_pipenv = 1
 
       highlight ALEWarning ctermbg=black
       highlight ALEError ctermbg=black
 
       let g:ycm_autoclose_preview_window_after_completion = 1
       let g:ycm_autoclose_preview_window_after_insertion = 1
+
+      "" Markdown environment
+      let g:vim_markdown_folding_disabled = 1
+      let g:vim_markdown_no_extensions_in_markdown = 1
+      let g:vim_markdown_autowrite = 1
+      let g:vim_markdown_edit_url_in = 'tab'
+      let g:limelight_conceal_ctermfg = 'gray'
+      let g:limelight_conceal_guifg = 'DarkGray'
+      let g:limelight_priority = -1
+      let g:goyo_width = '95%'
+      let g:goyo_height = '95%'
+      autocmd! User GoyoEnter Limelight
+      autocmd! User GoyoLeave Limelight!
+      autocmd! User GoyoLeave AirlineToggle AirlineToggle "Fixes airline theme
 
       "" Autoformatters
       nnoremap FF ggVG:Neoformat<CR>
@@ -88,16 +105,18 @@
       "" Per filetype settings
       augroup configgroup
         autocmd!
-        autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
         autocmd BufEnter *.(sh|nix)    setlocal tabstop=2
         autocmd BufEnter *.(sh|nix)    setlocal shiftwidth=2
         autocmd BufEnter *.(sh|nix)    setlocal softtabstop=2
         autocmd BufEnter *.(sh|nix)    setlocal autoindent
         autocmd BufEnter *.(sh|nix)    setlocal expandtab
         autocmd BufEnter *.java        setlocal textwidth=100
-        autocmd BufEnter,WinEnter * call matchadd("Error", "\\s\\+$", -1)
-        autocmd BufRead,BufNewFile * syn match parens /[(){}]/ | hi parens gui=bold ctermfg=red
+        autocmd BufEnter *.md          setlocal textwidth=80 wrap nonumber
       augroup END
+
+      autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+      autocmd BufEnter,WinEnter * call matchadd("Error", "\\s\\+$", -1)
+      autocmd BufRead,BufNewFile * syn match parens /[(){}]/ | hi parens gui=bold ctermfg=red
 
       "" On leave reset cursor
       autocmd VimLeave * set guicursor=a:ver25
