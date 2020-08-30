@@ -52,6 +52,7 @@
     xorg.xev
     xorg.xrandr
     xorg.xmodmap
+    xorg.xwininfo
     zip
     unzip
     xclip
@@ -70,6 +71,7 @@
     skypeforlinux
     discord
     spotify
+    syncthing-gtk
 
     # Theming
     bibata-cursors
