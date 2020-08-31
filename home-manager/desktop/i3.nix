@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  private-pkgs = import /home/juozas/nix-config/private-pkgs;
+in {
   imports =
     [
       ./units/xresources.nix
       ./units/gtk.nix
-      ./units/dunst.nix
       ./units/redshift.nix
     ];
 
@@ -23,6 +24,8 @@
     picom
     libnotify
     gnome3.nautilus
+
+    private-pkgs.deadd-notification-center
   ];
 
   programs = {

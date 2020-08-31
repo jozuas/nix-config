@@ -96,7 +96,8 @@
       let g:goyo_height = '95%'
       autocmd! User GoyoEnter Limelight
       autocmd! User GoyoLeave Limelight!
-      autocmd! User GoyoLeave AirlineToggle AirlineToggle "Fixes airline theme
+      "Fixes airline theme
+      autocmd! User GoyoLeave AirlineToggle AirlineToggle
 
       "" Autoformatters
       nnoremap FF ggVG:Neoformat<CR>

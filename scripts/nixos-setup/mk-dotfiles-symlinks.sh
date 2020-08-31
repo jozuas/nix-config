@@ -17,3 +17,6 @@ ln -sf ~/nix-config/dotfiles/i3-config ~/.config/i3/config
 
 mkdir -p ~/.config/ranger
 ln -sf ~/nix-config/dotfiles/ranger-config ~/.config/ranger/rc.conf
+
+mkdir -p ~/.config/deadd
+ln -sf ~/nix-config/dotfiles/deadd.conf ~/.config/deadd/deadd.conf

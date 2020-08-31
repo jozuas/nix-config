@@ -14,6 +14,7 @@ exec --no-startup-id "xss-lock -- light-locker-command -l &"
 exec --no-startup-id "feh --bg-fill /usr/share/backgrounds/forest.jpg"
 exec --no-startup-id "bash ~/scripts/displays/t480s-startup.sh"
 exec --no-startup-id "syncthing-gtk --minimized"
+exec --no-startup-id "deadd-notification-center &"
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
