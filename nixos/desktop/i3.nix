@@ -8,6 +8,7 @@
       dconf
       libsecret # Gnome-Keyring
       gnome3.adwaita-icon-theme # Fallback theme
+      hicolor-icon-theme # Fallback icon theme
     ];
   };
 

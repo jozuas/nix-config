@@ -42,6 +42,7 @@ bindsym Mod4+Ctrl+Return exec --no-startup-id "alacritty -t 'floating-terminal'"
 bindsym Mod4+Ctrl+slash exec --no-startup-id "playerctl play-pause"
 bindsym Mod4+Ctrl+less exec --no-startup-id "playerctl previous"
 bindsym Mod4+Ctrl+greater exec --no-startup-id "playerctl next"
+bindsym Mod4+Ctrl+n exec --no-startup-id "kill -s USR1 $(pidof deadd-notification-center)"
 
 # WM Controls
 bindsym Mod4+s layout stacking

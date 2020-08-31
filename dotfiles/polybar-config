@@ -1,6 +1,6 @@
 [colors]
-my_background = ${xrdb:background}
-my_foreground = #fff
+my_background = #09090C
+my_foreground = #fdfdfd
 my_color0 = ${xrdb:color0}
 my_color1 = ${xrdb:color1}
 my_color2 = ${xrdb:color2}
