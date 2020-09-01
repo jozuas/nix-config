@@ -39,13 +39,14 @@
     nmap
     speedtest-cli
     traceroute
-    python38Packages.bpython
-    jdk11 # JShell
+    pandoc
 
     # Programming language tooling
     shellcheck
     shfmt
     nixpkgs-fmt
+    python38Packages.bpython
+    jdk11 # JShell
 
     # CLI Utilities
     binutils
@@ -53,6 +54,7 @@
     xorg.xrandr
     xorg.xmodmap
     xorg.xwininfo
+    xorg.xkill
     zip
     unzip
     xclip
