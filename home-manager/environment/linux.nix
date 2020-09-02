@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -45,6 +45,7 @@
     shellcheck
     shfmt
     nixpkgs-fmt
+    nix-linter
     python38Packages.bpython
     jdk11 # JShell
 

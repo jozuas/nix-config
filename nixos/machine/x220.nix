@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   x220Layout = pkgs.writeText "xkb-layout" ''

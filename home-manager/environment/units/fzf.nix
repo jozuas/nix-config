@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   fdExclude = "--exclude .git --exclude node_modules --exclude result";

@@ -1,6 +1,6 @@
 # Configuration options commonly shared between laptops
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   boot.initrd.luks.devices.root = {

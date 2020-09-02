@@ -1,7 +1,7 @@
 # Core System-wide configuration.
 # Machine and desktop specific settings are pointed by current.nix symlinks.
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =

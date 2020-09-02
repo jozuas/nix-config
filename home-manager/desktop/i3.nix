@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   private-pkgs = import /home/juozas/nix-config/private-pkgs;

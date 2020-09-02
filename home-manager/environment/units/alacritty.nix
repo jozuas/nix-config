@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 let
   # Temporary, I want Alacritty VI mode

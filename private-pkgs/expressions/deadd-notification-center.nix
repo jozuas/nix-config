@@ -1,4 +1,5 @@
 # Ripped off from the https://github.com/NixOS/nixpkgs/pull/89118 PR
+# PR hasn't been merged yet, but I want this now.
 
 { stdenv
 , fetchurl
