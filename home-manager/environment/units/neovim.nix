@@ -7,13 +7,18 @@
     vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      # Looks
       vim-airline
       vim-airline-themes
+      vim-devicons
+
+      # Functionality
       youcompleteme
       vim-polyglot
       ale
       neoformat
 
+      # Language specific
       vim-markdown
       limelight-vim
       goyo
@@ -50,10 +55,8 @@
 
       "" Colourscheme settings
       set background=dark
-      "colorscheme hybrid
-      "let g:hybrid_custom_term_colors = 1
 
-      hi LineNr           ctermfg=GreeN
+      hi LineNr           ctermfg=cyan
       hi CursorLineNr     cterm=NONE term=bold ctermfg=white
       hi CursorLine       cterm=NONE ctermbg=8
       hi Search           cterm=NONE ctermfg=black ctermbg=blue
@@ -68,10 +71,10 @@
 
       "" General plugin settings
       let g:airline#extensions#tabline#enabled = 1
-      let g:airline_theme='angr'
+      let g:airline_theme='airline_theme'
       let g:airline#extensions#ale#enabled = 1
       let g:airline#extensions#branch#enabled = 1
-      "let g:airline_powerline_fonts = 1
+      let g:airline_powerline_fonts = 1
 
       let g:ale_lint_on_text_changed = 'normal'
       let g:ale_sign_column_always = 1
