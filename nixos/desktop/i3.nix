@@ -28,6 +28,11 @@
     xserver = {
       desktopManager = {
         xterm.enable = false;
+
+        wallpaper = {
+          combineScreens = true;
+          mode = "fill";
+        };
       };
 
       displayManager = {
@@ -38,7 +43,7 @@
             [greeter]
             show-password-label = false
             [greeter-theme]
-            background-image = "/usr/share/backgrounds/forest.jpg"
+            background-image = "/usr/share/backgrounds/background.jpg"
           '';
         };
         defaultSession = "none+i3";
