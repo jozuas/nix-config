@@ -1,6 +1,8 @@
 { ... }:
 
-{
+let
+  variables = import ~/nix-config/variables.nix;
+in {
   programs.irssi = {
     enable = true;
     networks = {
@@ -11,6 +13,9 @@
           port = 6697;
           autoConnect = true;
         };
+        autoCommands = [
+          "/msg NickServ IDENTIFY ${variables.IRSSI_PASSWORD}; wait 6000"
+        ];
         channels = {
           nixos.autoJoin = true;
           erlang.autoJoin = true;
