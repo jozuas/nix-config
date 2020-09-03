@@ -21,6 +21,7 @@
 
   hardware = {
     acpilight.enable = true; # Enable the use of xbacklight
+    brillo.enable = true;
 
     bluetooth = {
       enable = true;
@@ -31,10 +32,6 @@
   powerManagement = {
     enable = true;
     powertop.enable = true;
-  };
-
-  programs = {
-    light.enable = true;
   };
 
   services = {
