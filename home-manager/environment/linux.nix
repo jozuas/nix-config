@@ -50,7 +50,6 @@
     python3Packages.black
     python3Packages.bandit
     python3Packages.flake8
-    python3Packages.pylint
     python3Packages.bpython
     ## Nix
     nixpkgs-fmt
