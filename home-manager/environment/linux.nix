@@ -42,12 +42,19 @@
     pandoc
 
     # Programming language tooling
+    ## Bash
     shellcheck
     shfmt
+    ## Python
+    python3
+    python3Packages.black
+    python3Packages.bandit
+    python3Packages.flake8
+    python3Packages.pylint
+    python3Packages.bpython
+    ## Nix
     nixpkgs-fmt
     nix-linter
-    python38Packages.bpython
-    jdk11 # JShell
 
     # CLI Utilities
     binutils

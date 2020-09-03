@@ -84,6 +84,8 @@
       highlight ALEWarning ctermbg=black
       highlight ALEError ctermbg=black
 
+      let g:ale_linters = {'python': ['flake8', 'bandit', 'pylint']}
+
       let g:ycm_autoclose_preview_window_after_completion = 1
       let g:ycm_autoclose_preview_window_after_insertion = 1
 
