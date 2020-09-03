@@ -21,8 +21,8 @@ for_window [title="Android Emulator[.]*"] floating enable
 for_window [class="Alacritty" title="floating-terminal"] floating enable border pixel 2
 
 # Controls
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 2%-"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 2%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%-"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+"
 bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
 bindsym XF86AudioMicMute exec --no-startup-id "amixer set Capture toggle"
 bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -u 300000 -q -A 5"
