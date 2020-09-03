@@ -15,18 +15,24 @@ exec --no-startup-id "bash ~/scripts/displays/t480s-startup.sh"
 exec --no-startup-id "syncthing-gtk --minimized"
 exec --no-startup-id "deadd-notification-center &"
 
+# Make pipes for xob audio/brightness bars
+exec --no-startup-id "mkfifo /tmp/xob-volume-pipe"
+exec --no-startup-id "mkfifo /tmp/xob-light-pipe"
+exec --no-startup-id "tail -f /tmp/xob-volume-pipe | xob -c ~/nix-config/dotfiles/xob.cfg"
+exec --no-startup-id "tail -f /tmp/xob-light-pipe | xob -c ~/nix-config/dotfiles/xob.cfg"
+
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
 for_window [title="Android Emulator[.]*"] floating enable
 for_window [class="Alacritty" title="floating-terminal"] floating enable border pixel 2
 
 # Controls
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%-"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer --decrease 5; bash ~/nix-config/scripts/xob/pipe-volume.sh"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer --increase 5; bash ~/nix-config/scripts/xob/pipe-volume.sh"
 bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
 bindsym XF86AudioMicMute exec --no-startup-id "amixer set Capture toggle"
-bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -u 300000 -q -A 5"
-bindsym XF86MonBrightnessDown exec --no-startup-id "brillo -u 300000 -q -U 5"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -u 300000 -q -A 5; bash ~/nix-config/scripts/xob/pipe-light.sh"
+bindsym XF86MonBrightnessDown exec --no-startup-id "brillo -u 300000 -q -U 5; bash ~/nix-config/scripts/xob/pipe-light.sh"
 bindsym XF86Bluetooth exec --no-startup-id "bluetooth toggle"
 bindsym Print exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
 bindsym Mod4+Ctrl+s exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
