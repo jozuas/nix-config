@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-polybar_config=~/.config/polybar/config
+polybar_config=~/nix-config/dotfiles/polybar-config
 
 if grep -q ";tray-position" $polybar_config; then
   sed -i 's/;tray-position\ =\ right/tray-position\ =\ right/' $polybar_config
