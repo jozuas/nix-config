@@ -13,6 +13,7 @@
         };
         channels = {
           nixos.autoJoin = true;
+          erlang.autoJoin = true;
         };
       };
     };
@@ -30,6 +31,16 @@
               type = "CHANNEL";
               chat_type = "IRC";
               name = "#nixos";
+              tag = "freenode";
+            }
+          );
+        };
+        3 = {
+          items = (
+            {
+              type = "CHANNEL";
+              chat_type = "IRC";
+              name = "#erlang";
               tag = "freenode";
             }
           );
