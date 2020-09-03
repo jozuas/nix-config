@@ -2,6 +2,7 @@
 
 let
   private-pkgs = import /home/juozas/nix-config/private-pkgs;
+  unstable = import <nixos-unstable> {};
 in {
   imports =
     [
@@ -26,6 +27,8 @@ in {
     gnome3.nautilus
 
     private-pkgs.deadd-notification-center
+
+    unstable.xob
   ];
 
   programs = {
