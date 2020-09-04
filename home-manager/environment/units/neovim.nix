@@ -39,6 +39,7 @@
       set autoindent            "automatic indentation
 
       syntax enable             "enable syntax processing
+      colorscheme vim_theme     "my custom colorscheme
       filetype indent on        "load filetype-specific indent files
 
       set tabstop=2
@@ -52,22 +53,6 @@
       "" Movement
       nnoremap j gj
       nnoremap k gk
-
-      "" Colourscheme settings
-      set background=dark
-
-      hi LineNr           ctermfg=cyan
-      hi CursorLineNr     cterm=NONE term=bold ctermfg=white
-      hi CursorLine       cterm=NONE ctermbg=8
-      hi Search           cterm=NONE ctermfg=black ctermbg=blue
-      hi Visual           ctermfg=Black ctermbg=Red
-      "  Pmenu is tab completion pop-up
-      hi Pmenu            cterm=NONE ctermbg=green ctermfg=black
-      hi PmenuSel         cterm=NONE ctermbg=black ctermfg=green
-      hi SignColumn       cterm=NONE ctermbg=NONE
-      hi MatchParen       ctermbg=NONE ctermfg=Green guibg=NONE guifg=#ff49cb cterm=BOLD gui=BOLD
-      "" Syntax
-      hi Error ctermfg=Red ctermbg=None
 
       "" General plugin settings
       let g:airline#extensions#tabline#enabled = 1

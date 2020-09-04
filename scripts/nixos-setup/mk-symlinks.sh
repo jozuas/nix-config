@@ -4,6 +4,10 @@ mkdir -p ~/.local/share/nvim/site/autoload/airline/themes
 ln -sf ~/nix-config/dotfiles/airline-theme.vim \
   ~/.local/share/nvim/site/autoload/airline/themes/airline_theme.vim
 
+mkdir -p ~/.local/share/nvim/site/colors
+ln -sf ~/nix-config/dotfiles/vim-theme.vim \
+  ~/.local/share/nvim/site/colors/vim_theme.vim
+
 mkdir -p ~/.config/
 ln -sfn ~/nix-config/home-manager ~/.config/nixpkgs
 
