@@ -17,6 +17,7 @@
       ggn = "git ack --no-index";
     };
     sessionVariables = {
+      TERM = "xterm-256color";
       BROWSER = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition";
       TERMINAL = "${pkgs.alacritty}/bin/alacritty";
       DIRENV_LOG_FORMAT = "";
