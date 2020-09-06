@@ -89,6 +89,17 @@
   programs = {
     direnv.enable = true;
     gpg.enable = true;
+
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "pi" = {
+          hostname = "pi";
+          user = "juozas";
+          port = 42000;
+        };
+      };
+    };
   };
 
   services = {
