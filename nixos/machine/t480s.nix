@@ -17,7 +17,17 @@
 
   services = {
     teamviewer.enable = true;
+
+    # Gets rid of screen tearing
+    xserver = {
+      videoDrivers = [ "modsetting" ];
+      deviceSection = ''
+        Option "DRI" "2"
+        Option "TearFree" "true"
+      '';
+    };
   };
+
 
   environment.systemPackages = with pkgs; [
     teamviewer
