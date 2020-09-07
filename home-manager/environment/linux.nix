@@ -54,6 +54,11 @@
     ## Nix
     nixpkgs-fmt
     nix-linter
+    ## Clojure
+    clojure
+    leiningen
+    ## Erlang
+    erlang
 
     # CLI Utilities
     binutils
