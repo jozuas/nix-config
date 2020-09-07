@@ -20,7 +20,7 @@
 
     # Gets rid of screen tearing
     xserver = {
-      videoDrivers = [ "modsetting" ];
+      videoDrivers = [ "intel" ];
       deviceSection = ''
         Option "DRI" "2"
         Option "TearFree" "true"
