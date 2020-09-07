@@ -8,18 +8,13 @@ set $LOCK "light-locker-command -l"
 
 # Autostart applications
 exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/launch.sh"
+exec --no-startup-id "bash /home/juozas/nix-config/scripts/xob/launch.sh"
 exec --no-startup-id "copyq"
 exec --no-startup-id "light-locker &"
 exec --no-startup-id "xss-lock -- light-locker-command -l &"
 exec --no-startup-id "bash ~/scripts/displays/t480s-startup.sh"
 exec --no-startup-id "syncthing-gtk --minimized"
 exec --no-startup-id "deadd-notification-center &"
-
-# Make pipes for xob audio/brightness bars
-exec --no-startup-id "mkfifo /tmp/xob-volume-pipe"
-exec --no-startup-id "mkfifo /tmp/xob-light-pipe"
-exec --no-startup-id "tail -f /tmp/xob-volume-pipe | xob -c ~/nix-config/dotfiles/xob.cfg"
-exec --no-startup-id "tail -f /tmp/xob-light-pipe | xob -c ~/nix-config/dotfiles/xob.cfg"
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
