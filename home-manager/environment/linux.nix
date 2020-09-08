@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  private-pkgs = import /home/juozas/nix-config/private-pkgs;
+in {
   imports =
     [
       ./units/alacritty.nix
@@ -23,6 +25,9 @@
   };
 
   home.packages = with pkgs; [
+    # Scripts
+    private-pkgs.disable-mouse-acceleration
+
     # CLI Tools
     screenkey
     ranger
@@ -51,6 +56,8 @@
     python3Packages.bandit
     python3Packages.flake8
     python3Packages.bpython
+    # JavaScript
+    nodejs
     ## Nix
     nixpkgs-fmt
     nix-linter
