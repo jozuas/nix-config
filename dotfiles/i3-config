@@ -30,7 +30,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "brillo -u 300000 -q -A 5; bash
 bindsym XF86MonBrightnessDown exec --no-startup-id "brillo -u 300000 -q -U 5; bash ~/nix-config/scripts/xob/pipe-light.sh"
 bindsym XF86Bluetooth exec --no-startup-id "bluetooth toggle"
 bindsym Print exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
-bindsym Mod4+Ctrl+s exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
+bindsym Mod4+Ctrl+s exec --no-startup-id "maim -s ~/pictures/$(date +%s).png"
 bindsym Mod4+Ctrl+t exec --no-startup-id "bash /home/juozas/nix-config/scripts/touchpad-toggle.sh"
 bindsym Mod4+Ctrl+p exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/tray-toggle.sh"
 bindsym Mod4+Ctrl+i exec --no-startup-id "bash /home/juozas/nix-config/scripts/invert-colour.sh"
