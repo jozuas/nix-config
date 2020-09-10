@@ -2,6 +2,7 @@
 
 let
   private-pkgs = import /home/juozas/nix-config/private-pkgs;
+  unstable = import <nixos-unstable> {};
 in {
   imports =
     [
@@ -90,7 +91,7 @@ in {
     tor-browser-bundle-bin
     tdesktop
     skypeforlinux
-    discord
+    unstable.discord
     spotify
     syncthing-gtk
 
