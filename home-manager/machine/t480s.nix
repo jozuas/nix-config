@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    libreoffice-fresh
+  ];
+
   programs = {
     alacritty.settings = {
       font.size = 12;
