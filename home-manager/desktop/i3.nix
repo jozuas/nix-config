@@ -16,6 +16,7 @@ in {
     polybarFull
     xss-lock
     lightlocker
+    xscreensaver
     copyq
     arandr
     xdotool

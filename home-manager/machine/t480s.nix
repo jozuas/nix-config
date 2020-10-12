@@ -3,6 +3,9 @@
 {
   home.packages = with pkgs; [
     libreoffice-fresh
+    gimp
+    teams
+    youtube-dl
   ];
 
   programs = {
