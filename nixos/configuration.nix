@@ -71,8 +71,6 @@
        sansSerif = [ "DejaVu Sans" ];
        serif = [ "DejaVu Serif" ];
      };
-
-     penultimate.enable = true; # Better fonts
     };
   };
 

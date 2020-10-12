@@ -13,7 +13,7 @@
       vim-devicons
 
       # Functionality
-      youcompleteme
+      YouCompleteMe
       vim-polyglot
       ale
       neoformat

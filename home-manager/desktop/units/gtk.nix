@@ -7,7 +7,7 @@
       package = pkgs.dejavu_fonts;
     };
     theme = {
-      package = pkgs.matcha;
+      package = pkgs.matcha-gtk-theme;
       name = "Matcha-dark-sea";
     };
     iconTheme = {
