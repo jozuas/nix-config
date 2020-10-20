@@ -4,17 +4,20 @@ set $fg_colour "#18e3c3"
 
 # Variables are defined below
 set $TERMINAL "alacritty"
-set $LOCK "light-locker-command -l"
+set $LOCK "xscreensaver-command -lock"
 
 # Autostart applications
 exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/launch.sh"
 exec --no-startup-id "bash /home/juozas/nix-config/scripts/xob/launch.sh"
 exec --no-startup-id "copyq"
-exec --no-startup-id "light-locker &"
-exec --no-startup-id "xss-lock -- light-locker-command -l &"
 exec --no-startup-id "bash ~/scripts/displays/t480s-startup.sh"
 exec --no-startup-id "syncthing-gtk --minimized"
 exec --no-startup-id "deadd-notification-center &"
+
+# Only lock the screen automatically on suspend
+exec --no-startup-id "xset s 0"
+exec --no-startup-id "xscreensaver -nosplash &"
+exec --no-startup-id "xss-lock -- xscreensaver-command -lock &"
 
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable

@@ -29,4 +29,6 @@ ln -sf ~/nix-config/dotfiles/ranger-config ~/.config/ranger/rc.conf
 mkdir -p ~/.config/deadd
 ln -sf ~/nix-config/dotfiles/deadd.conf ~/.config/deadd/deadd.conf
 
+ln -sf ~/nix-config/dotfiles/xscreensaver-config ~/.xsreensaver
+
 ln -sf ~/nix-config/resources/backgrounds/forest.jpg ~/.background-image

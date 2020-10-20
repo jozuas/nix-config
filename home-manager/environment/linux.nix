@@ -62,6 +62,7 @@ in {
     ## Nix
     nixpkgs-fmt
     nix-linter
+    pypi2nix
     ## Clojure
     clojure
     leiningen
