@@ -78,6 +78,15 @@
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
 
+    opengl.enable = true;
+    opengl.extraPackages = with pkgs; [
+      intel-ocl
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+
+
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
