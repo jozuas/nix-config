@@ -33,6 +33,19 @@ in {
   ];
 
   programs = {
+    mpv = {
+      enable = true;
+
+      # From Arch wiki
+      config = {
+        profile = "gpu-hq";
+        scale = "ewa_lanczossharp";
+        cscale = "ewa_lanczossharp";
+        video-sync = "display-resample";
+        tscale = "oversample";
+        interpolation = true;
+      };
+    };
     git = {
       extraConfig = {
         credential.helper = "libsecret";

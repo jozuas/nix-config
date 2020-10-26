@@ -78,13 +78,18 @@
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
 
-    opengl.enable = true;
-    opengl.extraPackages = with pkgs; [
-      intel-ocl
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
+    # Enable OpenGL and video acceleration, TODO: per machine extra packages
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        intel-ocl
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
 
 
     pulseaudio = {
