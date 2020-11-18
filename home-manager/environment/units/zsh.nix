@@ -22,6 +22,7 @@
       TERMINAL = "${pkgs.alacritty}/bin/alacritty";
       DIRENV_LOG_FORMAT = "";
       CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
+      PATH = "$HOME/.npm-packages/bin:$PATH";
     };
     initExtra = ''
       # extra history config

@@ -59,15 +59,19 @@ in {
     python3Packages.bpython
     # JavaScript
     nodejs
+    yarn
+    # JVM
+    jdk11
+    maven
+    kotlin
+    ktlint
+    clojure
+    leiningen
+    joker
     ## Nix
     nixpkgs-fmt
     nix-linter
     pypi2nix
-    ## Clojure
-    clojure
-    leiningen
-    ## Erlang
-    erlang
 
     # CLI Utilities
     binutils
@@ -83,13 +87,15 @@ in {
 
     # GUIs
     jetbrains.idea-ultimate
+    jetbrains.webstorm
     vscodium
+    atom
     transmission-gtk
     zathura
     bitwarden
     android-file-transfer
     chromium
-    tor-browser-bundle-bin
+    # tor-browser-bundle-bin TODO: broken package as of 12/11/2020
     tdesktop
     skypeforlinux
     unstable.discord
