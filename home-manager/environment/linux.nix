@@ -65,9 +65,6 @@ in {
     maven
     kotlin
     ktlint
-    clojure
-    leiningen
-    joker
     ## Nix
     nixpkgs-fmt
     nix-linter
@@ -89,7 +86,6 @@ in {
     jetbrains.idea-ultimate
     jetbrains.webstorm
     vscodium
-    atom
     transmission-gtk
     zathura
     bitwarden
