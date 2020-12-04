@@ -98,6 +98,8 @@ in {
     spotify
     syncthing-gtk
 
+    unstable.joplin-desktop
+
     # Theming
     bibata-cursors
   ];
