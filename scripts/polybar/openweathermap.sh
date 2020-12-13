@@ -26,7 +26,7 @@ get_icon() {
 }
 
 KEY=${OPENWEATHER_API_KEY} # secrets.env
-CITY="Glasgow,UK"
+CITY="Edinburgh,UK"
 UNITS="metric"
 SYMBOL="°"
 
