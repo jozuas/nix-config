@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     libreoffice-fresh
     gimp
+    inkscape
     teams
     youtube-dl
   ];

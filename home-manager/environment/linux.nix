@@ -91,13 +91,12 @@ in {
     bitwarden
     android-file-transfer
     chromium
-    # tor-browser-bundle-bin TODO: broken package as of 12/11/2020
-    tdesktop
     skypeforlinux
-    unstable.discord
     spotify
     syncthing-gtk
-
+    gnome3.totem
+    unstable.tdesktop
+    unstable.discord
     unstable.joplin-desktop
 
     # Theming
