@@ -7,6 +7,8 @@
     inkscape
     teams
     youtube-dl
+    gnome3.cheese
+    etcd_3_4
   ];
 
   programs = {

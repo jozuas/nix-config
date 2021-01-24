@@ -52,7 +52,8 @@ in {
     shellcheck
     shfmt
     ## Python
-    python3
+    python3Full
+    pipenv
     python3Packages.black
     python3Packages.bandit
     python3Packages.flake8
@@ -83,6 +84,7 @@ in {
     feh
 
     # GUIs
+    unstable.jetbrains.pycharm-professional
     jetbrains.idea-ultimate
     jetbrains.webstorm
     vscodium
