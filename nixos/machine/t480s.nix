@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  unstable = import <nixos-unstable> {};
+in {
   imports = [
     <nixos-hardware/lenovo/thinkpad/t480s>
     ./laptop-general.nix
@@ -28,10 +30,19 @@
     };
   };
 
+  # TODO: Remove "allowBroken" this once VirtualBox package is fixed
+  nixpkgs.config.allowBroken = true;
+  virtualisation.virtualbox.host = {
+    enable = true;
+    package = unstable.virtualbox;
+  };
+
+  users.extraGroups.vboxusers.members = [ "juozas" ];
 
   environment.systemPackages = with pkgs; [
     teamviewer
     zoom-us
+    vagrant
   ];
 
   # DPI>200 options to play with
