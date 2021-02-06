@@ -94,7 +94,6 @@ in {
     android-file-transfer
     chromium
     skypeforlinux
-    spotify
     syncthing-gtk
     gnome3.totem
     unstable.tdesktop
