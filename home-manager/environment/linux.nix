@@ -30,6 +30,7 @@ in {
     private-pkgs.disable-mouse-acceleration
 
     # CLI Tools
+    awscli2
     screenkey
     ranger
     icdiff
@@ -84,6 +85,7 @@ in {
     feh
 
     # GUIs
+    pick-colour-picker
     audacity
     simplescreenrecorder
     unstable.jetbrains.pycharm-professional

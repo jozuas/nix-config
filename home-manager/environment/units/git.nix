@@ -15,6 +15,9 @@
     };
     ignores = [ "*.swp" ];
     extraConfig = {
+      pull = {
+        rebase = false;
+      };
       core = {
         editor = "nvim";
         pager = "less -x1,3";
