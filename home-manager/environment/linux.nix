@@ -84,6 +84,8 @@ in {
     feh
 
     # GUIs
+    audacity
+    simplescreenrecorder
     unstable.jetbrains.pycharm-professional
     jetbrains.idea-ultimate
     jetbrains.webstorm
