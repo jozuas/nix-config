@@ -88,7 +88,7 @@ in {
     pick-colour-picker
     audacity
     simplescreenrecorder
-    unstable.jetbrains.pycharm-professional
+    jetbrains.pycharm-professional
     jetbrains.idea-ultimate
     jetbrains.webstorm
     vscodium
