@@ -42,7 +42,6 @@ in {
   environment.systemPackages = with pkgs; [
     teamviewer
     zoom-us
-    vagrant
   ];
 
   # DPI>200 options to play with
