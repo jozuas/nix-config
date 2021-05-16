@@ -30,6 +30,7 @@ in {
     private-pkgs.disable-mouse-acceleration
 
     # CLI Tools
+    ngrok
     awscli2
     screenkey
     ranger
@@ -56,7 +57,6 @@ in {
     python3Full
     pipenv
     python3Packages.black
-    python3Packages.bandit
     python3Packages.flake8
     python3Packages.bpython
     # JavaScript
@@ -65,12 +65,6 @@ in {
     # JVM
     jdk11
     maven
-    kotlin
-    ktlint
-    ## Nix
-    nixpkgs-fmt
-    nix-linter
-    pypi2nix
 
     # CLI Utilities
     binutils

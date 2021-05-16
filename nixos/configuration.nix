@@ -127,6 +127,12 @@
       file
       neovim
       openvpn
+
+      nox
+      niv
+      nix-linter
+      nixpkgs-fmt
+      nixpkgs-review
     ];
     shellAliases = {
       ls = "ls -h --color=auto";

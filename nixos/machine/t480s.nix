@@ -30,8 +30,7 @@ in {
     };
   };
 
-  # TODO: Remove "allowBroken" this once VirtualBox package is fixed
-  nixpkgs.config.allowBroken = true;
+  # nixpkgs.config.allowBroken = true;
   virtualisation.virtualbox.host = {
     enable = true;
     package = unstable.virtualbox;

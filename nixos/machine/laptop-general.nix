@@ -4,7 +4,7 @@
 
 {
   boot.initrd.luks.devices.root = {
-    preLVM = true; # First lukOpen, then LVM scan
+    preLVM = true;        # First lukOpen, then LVM scan
     allowDiscards = true; # Enable TRIM requests
   };
 

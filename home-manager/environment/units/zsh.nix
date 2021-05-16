@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  variables = import ~/nix-config/variables.nix;
+in {
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
@@ -23,6 +25,7 @@
       DIRENV_LOG_FORMAT = "";
       CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
       PATH = "$HOME/.npm-packages/bin:$PATH";
+      GITHUB_TOKEN = "${variables.GITHUB_TOKEN}";
     };
     initExtra = ''
       # extra history config
