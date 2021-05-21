@@ -104,6 +104,7 @@ in {
 
   programs = {
     direnv.enable = true;
+    programs.direnv.enableNixDirenvIntegration = true;
     gpg.enable = true;
 
     ssh = {
