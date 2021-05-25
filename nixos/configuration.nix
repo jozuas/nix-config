@@ -128,7 +128,6 @@
       neovim
       openvpn
 
-      nox
       niv
       nix-linter
       nixpkgs-fmt
