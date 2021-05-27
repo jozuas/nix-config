@@ -50,6 +50,7 @@ in {
     pandoc
 
     # Programming language tooling
+    sqlite
     ## Bash
     shellcheck
     shfmt
@@ -65,8 +66,12 @@ in {
     # JVM
     jdk11
     maven
+    # Erlang/Elixir
+    erlang
+    elixir
 
     # CLI Utilities
+    inotify-tools
     binutils
     xorg.xev
     xorg.xrandr
