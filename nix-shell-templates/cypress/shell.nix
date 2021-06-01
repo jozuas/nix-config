@@ -5,6 +5,7 @@
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
+    nodejs
     cypress
   ];
   CYPRESS_INSTALL_BINARY=0;
