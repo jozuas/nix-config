@@ -128,7 +128,9 @@
       neovim
       openvpn
 
+      nix-prefetch-git
       niv
+      nox
       nix-linter
       nixpkgs-fmt
       nixpkgs-review
