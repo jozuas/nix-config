@@ -20,7 +20,7 @@ in {
     };
     sessionVariables = {
       TERM = "xterm-256color";
-      BROWSER = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition";
+      BROWSER = "${pkgs.chromium}/bin/chromium";
       TERMINAL = "${pkgs.alacritty}/bin/alacritty";
       DIRENV_LOG_FORMAT = "";
       CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
