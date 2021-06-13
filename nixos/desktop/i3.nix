@@ -19,7 +19,7 @@
   services = {
     blueman.enable = true;
 
-    gnome3.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     # Mounting and Trash support for Nautilus
     gvfs.enable = true;
