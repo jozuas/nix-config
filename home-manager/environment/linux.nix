@@ -8,7 +8,6 @@ in {
     [
       ./units/alacritty.nix
       ./units/bat.nix
-      ./units/firefox.nix
       ./units/fzf.nix
       ./units/git.nix
       ./units/irssi.nix
@@ -32,7 +31,6 @@ in {
     # CLI Tools
     ngrok
     awscli2
-    screenkey
     ranger
     icdiff
     htop
@@ -47,7 +45,6 @@ in {
     nmap
     speedtest-cli
     traceroute
-    pandoc
 
     # Programming language tooling
     sqlite
@@ -57,6 +54,7 @@ in {
     ## Python
     python3Full
     pipenv
+    poetry
     python3Packages.black
     python3Packages.flake8
     python3Packages.bpython
@@ -85,19 +83,14 @@ in {
 
     # GUIs
     pick-colour-picker
-    audacity
     simplescreenrecorder
     jetbrains.pycharm-professional
-    unstable.jetbrains.idea-ultimate
+    jetbrains.idea-ultimate
     jetbrains.webstorm
     vscodium
-    transmission-gtk
     zathura
     bitwarden
-    android-file-transfer
     chromium
-    skypeforlinux
-    syncthing-gtk
     gnome3.totem
     unstable.tdesktop
     unstable.discord

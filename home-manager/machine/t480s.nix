@@ -8,7 +8,10 @@
     teams
     youtube-dl
     gnome3.cheese
-    etcd_3_4
+    pandoc
+    audacity
+    transmission-gtk
+    android-file-transfer
   ];
 
   programs = {

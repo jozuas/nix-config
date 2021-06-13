@@ -26,10 +26,8 @@ in {
     picom
     libnotify
     gnome3.nautilus
-
-    private-pkgs.deadd-notification-center
-
-    unstable.xob
+    deadd-notification-center
+    xob
   ];
 
   programs = {
