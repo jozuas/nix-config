@@ -88,7 +88,7 @@ in {
     audacity
     simplescreenrecorder
     jetbrains.pycharm-professional
-    jetbrains.idea-ultimate
+    unstable.jetbrains.idea-ultimate
     jetbrains.webstorm
     vscodium
     transmission-gtk
