@@ -12,7 +12,7 @@ in
 {
   imports = [
     <nixos-hardware/lenovo/thinkpad/x220>
-    ./laptop-general.nix
+    ./laptop-common.nix
   ];
 
   boot.initrd.luks.devices.root = {

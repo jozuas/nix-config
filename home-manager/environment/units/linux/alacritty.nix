@@ -1,13 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
-let
-  # Temporary, I want Alacritty VI mode
-  unstable = import <nixos-unstable> { };
-in
 {
   programs.alacritty = {
     enable = true;
-    package = unstable.alacritty;
+    package = pkgs.alacritty;
     settings = {
       window = {
         padding = {

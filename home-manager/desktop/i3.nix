@@ -1,46 +1,31 @@
 { pkgs, ... }:
 
-let
-  private-pkgs = import /home/juozas/nix-config/private-pkgs;
-  unstable = import <nixos-unstable> {};
-in {
+{
   imports =
     [
-      ./units/xresources.nix
+      ./units/common.nix
       ./units/gtk.nix
-      ./units/redshift.nix
+      ./units/xorg.nix
     ];
 
   home.packages = with pkgs; [
-    pamixer
-    polybarFull
-    xss-lock
-    lightlocker
     xscreensaver
-    copyq
-    arandr
-    xdotool
-    copyq
+    xss-lock
+
+    pamixer
     playerctl
     pavucontrol
-    picom
     libnotify
-    gnome3.nautilus
+
+    picom
+    copyq
+    polybarFull
     deadd-notification-center
     xob
   ];
 
-  programs = {
-    git = {
-      extraConfig = {
-        credential.helper = "libsecret";
-      };
-    };
-  };
-
   services = {
     blueman-applet.enable = true;
-
     network-manager-applet.enable = true;
   };
 }

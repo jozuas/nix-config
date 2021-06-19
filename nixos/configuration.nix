@@ -28,7 +28,7 @@
     };
 
     cleanTmpDir = true;
-    kernelPackages = pkgs.linuxPackages_latest; # Use the latest kernel
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking = {
@@ -123,17 +123,18 @@
 
   environment = {
     systemPackages = with pkgs; [
+      neovim
+      inotify-tools
       killall
       file
-      neovim
+      traceroute
+      htop
       openvpn
-
-      nix-prefetch-git
-      niv
-      nox
-      nix-linter
-      nixpkgs-fmt
-      nixpkgs-review
+      zip
+      unzip
+      binutils
+      whois
+      curl
     ];
     shellAliases = {
       ls = "ls -h --color=auto";

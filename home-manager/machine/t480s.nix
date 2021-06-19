@@ -1,19 +1,6 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    libreoffice-fresh
-    gimp
-    inkscape
-    teams
-    youtube-dl
-    gnome3.cheese
-    pandoc
-    audacity
-    transmission-gtk
-    android-file-transfer
-  ];
-
   programs = {
     alacritty.settings = {
       font.size = 12;

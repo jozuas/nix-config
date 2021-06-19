@@ -5,7 +5,7 @@ let
 in {
   imports = [
     <nixos-hardware/lenovo/thinkpad/t480s>
-    ./laptop-general.nix
+    ./laptop-common.nix
   ];
 
   boot.initrd.luks.devices.root = {
@@ -30,18 +30,12 @@ in {
     };
   };
 
-  # nixpkgs.config.allowBroken = true;
   virtualisation.virtualbox.host = {
     enable = true;
     package = unstable.virtualbox;
   };
 
   users.extraGroups.vboxusers.members = [ "juozas" ];
-
-  environment.systemPackages = with pkgs; [
-    teamviewer
-    zoom-us
-  ];
 
   # DPI>200 options to play with
   # fonts.fontconfig.antialias
