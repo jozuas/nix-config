@@ -31,6 +31,7 @@ in {
     speedtest-cli
     youtube-dl
     pandoc
+    ag
 
     # Nix tooling
     nix-prefetch-git

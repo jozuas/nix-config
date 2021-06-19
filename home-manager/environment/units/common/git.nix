@@ -13,7 +13,7 @@
                -c color.grep.match=\"reverse yellow\" \
                grep --break --heading --line-number";
     };
-    ignores = [ "*.swp" ];
+    ignores = [ "*.swp" ".ignore" ];
     extraConfig = {
       pull = {
         rebase = false;
