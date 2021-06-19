@@ -18,10 +18,10 @@ in {
 
   home.packages = with pkgs; [
     # CLI Tools
+    delta
     ngrok
     awscli2
     ranger
-    icdiff
     tldr
     jq
     fd

@@ -20,7 +20,6 @@
       };
       core = {
         editor = "nvim";
-        pager = "less -x1,3";
       };
       grep = {
         lineNumber = true;
@@ -38,5 +37,6 @@
         trustExitCode = false;
       };
     };
+    delta.enable = true;
   };
 }
