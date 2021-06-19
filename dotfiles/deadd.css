@@ -1,0 +1,20 @@
+* {
+  background: #09090C
+}
+
+label {
+  color: #fdfdfd
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.appname {
+  font-size: 12px;
+}
+
+.time {
+  font-size: 16px;
+}
