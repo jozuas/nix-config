@@ -73,7 +73,6 @@ in {
     chromium
     unstable.tdesktop
     unstable.discord
-    unstable.joplin-desktop
     gimp
     inkscape
     audacity
