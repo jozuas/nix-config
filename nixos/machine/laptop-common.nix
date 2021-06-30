@@ -57,4 +57,14 @@
       }
     ];
   };
+
+  services.cron = {
+    enable = true;
+    # Update caches everyday at midday
+    systemCronJobs = [
+      "0 12 * * * juozas nox non-existing >> /tmp/cronout"
+      "0 12 * * * juozas nix search -u non-existing >> /tmp/cronout"
+      "0 12 * * * juozas tldr --update >> /tmp/cronout"
+    ];
+  };
 }
