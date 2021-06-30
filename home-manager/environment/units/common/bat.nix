@@ -15,7 +15,7 @@
     };
     config = {
       pager = "less -FR";
-      theme = "dracula";
+      theme = "Dracula";
       style = "changes,numbers,snip";
     };
   };

@@ -71,6 +71,7 @@ in {
     vscodium
     bitwarden
     chromium
+    firefox-devedition-bin
     unstable.tdesktop
     unstable.discord
     gimp
