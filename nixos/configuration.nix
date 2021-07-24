@@ -78,7 +78,6 @@
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
 
-    # Enable OpenGL and video acceleration, TODO: per machine extra packages
     opengl = {
       enable = true;
       driSupport = true;

@@ -60,8 +60,10 @@ in {
     # JVM
     jdk11
     maven
-    # Erlang/Elixir
+    # Erlang
     erlang
+    rebar3
+    # Elixir
     elixir
 
     # GUIs
@@ -72,7 +74,7 @@ in {
     bitwarden
     chromium
     firefox-devedition-bin
-    unstable.tdesktop
+    tdesktop
     unstable.discord
     gimp
     inkscape
