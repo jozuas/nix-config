@@ -24,7 +24,7 @@ in {
       TERMINAL = "${pkgs.alacritty}/bin/alacritty";
       DIRENV_LOG_FORMAT = "";
       CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
-      PATH = "$HOME/.npm-packages/bin:$PATH";
+      PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$PATH";
       GITHUB_TOKEN = "${variables.GITHUB_TOKEN}";
     };
     initExtra = ''

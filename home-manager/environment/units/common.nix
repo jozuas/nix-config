@@ -6,6 +6,7 @@ in {
   imports =
     [
       ./common/bat.nix
+      ./common/doom.nix
       ./common/fzf.nix
       ./common/git.nix
       ./common/irssi.nix
@@ -39,6 +40,7 @@ in {
     nox
     manix
     nix-linter
+    nixfmt
     nixpkgs-fmt
     nixpkgs-review
 
@@ -63,6 +65,7 @@ in {
     # Erlang
     erlang
     rebar3
+    unstable.elvis-erlang
     # Elixir
     elixir
 

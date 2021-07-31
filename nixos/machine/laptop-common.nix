@@ -61,6 +61,7 @@
   services.cron = {
     enable = true;
     # Update caches everyday at midday
+    # TODO: this does not work properly
     systemCronJobs = [
       "0 12 * * * juozas echo 'Cronning' >> /tmp/cronout"
       "0 12 * * * juozas /home/juozas/.nix-profile/bin/tldr fd >> /tmp/cronout"  # TODO remove

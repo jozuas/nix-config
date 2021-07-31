@@ -33,3 +33,5 @@ ln -sf ~/nix-config/dotfiles/deadd.css ~/.config/deadd/deadd.css
 ln -sf ~/nix-config/dotfiles/xscreensaver-config ~/.xscreensaver
 
 ln -sf ~/nix-config/resources/backgrounds/forest.jpg ~/.background-image
+
+ln -sf ~/nix-config/dotfiles/doom ~/.doom.d
