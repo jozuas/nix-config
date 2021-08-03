@@ -15,6 +15,7 @@
     clang
 
     # spell checker
+    # TODO this, for e.g. is used in vim as well
     hunspell
 
     # Nix
