@@ -180,9 +180,10 @@
 
       # Enable the X11 windowing system.
       enable = true;
-      layout = "gb";
+      layout = "gb,ru";
+      xkbVariant = ",phonetic_winkeys";
 
-      xkbOptions = "caps:escape";
+      xkbOptions = "caps:escape,grp:switch,grp:alt_space_toggle";
     };
   };
 

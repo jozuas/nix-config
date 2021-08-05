@@ -69,12 +69,13 @@
       highlight ALEWarning ctermbg=black
       highlight ALEError ctermbg=black
 
-      let g:ale_linters = {'python': ['flake8', 'bandit']}
+      let g:ale_linters = {'markdown': [], 'python': ['flake8', 'bandit']}
 
       let g:ycm_autoclose_preview_window_after_completion = 1
       let g:ycm_autoclose_preview_window_after_insertion = 1
 
       "" Markdown environment
+      let g:vim_markdown_strikethrough = 1
       let g:vim_markdown_folding_disabled = 1
       let g:vim_markdown_no_extensions_in_markdown = 1
       let g:vim_markdown_autowrite = 1
