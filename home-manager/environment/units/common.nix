@@ -45,13 +45,14 @@ in {
     nixpkgs-review
 
     # Programming language tooling
+    gnumake
+    docker-compose
     sqlite
     ## Bash
     shellcheck
     shfmt
     ## Python
     python3Full
-    pipenv
     poetry
     python3Packages.black
     python3Packages.flake8
@@ -59,9 +60,6 @@ in {
     # JavaScript
     nodejs
     yarn
-    # JVM
-    jdk11
-    maven
     # Erlang
     erlang
     rebar3
@@ -70,21 +68,19 @@ in {
     elixir
 
     # GUIs
-    jetbrains.pycharm-professional
     jetbrains.idea-ultimate
-    jetbrains.webstorm
     vscodium
     bitwarden
     chromium
     firefox-devedition-bin
-    tdesktop
+    unstable.tdesktop
     unstable.discord
     gimp
     inkscape
     audacity
-    teams
     libreoffice-fresh
     teamviewer
+    teams
     zoom-us
   ];
 
@@ -115,7 +111,5 @@ in {
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
-
-    lorri.enable = true;
   };
 }

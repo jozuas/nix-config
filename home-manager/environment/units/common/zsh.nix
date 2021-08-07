@@ -17,6 +17,7 @@ in {
       cd = ">/dev/null cd";
       gg = "git ack";
       ggn = "git ack --no-index";
+      nix-stray-roots = "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/\w+-system|\{memory)'";
     };
     sessionVariables = {
       TERM = "xterm-256color";
