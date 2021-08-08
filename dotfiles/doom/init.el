@@ -28,7 +28,7 @@
        hl-todo
        indent-guides
        nav-flash
-       neotree
+       treemacs
        ophints
        (popup +defaults)
        tabs
@@ -73,7 +73,7 @@
        emacs-lisp
        nix
        markdown
-       erlang ; LSP that DOOM configures is old, configured separately
+       (erlang +lsp) ; LSP that DOOM configures is old, configured separately
 
        :config
        (default +bindings +smartparens))

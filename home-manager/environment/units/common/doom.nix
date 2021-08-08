@@ -16,6 +16,7 @@
 
     # spell checker
     # TODO this, for e.g. is used in vim as well
+    # TODO ag is used by projectile ...
     hunspell
 
     # Nix
