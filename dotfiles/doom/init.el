@@ -73,7 +73,8 @@
        emacs-lisp
        nix
        markdown
-       (erlang +lsp) ; LSP that DOOM configures is old, configured separately
+       (erlang +lsp)
+       (python +lsp +poetry)
 
        :config
        (default +bindings +smartparens))

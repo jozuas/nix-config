@@ -29,5 +29,12 @@
     mdl
     proselint
     pandoc
+
+    # Python
+    python-language-server
+    python3Packages.pytest
+    python3Packages.black
+    python3Packages.isort
+    python3Packages.pyflakes
   ];
 }

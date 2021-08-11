@@ -11,10 +11,12 @@
                  :weight 'regular))
 
 (setq org-directory "~/documents/org")
-(setq projectile-project-search-path '("~/dev/"))
+(setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))
 
-(setq treemacs-width-is-initially-locked nil)
+(setq treemacs-width-is-initially-locked nil)  ;; TODO: this don't work
 (setq treemacs-width 25)
+
+(setq lsp-python-ms-executable (executable-find "python-language-server"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
