@@ -1,10 +1,12 @@
 { pkgs, ... }:
 
-{
+let
+  unstable = import <nixos-unstable> {};
+in {
   # Doom already has a declarative package manager, so it is not managed via Nix
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: [ epkgs.vterm ];
+    extraPackages = epkgs: [ epkgs.emacs-libvterm ];
   };
 
   # Doom Emacs dependencies
@@ -31,7 +33,7 @@
     pandoc
 
     # Python
-    python-language-server
+    unstable.pyright
     python3Packages.pytest
     python3Packages.black
     python3Packages.isort

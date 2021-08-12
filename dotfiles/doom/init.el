@@ -74,7 +74,7 @@
        nix
        markdown
        (erlang +lsp)
-       (python +lsp +poetry)
+       (python +lsp +pyright +poetry)
 
        :config
        (default +bindings +smartparens))

@@ -21,7 +21,7 @@
 (setq ranger-max-preview-size 10)
 (setq ranger-dont-show-binary t)
 
-(setq lsp-python-ms-executable (executable-find "python-language-server"))
+(add-hook 'before-save-hook 'py-isort-before-save)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
