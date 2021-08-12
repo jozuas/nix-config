@@ -16,6 +16,11 @@
 (setq treemacs-width-is-initially-locked nil)  ;; TODO: this don't work
 (setq treemacs-width 25)
 
+(setq ranger-preview-file t)
+(setq ranger-parent-depth 1)
+(setq ranger-max-preview-size 10)
+(setq ranger-dont-show-binary t)
+
 (setq lsp-python-ms-executable (executable-find "python-language-server"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
