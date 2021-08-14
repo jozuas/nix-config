@@ -40,7 +40,7 @@
        :editor
        (evil +everywhere)
        fold
-       (format +onsave)
+       format  ;; +onsave provides an exceptionally bad experience as of 14/08/2021
 
        :emacs
        (dired +ranger +icons)
@@ -75,6 +75,7 @@
        markdown
        (erlang +lsp)
        (python +lsp +pyright +poetry)
+       (json +lsp)
 
        :config
        (default +bindings +smartparens))

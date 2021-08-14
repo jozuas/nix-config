@@ -21,7 +21,11 @@
 (setq ranger-max-preview-size 10)
 (setq ranger-dont-show-binary t)
 
+;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
+
+;; TODO: this don't work, unused functions, vars and classes are not highlighted
+(setq lsp-pyright-typechecking-mode "strict")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
