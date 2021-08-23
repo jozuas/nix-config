@@ -24,8 +24,9 @@ in {
     # Nix
     nixfmt
 
-    # Erlang
+    # Erlang/Elixir
     erlang-ls
+    elixir_ls
 
     # Markdown
     mdl

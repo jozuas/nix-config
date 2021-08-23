@@ -74,6 +74,7 @@
        nix
        markdown
        (erlang +lsp)
+       (elixir +lsp)
        (python +lsp +pyright +poetry)
        (json +lsp)
 
