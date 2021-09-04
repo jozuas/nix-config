@@ -12,6 +12,11 @@ in {
     ];
 
   home.packages = with pkgs; [
+    ngrok
+    awscli2
+    nmap
+    speedtest-cli
+
     # GUIs
     jetbrains.idea-ultimate
     vscodium

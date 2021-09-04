@@ -20,16 +20,12 @@ in {
   home.packages = with pkgs; [
     # CLI Tools
     delta
-    ngrok
-    awscli2
     ranger
     tldr
     jq
     fd
     neofetch
     wget
-    nmap
-    speedtest-cli
     pandoc
     ag
 
