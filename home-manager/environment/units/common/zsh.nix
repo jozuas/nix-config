@@ -4,6 +4,8 @@
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
+    enableAutosuggestions = true;
+    enableVteIntegration = true;
     history = {
       expireDuplicatesFirst = true;
       ignoreDups = true;
@@ -19,10 +21,13 @@
     };
     sessionVariables = {
       TERM = "xterm-256color";
+      ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$PATH";
     };
     initExtra = ''
+      bindkey -e
+
       # extra history config
       setopt HIST_IGNORE_ALL_DUPS
       setopt HIST_FIND_NO_DUPS

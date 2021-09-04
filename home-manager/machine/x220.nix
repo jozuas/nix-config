@@ -6,7 +6,10 @@
 
     rofi.font = "Dejavu Sans Book 14";
 
-    git.signing.key = "6D11AC468819E2EA41232CB52FE519DA622AF155";
+    git = {
+      userEmail = "norkus@norkus.net";
+      signing.key = "6D11AC468819E2EA41232CB52FE519DA622AF155";
+    };
   };
 
   gtk.font.name = "Dejavu Sans Book 12";

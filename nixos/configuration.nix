@@ -151,20 +151,6 @@
   programs = {
     zsh = {
       enable = true;
-      autosuggestions = {
-        enable = true;
-        extraConfig = {
-          "ZSH_AUTOSUGGEST_USE_ASYNC" = "true";
-        };
-      };
-      syntaxHighlighting = {
-        enable = true;
-        highlighters = [ "main" "brackets" "pattern" "cursor" "line" ];
-      };
-      vteIntegration = true;
-      shellInit = ''
-        bindkey -e
-      '';
     };
     wireshark = {
       enable = true;

@@ -7,11 +7,7 @@
     ];
 
   home.packages = with pkgs; [
+    neovim
+    htop
   ];
-
-  programs = {
-    git = {
-      userEmail = "jnorkus@evolution.com";
-    };
-  };
 }

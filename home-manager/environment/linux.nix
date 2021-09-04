@@ -48,10 +48,6 @@ in {
   };
 
   programs = {
-    git = {
-      userEmail = "norkus@norkus.net";
-    };
-
     zsh = {
       sessionVariables = {
         BROWSER = "${pkgs.chromium}/bin/chromium";
