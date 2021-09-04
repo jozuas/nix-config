@@ -13,12 +13,20 @@
       size = 5000;
     };
     shellAliases = {
+      ls = "ls -h --color=auto";
+      grep = "grep --color=auto";
+      egrep = "egrep --color=auto";
+      fgrep = "fgrep --color=auto";
+      vim = "nvim";
+      vi = "nvim";
       cd = ">/dev/null cd";
       gg = "git ack";
       ggn = "git ack --no-index";
       nix-stray-roots = "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/\w+-system|\{memory)'";
     };
     sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       TERM = "xterm-256color";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";

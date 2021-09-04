@@ -134,18 +134,6 @@
       whois
       curl
     ];
-    shellAliases = {
-      ls = "ls -h --color=auto";
-      grep = "grep --color=auto";
-      egrep = "egrep --color=auto";
-      fgrep = "fgrep --color=auto";
-      vim = "nvim";
-      vi = "nvim";
-    };
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
   };
 
   programs = {
