@@ -5,7 +5,6 @@
     enable = true;
     defaultKeymap = "emacs";
     enableAutosuggestions = true;
-    enableVteIntegration = true;
     history = {
       expireDuplicatesFirst = true;
       ignoreDups = true;

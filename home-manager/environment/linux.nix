@@ -49,6 +49,7 @@ in {
 
   programs = {
     zsh = {
+      enableVteIntegration = true;
       sessionVariables = {
         BROWSER = "${pkgs.chromium}/bin/chromium";
         TERMINAL = "${pkgs.alacritty}/bin/alacritty";
