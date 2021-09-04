@@ -39,7 +39,7 @@
 
       function ranger-cd {
         tempfile=$(mktemp -t tmp.XXXXXX)
-        /home/juozas/.nix-profile/bin/ranger --choosedir="$tempfile" "$(pwd)"
+        ${pkgs.ranger}/bin/ranger --choosedir="$tempfile" "$(pwd)"
         test -f "$tempfile" &&
         if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
             cd -- "$(cat "$tempfile")"
