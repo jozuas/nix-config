@@ -33,13 +33,6 @@ in {
     erlang-ls
     unstable.elvis-erlang
     elixir_ls
-    unstable.pyright
-    python3Packages.pytest
-    python3Packages.black
-    python3Packages.isort
-    python3Packages.flake8
-    python3Packages.bpython
-    python3Packages.pyflakes
     nixfmt
     hunspell
     proselint

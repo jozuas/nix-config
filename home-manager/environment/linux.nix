@@ -12,6 +12,15 @@ in {
     ];
 
   home.packages = with pkgs; [
+    # Stuff that breaks when building on MacOS
+    unstable.pyright
+    python3Packages.pytest
+    python3Packages.black
+    python3Packages.isort
+    python3Packages.flake8
+    python3Packages.bpython
+    python3Packages.pyflakes
+
     ngrok
     awscli2
     nmap
