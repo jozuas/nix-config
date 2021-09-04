@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
-let
-  variables = import ~/nix-config/variables.nix;
-in {
+{
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
@@ -21,12 +19,8 @@ in {
     };
     sessionVariables = {
       TERM = "xterm-256color";
-      BROWSER = "${pkgs.chromium}/bin/chromium";
-      TERMINAL = "${pkgs.alacritty}/bin/alacritty";
       DIRENV_LOG_FORMAT = "";
-      CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$PATH";
-      GITHUB_TOKEN = "${variables.GITHUB_TOKEN}";
     };
     initExtra = ''
       # extra history config

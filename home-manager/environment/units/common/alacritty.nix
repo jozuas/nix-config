@@ -13,7 +13,7 @@
         title = "Terminal";
       };
       font = {
-        family = "DejaVuSansMono Nerd";
+        family = "HackMono Nerd";
         style = "Book";
         bold_style = "Bold";
         italic_style = "Italic";

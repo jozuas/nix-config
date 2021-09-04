@@ -4,7 +4,6 @@
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    userEmail = "norkus@norkus.net";
     userName = "Juozas Norkus";
     signing.signByDefault = true;
     aliases = {
