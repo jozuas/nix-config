@@ -1,7 +1,7 @@
 # For my own testing for building Nimbo from master
 
 {
-  unstable-pkgs ? import <nixos-unstable> {}
+  unstable-pkgs ? import <unstable> {}
 }:
 
 unstable-pkgs.callPackage

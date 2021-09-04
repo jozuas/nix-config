@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <unstable> {};
 in {
   imports = [
     <nixos-hardware/lenovo/thinkpad/t480s>

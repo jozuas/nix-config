@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <unstable> {};
   variables = import ~/nix-config/variables.nix;
 in {
   imports =
