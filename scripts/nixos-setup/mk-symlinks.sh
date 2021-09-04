@@ -11,12 +11,6 @@ ln -sf ~/nix-config/dotfiles/vim-theme.vim \
 mkdir -p ~/.config/
 ln -sfn ~/nix-config/home-manager ~/.config/nixpkgs
 
-mkdir -p ~/.irssi
-ln -sf ~/nix-config/dotfiles/irssi.theme ~/.irssi/default.theme
-
-mkdir -p ~/.openvpn
-ln -sf ~/nix-config/backups/Informatics-InfNets-AT.ovpn ~/.openvpn/Informatics-InfNets-AT.ovpn
-
 mkdir -p ~/.config/polybar
 ln -sf ~/nix-config/dotfiles/polybar-config ~/.config/polybar/config
 
