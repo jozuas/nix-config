@@ -33,6 +33,10 @@
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$PATH";
     };
     initExtra = ''
+      autoload -Uz promptinit
+      promptinit
+      prompt walters
+
       bindkey -e
 
       # extra history config
