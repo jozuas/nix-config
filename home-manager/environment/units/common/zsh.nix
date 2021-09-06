@@ -12,6 +12,18 @@
       save = 5000;
       size = 5000;
     };
+    plugins = [
+      {
+        # Once home manager supports this manage through home-manager
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.7.1";
+          sha256 = "03r6hpb5fy4yaakqm3lbf4xcvd408r44jgpv4lnzl9asp4sb9qc0";
+        };
+      }
+    ];
     shellAliases = {
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
@@ -31,6 +43,7 @@
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$PATH";
+      ZSH_HIGHLIGHT_HIGHLIGHTERS="(main brackets cursor)";
     };
     initExtra = ''
       autoload -Uz promptinit
