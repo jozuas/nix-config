@@ -1,5 +1,9 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+;; TODO
+;; - HTML defaults to 4 spaces per tab instead of two
+;; - .html.eex is not autocompleted
+
 (setq user-full-name "Juozas Norkus"
       user-mail-address "norkus@norkus.net")
 
@@ -7,14 +11,14 @@
 (setq display-line-numbers-type t)
 (setq doom-font (font-spec
                  :family "Hack Nerd Font Mono"
-                 :size 18
+                 :size 14
                  :weight 'regular))
 
 (setq org-directory "~/documents/org")
 (setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))
 
 (setq treemacs-width-is-initially-locked nil)  ;; TODO: this don't work
-(setq treemacs-width 25)
+(setq treemacs-width 30)
 
 (setq ranger-preview-file t)
 (setq ranger-parent-depth 1)
@@ -23,19 +27,29 @@
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
-
 ;; TODO: this don't work, unused functions, vars and classes are not highlighted
 (setq lsp-pyright-typechecking-mode "strict")
 
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To see the docs for these functions/macros,
-;; move the cursor over the highlighted symbol at press 'K'
+(with-eval-after-load 'company
+  ;; Company
+  ;; Prevent suggestions from being triggered automatically. In particular,
+  ;; this makes it so that:
+  ;; - TAB will always complete the current selection.
+  ;; - RET will only complete the current selection if the user has explicitly
+  ;;   interacted with Company.
+  ;; - SPC will never complete the current selection.
+  (dolist (key '("<return>" "RET"))
+    ;; Here we are using an advanced feature of define-key that lets
+    ;; us pass an "extended menu item" instead of an interactive
+    ;; function. Doing this allows RET to regain its usual
+    ;; functionality when the user has not explicitly interacted with
+    ;; Company.
+    (define-key company-active-map (kbd key)
+      `(menu-item nil company-complete
+                  :filter ,(lambda (cmd)
+                             (when (company-explicit-action-p)
+                               cmd)))))
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
+  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
+  (setq company-auto-complete-chars nil))

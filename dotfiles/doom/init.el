@@ -70,6 +70,7 @@
 
        :lang
        rest
+       web
        emacs-lisp
        nix
        markdown

@@ -28,8 +28,7 @@ in {
     wget
     pandoc
     ag
-
-    # Doom, Vim
+# Doom, Vim
     erlang-ls
     unstable.elvis-erlang
     elixir_ls
@@ -59,6 +58,7 @@ in {
     elixir
     erlang
     rebar3
+    rebar
     ## Nix
     nix-prefetch-git
     niv
