@@ -13,6 +13,8 @@
                  :size (if (eq system-type 'darwin) 14 16)
                  :weight 'regular))
 
+(tool-bar-mode -1)
+
 (setq org-directory "~/documents/org")
 (setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))
 
