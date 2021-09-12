@@ -2,6 +2,7 @@
 
 let
   unstable = import <unstable> {};
+  private-pkgs = import ../../private-pkgs;
 in {
   imports =
     [
@@ -28,6 +29,7 @@ in {
     wget
     pandoc
     ag
+    private-pkgs.s4
 
     # Doom, Vim
     erlang-ls
