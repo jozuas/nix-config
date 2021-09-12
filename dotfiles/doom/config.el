@@ -1,18 +1,22 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; TODO
-;; - HTML defaults to 4 spaces per tab instead of two
-;; - .html.eex is not autocompleted
+(setq user-full-name "Juozas Norkus")
 
-(setq user-full-name "Juozas Norkus"
-      user-mail-address "norkus@norkus.net")
+(if (eq system-type 'darwin)
+  (setq user-mail-address "jnorkus@evolution.com")
+  (setq user-mail-address "norkus@norkus.net"))
 
 (setq doom-theme 'doom-vibrant)
 (setq display-line-numbers-type t)
-(setq doom-font (font-spec
-                 :family "Hack Nerd Font Mono"
-                 :size 14
-                 :weight 'regular))
+(if (eq system-type 'darwin)
+  (setq doom-font (font-spec
+                   :family "Hack Nerd Font Mono"
+                   :size 14
+                   :weight 'regular))
+  (setq doom-font (font-spec
+                   :family "Hack Nerd Font Mono"
+                   :size 16
+                   :weight 'regular)))
 
 (setq org-directory "~/documents/org")
 (setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))

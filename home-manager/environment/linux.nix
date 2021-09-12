@@ -64,6 +64,12 @@ in {
     };
   };
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
+  ];
+
   programs = {
     zsh = {
       enableVteIntegration = true;
@@ -84,6 +90,11 @@ in {
           port = 42000;
         };
       };
+    };
+
+    # cachix use nix-community
+    emacs = {
+      package = pkgs.emacsGcc;
     };
   };
 

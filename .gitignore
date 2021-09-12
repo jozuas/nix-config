@@ -2,3 +2,7 @@ variables.env
 variables.nix
 
 .DS_Store
+
+# Cachix
+cachix.nix
+nixos/cachix/*

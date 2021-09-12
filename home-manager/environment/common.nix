@@ -60,6 +60,7 @@ in {
     rebar3
     rebar
     ## Nix
+    cachix
     nix-prefetch-git
     niv
     nox
