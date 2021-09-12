@@ -8,21 +8,16 @@
 
 (setq doom-theme 'doom-vibrant)
 (setq display-line-numbers-type t)
-(if (eq system-type 'darwin)
-  (setq doom-font (font-spec
-                   :family "Hack Nerd Font Mono"
-                   :size 14
-                   :weight 'regular))
-  (setq doom-font (font-spec
-                   :family "Hack Nerd Font Mono"
-                   :size 16
-                   :weight 'regular)))
+(setq doom-font (font-spec
+                 :family "Hack Nerd Font Mono"
+                 :size (if (eq system-type 'darwin) 14 16)
+                 :weight 'regular))
 
 (setq org-directory "~/documents/org")
 (setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))
 
-(setq treemacs-width-is-initially-locked nil)  ;; TODO: this don't work
 (setq treemacs-width 30)
+(setq treemacs-width-is-initially-locked nil)
 
 (setq ranger-preview-file t)
 (setq ranger-parent-depth 1)
@@ -31,7 +26,6 @@
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
-;; TODO: this don't work, unused functions, vars and classes are not highlighted
 (setq lsp-pyright-typechecking-mode "strict")
 
 ;; Web mode
