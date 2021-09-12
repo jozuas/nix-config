@@ -30,6 +30,11 @@
 ;; TODO: this don't work, unused functions, vars and classes are not highlighted
 (setq lsp-pyright-typechecking-mode "strict")
 
+;; Web mode
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+
 (with-eval-after-load 'company
   ;; Company
   ;; Prevent suggestions from being triggered automatically. In particular,
@@ -37,13 +42,11 @@
   ;; - TAB will always complete the current selection.
   ;; - RET will only complete the current selection if the user has explicitly
   ;;   interacted with Company.
-  ;; - SPC will never complete the current selection.
   (dolist (key '("<return>" "RET"))
     ;; Here we are using an advanced feature of define-key that lets
     ;; us pass an "extended menu item" instead of an interactive
-    ;; function. Doing this allows RET to regain its usual
-    ;; functionality when the user has not explicitly interacted with
-    ;; Company.
+    ;; function. Doing this allows RET to regain its usual functionality
+    ;; when the user has not explicitly interacted with Company.
     (define-key company-active-map (kbd key)
       `(menu-item nil company-complete
                   :filter ,(lambda (cmd)

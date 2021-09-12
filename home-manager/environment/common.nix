@@ -28,7 +28,8 @@ in {
     wget
     pandoc
     ag
-# Doom, Vim
+
+    # Doom, Vim
     erlang-ls
     unstable.elvis-erlang
     elixir_ls
@@ -39,7 +40,6 @@ in {
     mdl
     ripgrep
     coreutils
-    clang
 
     # Programming language tooling
     gnumake

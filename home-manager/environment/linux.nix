@@ -12,6 +12,9 @@ in {
     ];
 
   home.packages = with pkgs; [
+    # Doom
+    clang
+
     # Stuff that breaks when building on MacOS
     unstable.pyright
     python3Packages.pytest
