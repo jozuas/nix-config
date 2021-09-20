@@ -61,6 +61,11 @@ in {
     erlang
     rebar3
     rebar
+    ## Haskell
+    unstable.haskell-language-server
+    ghcid
+    hlint
+    haskellPackages.brittany
     ## Nix
     cachix
     nix-prefetch-git

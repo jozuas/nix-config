@@ -74,6 +74,7 @@
        emacs-lisp
        nix
        markdown
+       (haskell +lsp)
        (erlang +lsp)
        (elixir +lsp)
        (python +lsp +pyright +poetry)
