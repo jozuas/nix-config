@@ -18,6 +18,12 @@ in {
     # Work Mac flags as malware
     cachix
 
+    # I don't want 10GB of Haskell dependencies on my work laptop
+    unstable.haskell-language-server
+    ghcid
+    hlint
+    # haskellPackages.brittany
+
     # Stuff that breaks when building on MacOS
     unstable.pyright
     python3Packages.pytest
