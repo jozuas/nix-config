@@ -67,7 +67,6 @@ in {
     hlint
     haskellPackages.brittany
     ## Nix
-    cachix
     nix-prefetch-git
     niv
     nox

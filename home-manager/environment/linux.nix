@@ -15,6 +15,9 @@ in {
     # Doom
     clang
 
+    # Work Mac flags as malware
+    cachix
+
     # Stuff that breaks when building on MacOS
     unstable.pyright
     python3Packages.pytest
