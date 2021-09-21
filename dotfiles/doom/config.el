@@ -26,6 +26,9 @@
 (setq ranger-max-preview-size 10)
 (setq ranger-dont-show-binary t)
 
+;; Evil mode
+(setq evil-shift-width 2)
+
 ;; Haskell
 (setq lsp-haskell-formatting-provider "brittany")
 
@@ -34,9 +37,16 @@
 (setq lsp-pyright-typechecking-mode "strict")
 
 ;; Web mode
-(setq web-mode-markup-indent-offset 2)
-(setq web-mode-css-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
+(with-eval-after-load 'web-mode
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-style-padding 2)
+  (setq web-mode-script-padding 2)
+  (setq web-mode-enable-current-element-highlight t)
+  (setq web-mode-enable-current-column-highlight t)
+)
 
 (with-eval-after-load 'company
   ;; Company
@@ -58,4 +68,5 @@
   (define-key company-active-map (kbd "RET") nil)
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "TAB") #'company-complete-selection)
-  (setq company-auto-complete-chars nil))
+  (setq company-auto-complete-chars nil)
+)
