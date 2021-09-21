@@ -19,5 +19,11 @@
       userEmail = "jnorkus@evolution.com";
       signing.key = "2E6C9ABEFDF480C7";
     };
+
+    zsh = {
+      initExtra = ''
+        source /Users/norkus/.iterm2_shell_integration.zsh
+      '';
+    };
   };
 }

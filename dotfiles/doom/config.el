@@ -10,7 +10,7 @@
 (setq display-line-numbers-type t)
 (setq doom-font (font-spec
                  :family "Hack Nerd Font Mono"
-                 :size (if (eq system-type 'darwin) 14 16)
+                 :size (if (eq system-type 'darwin) 13 16)
                  :weight 'regular))
 
 (tool-bar-mode -1)
