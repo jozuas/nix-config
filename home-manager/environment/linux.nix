@@ -19,10 +19,10 @@ in {
     cachix
 
     # I don't want 10GB of Haskell dependencies on my work laptop
-    unstable.haskell-language-server
     ghcid
     hlint
-    # haskellPackages.brittany
+    haskellPackages.brittany
+    haskell-language-server
 
     # Stuff that breaks when building on MacOS
     unstable.pyright
