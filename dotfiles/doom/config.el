@@ -26,6 +26,9 @@
 (setq ranger-max-preview-size 10)
 (setq ranger-dont-show-binary t)
 
+;; Haskell
+(setq lsp-haskell-formatting-provider "brittany")
+
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
 (setq lsp-pyright-typechecking-mode "strict")
