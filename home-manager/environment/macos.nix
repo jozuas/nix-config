@@ -11,4 +11,10 @@
     fontconfig
     cmake
   ];
+
+  programs.zsh = {
+    sessionVariables = {
+      DICTIONARY="$HOME/Library/Spelling/en_GB";
+    };
+  };
 }
