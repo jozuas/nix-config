@@ -17,6 +17,7 @@
       vim-polyglot
       ale
       neoformat
+      vim-surround
 
       # Language specific
       vim-markdown
@@ -47,6 +48,8 @@
       set shiftwidth=2
       set textwidth=87          "Ensure you never go over 88 characters a line
       set backspace=2           "change backspace behaviour to normal"
+
+      set conceallevel=2        "Conceals formatting, in e.g. Markdown
 
       set clipboard=unnamedplus "Linux
 
@@ -79,6 +82,7 @@
       let g:vim_markdown_folding_disabled = 1
       let g:vim_markdown_no_extensions_in_markdown = 1
       let g:vim_markdown_autowrite = 1
+      let g:vim_markdown_new_list_item_indent = 2
       let g:vim_markdown_edit_url_in = 'tab'
       let g:limelight_conceal_ctermfg = 'gray'
       let g:limelight_conceal_guifg = 'DarkGray'

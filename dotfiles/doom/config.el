@@ -15,16 +15,16 @@
 
 (tool-bar-mode -1)
 
-(setq org-directory "~/documents/org")
 (setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))
 
 (setq treemacs-width 30)
-(setq treemacs-width-is-initially-locked nil)
 
 (setq ranger-preview-file t)
 (setq ranger-parent-depth 1)
 (setq ranger-max-preview-size 10)
 (setq ranger-dont-show-binary t)
+
+(setq global-evil-surround-mode 1)
 
 ;; Evil mode
 (setq evil-shift-width 2)
