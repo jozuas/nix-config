@@ -19,6 +19,7 @@ in {
     cachix
 
     # I don't want 10GB of Haskell dependencies on my work laptop
+    ghc
     ghcid
     hlint
     haskellPackages.brittany
@@ -39,6 +40,7 @@ in {
     speedtest-cli
 
     # GUIs
+    spotify
     jetbrains.idea-ultimate
     vscodium
     gimp
