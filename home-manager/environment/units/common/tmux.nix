@@ -20,7 +20,7 @@
       # Functionality
       bind | split-window -h
       bind - split-window -v
-      bind r source-file ~/.tmux.conf \; display "Reloaded!"
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
       set -g mouse on
       set-window-option -g automatic-rename off
       set-option -g allow-rename off
@@ -36,7 +36,6 @@
       unbind-key -T copy-mode-vi v
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle \; send -X begin-selection
-      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 
       # Styling
       setw -g window-status-current-style fg=black,bg=red
