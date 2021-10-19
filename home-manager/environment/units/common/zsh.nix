@@ -42,7 +42,7 @@
       TERM = "xterm-256color";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";
-      PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$PATH";
+      PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS="(main brackets cursor)";
     };
     initExtra = ''

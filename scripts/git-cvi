@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import subprocess
+import re
+import sys
+
+completed_process = subprocess.run(["git", "status"], capture_output=True)
+output = completed_process.stdout.decode("utf-8", "ignore")
+
+branch_info_line = next(
+    (line for line in output.split("\n") if line.startswith("On branch")),
+    ""
+)
+
+pattern = re.compile("CVI-[\d]+")
+cvis = pattern.findall(branch_info_line)
+
+if cvis:
+    subprocess.run(f"echo -n '{cvis[0]}' | pbcopy", shell=True)
+    print("CVI number copied to clipboard")
+else:
+    print("No CVI issue number found in `git status`", file=sys.stderr)
+    sys.exit(1)
