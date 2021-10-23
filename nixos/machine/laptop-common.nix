@@ -57,17 +57,4 @@
       }
     ];
   };
-
-  services.cron = {
-    enable = true;
-    # Update caches everyday at midday
-    # TODO: this does not work properly
-    systemCronJobs = [
-      "0 12 * * * juozas echo 'Cronning' >> /tmp/cronout"
-      "0 12 * * * juozas /home/juozas/.nix-profile/bin/tldr fd >> /tmp/cronout"  # TODO remove
-      "0 12 * * * juozas /home/juozas/.nix-profile/bin/nox non-existing >> /tmp/cronout"
-      "0 12 * * * juozas /run/current-system/sw/bin/nix search -u non-existing >> /tmp/cronout"
-      "0 12 * * * juozas /home/juozas/.nix-profile/bin/tldr --update >> /tmp/cronout"
-    ];
-  };
 }
