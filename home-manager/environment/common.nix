@@ -20,6 +20,7 @@ in {
 
   home.packages = with pkgs; [
     # CLI Tools
+    cloc
     delta
     ranger
     tldr

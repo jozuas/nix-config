@@ -19,13 +19,12 @@ in {
     cachix
 
     # I don't want 10GB of Haskell dependencies on my work laptop
-    ghc
-    ghcid
-    hlint
-    haskellPackages.brittany
-    haskell-language-server
+    # ghc
+    # ghcid
+    # hlint
+    # haskellPackages.brittany
+    # haskell-language-server
 
-    # Stuff that breaks when building on MacOS
     unstable.pyright
     python3Packages.pytest
     python3Packages.black
@@ -40,8 +39,7 @@ in {
     speedtest-cli
 
     # GUIs
-    spotify
-    jetbrains.idea-ultimate
+    unstable.spotify
     vscodium
     gimp
     inkscape
