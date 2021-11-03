@@ -33,9 +33,9 @@ in {
     private-pkgs.s4
 
     # Doom, Vim
-    erlang-ls
+    unstable.erlang-ls
     unstable.elvis-erlang
-    elixir_ls
+    unstable.elixir_ls
     nixfmt
     hunspell
     proselint
