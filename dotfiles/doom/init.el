@@ -57,6 +57,7 @@
        :lang
        rest
        web
+       yaml
        emacs-lisp
        nix
        markdown
