@@ -29,6 +29,9 @@
 ;; Evil mode
 (setq evil-shift-width 2)
 
+;; Config for all LSPs
+(setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
+
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
 (setq lsp-pyright-typechecking-mode "strict")
@@ -44,6 +47,12 @@
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-current-column-highlight t)
 )
+
+;; Make ace-window window selection by letter more readable
+(custom-set-faces!
+  '(aw-leading-char-face
+    :foreground "white" :background "red"
+    :weight bold :height 2.5 :box (:line-width 10 :color "red")))
 
 (with-eval-after-load 'company
   ;; Company

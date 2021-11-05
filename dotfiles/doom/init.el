@@ -2,41 +2,46 @@
 
 (doom! :input
        :completion
-       company
-       vertico
+       company            ;; Autocomplete
+       vertico            ;; Jump/Search project, file, directory, ...
 
        :ui
-       doom
-       doom-dashboard
-       doom-quit
+       doom               ;; Doom Emacs Themes
+       doom-dashboard     ;; Doom startup screen
+       doom-quit          ;; Quit confirmation
        modeline
        hl-todo
-       indent-guides
-       nav-flash
-       treemacs
-       ophints
-       (popup +defaults)
-       tabs
-       vc-gutter
-       vi-tilde-fringe
-       window-select
+       nav-flash          ;; Flash cursor after significant motion
+       ophints            ;; Visual feedback on operations, e.g. yank
+       (popup +defaults)  ;; Make new temp buffers significantly less intrusive
+       vc-gutter          ;; Show VC changes next to line numbers
+       window-select      ;; Switch to window by letter
+
+       ;; Slow, but sexy, lets see if I can live without
+       ;; tabs             
+       ;; indent-guides
 
        :editor
-       (evil +everywhere)
-       format  ;; +onsave provides an exceptionally bad experience as of 14/08/2021
+       (evil +everywhere)      ;; Vim mode
+       format                  ;; Enable code formatting via LSP
 
        :emacs
-       (dired +ranger +icons)
-       electric
-       undo
-       vc
+       (dired +ranger +icons)  ;; Like Ranger, but for Emacs
+       electric                ;; TODO: what on Earth does this do?
+       undo                    ;; Smarted undo history
+       vc                      ;; Git conveniences
 
        :term
-       vterm
+       vterm                   ;; More performant terminal emulator
+
+       :os
+       (:if IS-MAC macos)
+       tty
 
        :checkers
        syntax
        (spell +flyspell +everywhere)
+       ;; Todo consider - grammar
 
        :tools
        direnv
@@ -46,10 +51,6 @@
        magit
        make
        rgb
-
-       :os
-       (:if IS-MAC macos)
-       tty
 
        :lang
        rest
