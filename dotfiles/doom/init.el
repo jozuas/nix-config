@@ -10,7 +10,6 @@
        doom-dashboard
        doom-quit
        modeline
-       (emoji +ascii +github +unicode)
        hl-todo
        indent-guides
        nav-flash
@@ -21,11 +20,9 @@
        vc-gutter
        vi-tilde-fringe
        window-select
-       workspaces
 
        :editor
        (evil +everywhere)
-       fold
        format  ;; +onsave provides an exceptionally bad experience as of 14/08/2021
 
        :emacs
@@ -61,7 +58,6 @@
        emacs-lisp
        nix
        markdown
-       (haskell +lsp)
        (erlang +lsp)
        (elixir +lsp)
        (python +lsp +pyright +poetry)

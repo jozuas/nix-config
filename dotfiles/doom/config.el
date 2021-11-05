@@ -15,7 +15,7 @@
 
 (tool-bar-mode -1)
 
-(setq projectile-project-search-path '("~/dev/" "~/dev/dokimoto/"))
+(setq projectile-project-search-path '("~/dev/"))
 
 (setq treemacs-width 30)
 
@@ -28,9 +28,6 @@
 
 ;; Evil mode
 (setq evil-shift-width 2)
-
-;; Haskell
-(setq lsp-haskell-formatting-provider "brittany")
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
