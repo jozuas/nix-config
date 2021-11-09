@@ -16,6 +16,7 @@
        (popup +defaults)  ;; Make new temp buffers significantly less intrusive
        vc-gutter          ;; Show VC changes next to line numbers
        window-select      ;; Switch to window by letter
+       workspaces         ;; Isolated buffer groups
 
        ;; Slow, but sexy, lets see if I can live without
        ;; tabs             
