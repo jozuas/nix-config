@@ -7,7 +7,7 @@
   (setq user-mail-address "norkus@norkus.net"))
 
 (setq doom-theme 'doom-vibrant)
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 (setq doom-font (font-spec
                  :family "Hack Nerd Font Mono"
                  :size (if (eq system-type 'darwin) 13 16)
@@ -15,19 +15,25 @@
 
 (tool-bar-mode -1)
 
-(setq projectile-project-search-path '("~/dev/"))
+;; Evil mode
+(setq evil-shift-width 2)
+(setq global-evil-surround-mode 1)
 
-(setq treemacs-width 30)
-
+;; Dired ranger mode
 (setq ranger-preview-file t)
 (setq ranger-parent-depth 1)
 (setq ranger-max-preview-size 10)
 (setq ranger-dont-show-binary t)
 
-(setq global-evil-surround-mode 1)
+(setq projectile-project-search-path '("~/dev/"))
 
-;; Evil mode
-(setq evil-shift-width 2)
+(define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
+
+;; Make ace-window window selection by letter more readable
+(custom-set-faces!
+  '(aw-leading-char-face
+    :foreground "white" :background "red"
+    :weight bold :height 1 :box (:line-width 0 :color "red")))
 
 ;; Config for all LSPs
 (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
@@ -47,12 +53,6 @@
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-current-column-highlight t)
 )
-
-;; Make ace-window window selection by letter more readable
-(custom-set-faces!
-  '(aw-leading-char-face
-    :foreground "white" :background "red"
-    :weight bold :height 2.5 :box (:line-width 10 :color "red")))
 
 (with-eval-after-load 'company
   ;; Company
