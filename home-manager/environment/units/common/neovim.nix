@@ -21,37 +21,35 @@
 
       # Language specific
       vim-markdown
-      limelight-vim
-      goyo
     ];
     extraConfig = ''
       set encoding=utf-8
-      set number                "show the number of lines
-      set cursorline            "highlight the line where the cursor is located
-      set ruler                 "show additional location information at the bottom right corner
-      set wildmenu              "visual autocomplete for command menu
-      set lazyredraw            "redraw only when we need to.
-      set showmatch             "highlight matching [{()}]
-      set incsearch             "search as characters are entered
-      set hlsearch              "highlight matches
-      set ignorecase            "search for both lower and upper case
-      set autoread              "update the file if it has been changed externally
-      set scrolloff=5           "show extra lines when scrolling
-      set autoindent            "automatic indentation
+      set number relativenumber  "show the number of lines
+      set cursorline             "highlight the line where the cursor is located
+      set ruler                  "show additional location information at the bottom right corner
+      set wildmenu               "visual autocomplete for command menu
+      set lazyredraw             "redraw only when we need to.
+      set showmatch              "highlight matching [{()}]
+      set incsearch              "search as characters are entered
+      set hlsearch               "highlight matches
+      set ignorecase             "search for both lower and upper case
+      set autoread               "update the file if it has been changed externally
+      set scrolloff=5            "show extra lines when scrolling
+      set autoindent             "automatic indentation
 
-      syntax enable             "enable syntax processing
-      colorscheme vim_theme     "my custom colorscheme
-      filetype indent on        "load filetype-specific indent files
+      syntax enable              "enable syntax processing
+      colorscheme vim_theme      "my custom colorscheme
+      filetype indent on         "load filetype-specific indent files
 
       set tabstop=2
       set expandtab
       set shiftwidth=2
-      set textwidth=87          "Ensure you never go over 88 characters a line
-      set backspace=2           "change backspace behaviour to normal"
+      set textwidth=87           "Ensure you never go over 88 characters a line
+      set backspace=2            "change backspace behaviour to normal"
 
-      set conceallevel=2        "Conceals formatting, in e.g. Markdown
+      set conceallevel=2         "Conceals formatting, in e.g. Markdown
 
-      set clipboard=unnamedplus "Linux
+      set clipboard=unnamedplus  "Linux
 
       "" Movement
       nnoremap j gj
@@ -106,7 +104,7 @@
         autocmd BufEnter *.(sh|nix)    setlocal autoindent
         autocmd BufEnter *.(sh|nix)    setlocal expandtab
         autocmd BufEnter *.java        setlocal textwidth=100
-        autocmd BufEnter *.md          setlocal textwidth=80 wrap nonumber
+        autocmd BufEnter *.md          setlocal textwidth=80 wrap
       augroup END
 
       autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
