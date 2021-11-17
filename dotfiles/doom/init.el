@@ -18,10 +18,6 @@
        window-select      ;; Switch to window by letter
        workspaces         ;; Isolated buffer groups
 
-       ;; Slow, but sexy, lets see if I can live without
-       ;; tabs             
-       ;; indent-guides
-
        :editor
        (evil +everywhere)      ;; Vim mode
        format                  ;; Enable code formatting via LSP
@@ -42,11 +38,9 @@
        :checkers
        syntax
        (spell +flyspell +everywhere)
-       ;; Todo consider - grammar
 
        :tools
        direnv
-       (eval +overlay)
        lookup
        lsp
        magit
@@ -57,13 +51,13 @@
        rest
        web
        yaml
+       json
        emacs-lisp
        nix
        markdown
        (erlang +lsp)
        (elixir +lsp)
-       (python +lsp +pyright +poetry)
-       (json +lsp)
+       (python +lsp +pyright)
 
        :config
        (default +bindings +smartparens))
