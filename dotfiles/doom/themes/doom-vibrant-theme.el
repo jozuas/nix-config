@@ -92,8 +92,8 @@ Can be an integer to determine the exact padding."
    (vertical-bar   base0)
    (selection      dark-blue)
    (builtin        magenta)
-   (comments       (if doom-vibrant-brighter-comments dark-cyan base4))
-   (doc-comments   (if doom-vibrant-brighter-comments (doom-lighten dark-cyan 0.15) (doom-lighten base4 0.3)))
+   (comments       base3)
+   (doc-comments   base3)
    (constants      violet)
    (functions      teal)
    (keywords       blue)
@@ -101,7 +101,7 @@ Can be an integer to determine the exact padding."
    (operators      magenta)
    (type           yellow)
    (strings        green)
-   (variables      base6)
+   (variables      base5)
    (numbers        orange)
    (region         base1)
    (error          red)
@@ -132,7 +132,7 @@ Can be an integer to determine the exact padding."
   ;;;; Base theme face overrides
   (((font-lock-comment-face &override)
     :background (if doom-vibrant-brighter-comments (doom-darken bg-alt 0.095)))
-   ((line-number &override) :foreground base4)
+   ((line-number &override) :foreground base5)
    ((line-number-current-line &override) :foreground blue :bold bold)
    (mode-line
     :background modeline-bg :foreground modeline-fg
