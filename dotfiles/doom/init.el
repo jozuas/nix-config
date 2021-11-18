@@ -3,7 +3,7 @@
 (doom! :input
        :completion
        company            ;; Autocomplete
-       vertico            ;; Jump/Search project, file, directory, ...
+       vertico            ;; Search and completion engine
 
        :ui
        doom               ;; Doom Emacs Themes
@@ -19,17 +19,16 @@
        workspaces         ;; Isolated buffer groups
 
        :editor
-       (evil +everywhere)      ;; Vim mode
-       format                  ;; Enable code formatting via LSP
+       (evil +everywhere) ;; Vim mode
+       format             ;; Enable code formatting via LSP
 
        :emacs
        (dired +ranger +icons)  ;; Like Ranger, but for Emacs
-       electric                ;; TODO: what on Earth does this do?
        undo                    ;; Smarted undo history
        vc                      ;; Git conveniences
 
        :term
-       vterm                   ;; More performant terminal emulator
+       vterm              ;; More performant terminal emulator
 
        :os
        (:if IS-MAC macos)
@@ -57,7 +56,7 @@
        markdown
        (erlang +lsp)
        (elixir +lsp)
-       (python +lsp +pyright)
+       (python +lsp +pyright +poetry)
 
        :config
        (default +bindings +smartparens))
