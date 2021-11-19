@@ -33,6 +33,12 @@ in {
     private-pkgs.s4
 
     # Doom, Vim
+    unstable.pyright
+    python3Packages.pytest
+    python3Packages.pyflakes
+    python3Packages.flake8
+    python3Packages.black
+    python3Packages.isort
     unstable.erlang-ls
     unstable.elvis-erlang
     unstable.elixir_ls
@@ -62,6 +68,7 @@ in {
     erlang
     rebar3
     rebar
+
     ## Nix
     nix-prefetch-git
     niv

@@ -25,13 +25,8 @@ in {
     # haskellPackages.brittany
     # haskell-language-server
 
-    unstable.pyright
-    python3Packages.pytest
-    python3Packages.black
-    python3Packages.isort
-    python3Packages.flake8
+    # Broken on MacOS
     python3Packages.bpython
-    python3Packages.pyflakes
 
     ngrok
     awscli2
