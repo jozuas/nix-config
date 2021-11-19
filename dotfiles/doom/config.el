@@ -13,6 +13,8 @@
                  :size (if (eq system-type 'darwin) 13 16)
                  :weight 'regular))
 
+(setq-default tab-width 4)
+
 (tool-bar-mode -1)
 
 ;; Evil mode
@@ -62,21 +64,9 @@
 (global-set-key (kbd "C-<left>") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-<right>") 'shrink-window-horizontally)
 
-;; Dired ranger mode
-(setq ranger-preview-file t)
-(setq ranger-parent-depth 1)
-(setq ranger-max-preview-size 10)
-(setq ranger-dont-show-binary t)
-
 (setq projectile-project-search-path '("~/dev/"))
 
 (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
-
-;; Make ace-window window selection by letter more readable
-(custom-set-faces!
-  '(aw-leading-char-face
-    :foreground "white" :background "red"
-    :weight bold :height 1 :box (:line-width 0 :color "red")))
 
 ;; Config for all LSPs
 (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups

@@ -12,12 +12,15 @@
       vim-airline-themes
       vim-devicons
 
+      # Core functionality
+      vim-surround
+      vim-sneak
+
       # Functionality
       YouCompleteMe
       vim-polyglot
       ale
       neoformat
-      vim-surround
 
       # Language specific
       vim-markdown
