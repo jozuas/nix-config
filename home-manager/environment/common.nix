@@ -47,7 +47,6 @@ in {
     hunspell
     proselint
     nix-linter
-    mdl
     ripgrep
     coreutils
 
