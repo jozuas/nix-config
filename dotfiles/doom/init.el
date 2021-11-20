@@ -48,7 +48,7 @@
 
        :lang
        rest
-       web
+       (web +lsp)
        yaml
        json
        emacs-lisp

@@ -141,7 +141,18 @@ Can be an integer to determine the exact padding."
     :background modeline-bg-inactive :foreground modeline-fg-inactive
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if doom-vibrant-brighter-modeline base8 highlight))
-   (org-block :background (doom-darken base3 0.1))
+
+   ;;;; Get rid of annoying light grey backgrounds for tables in variety of modes
+   (markdown-code-face :background bg-alt :foreground fg-alt)
+   (markdown-table-face :background bg-alt :foreground fg-alt)
+   (markdown-inline-code-face :background bg-alt :foreground fg-alt)
+   (org-agenda-column-dateline :background bg-alt :foreground fg-alt)
+   ((org-block &override) :background bg-alt :foreground fg-alt)
+   ((org-verse &override) :background bg-alt :foreground fg-alt)
+   ((org-quote &override) :background bg-alt :foreground fg-alt)
+   ((org-column &override) :background bg-alt :foreground fg-alt)
+   ((org-block-begin-line &override) :background bg-alt :foreground fg-alt)
+   ((org-block-end-line &override) :background bg-alt :foreground fg-alt)
 
    ;;;; all-the-icons
    ((all-the-icons-dblue &override) :foreground dark-cyan)

@@ -42,6 +42,7 @@ in {
     unstable.erlang-ls
     unstable.elvis-erlang
     unstable.elixir_ls
+    unstable.html-tidy
     nixfmt
     hunspell
     proselint
