@@ -1,1 +1,1 @@
-(put 'projectile-ag 'disabled nil)
+(put 'customize-group 'disabled nil)

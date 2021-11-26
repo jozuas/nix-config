@@ -129,7 +129,7 @@ Can be an integer to determine the exact padding."
       (if (integerp doom-vibrant-padded-modeline) doom-vibrant-padded-modeline 4))))
 
 
-  ;;;; Base theme face overrides
+  ;; Base theme face overrides
   (((font-lock-comment-face &override)
     :background (if doom-vibrant-brighter-comments (doom-darken bg-alt 0.095)))
    ((line-number &override) :foreground base5)
@@ -142,10 +142,21 @@ Can be an integer to determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if doom-vibrant-brighter-modeline base8 highlight))
 
-   ;;;; Get rid of annoying light grey backgrounds for tables in variety of modes
+   ;; Erlang mode
+   ;; ((org-block &override) :background bg-alt :foreground fg-alt)
+
+   ;; Magit
+   (magit-diff-added :background "#05180f" :foreground fg)
+   (magit-diff-added-highlight :background "#052d18" :foreground fg)
+   (magit-diff-removed :background "#330b04" :foreground fg)
+   (magit-diff-removed-highlight :background "#780c00" :foreground fg)
+   (magit-diff-context :background bg-alt :foreground fg)
+   (magit-diff-context-highlight :background bg-alt :foreground fg)
+
+   ;; Get rid of annoying light grey backgrounds for tables in variety of modes
    (markdown-code-face :background bg-alt :foreground fg-alt)
    (markdown-table-face :background bg-alt :foreground fg-alt)
-   (markdown-inline-code-face :background bg-alt :foreground fg-alt)
+   (markdown-inline-code-face :background bg :foreground magenta)
    (org-agenda-column-dateline :background bg-alt :foreground fg-alt)
    ((org-block &override) :background bg-alt :foreground fg-alt)
    ((org-verse &override) :background bg-alt :foreground fg-alt)
