@@ -29,7 +29,6 @@ in {
     neofetch
     wget
     pandoc
-    ag
     private-pkgs.s4
 
     # Doom, Vim
