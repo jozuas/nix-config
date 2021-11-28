@@ -107,10 +107,12 @@
    (css-selector             :foreground blue)
 
    ;; Magit
-   (magit-diff-added :background "#05180f" :foreground fg)
-   (magit-diff-added-highlight :background "#052d18" :foreground fg)
-   (magit-diff-removed :background "#330b04" :foreground fg)
-   (magit-diff-removed-highlight :background "#780c00" :foreground fg)
+   (magit-diff-added :background "#001604" :foreground fg)
+   (magit-diff-added-highlight :background "#002403" :foreground fg)
+   (diff-refine-added :background "#005510" :foreground fg)
+   (magit-diff-removed :background "#240803" :foreground fg)
+   (magit-diff-removed-highlight :background "#3a0004" :foreground fg)
+   (diff-refine-removed :background "#8b1117" :foreground fg)
    (magit-diff-context :background bg-alt :foreground fg)
    (magit-diff-context-highlight :background bg-alt :foreground fg)
    (magit-diff-hunk-heading :background bg-alt :foreground base3)
