@@ -87,6 +87,7 @@
    (evil-snipe-first-match-face :background cyan :foreground bg :weight 'bold)
    (evil-snipe-matches-face :background cyan :foreground bg :weight 'bold)
    ((company-tooltip-selection &override) :background dark-cyan)
+   (nav-flash-face :background cyan :foreground bg :weight 'bold)
 
    ;; modeline
    (mode-line :background "#032D33" :foreground fg)
@@ -112,6 +113,11 @@
    (magit-diff-removed-highlight :background "#780c00" :foreground fg)
    (magit-diff-context :background bg-alt :foreground fg)
    (magit-diff-context-highlight :background bg-alt :foreground fg)
+   (magit-diff-hunk-heading :background bg-alt :foreground base3)
+   (magit-diff-hunk-heading-highlight :background cyan :foreground bg :weight 'bold)
+   (magit-diff-file-heading :foreground yellow :weight 'light)
+   (magit-diff-file-heading-highlight :foreground yellow :weight 'bold)
+   (magit-diff-file-heading-selection :foreground magenta :weight 'bold)
 
    ;; Get rid of annoying light grey backgrounds for tables in variety of modes
    (markdown-code-face :background bg-alt :foreground fg-alt)
