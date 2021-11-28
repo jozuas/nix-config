@@ -3,7 +3,7 @@
 {
   programs.tmux = {
     enable = true;
-    shortcut = "SPACE";
+    shortcut = "w";
     terminal = "screen-256color";
     keyMode = "vi";
     customPaneNavigationAndResize = true;
@@ -36,6 +36,8 @@
       unbind-key -T copy-mode-vi v
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle \; send -X begin-selection
+      # <C-w-w> for jumping between recent windows
+      bind -r w select-pane -l
 
       # Styling
       setw -g window-status-current-style fg=black,bg=red

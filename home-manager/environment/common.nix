@@ -29,7 +29,6 @@ in {
     neofetch
     wget
     pandoc
-    ag
     private-pkgs.s4
 
     # Doom, Vim
@@ -45,6 +44,7 @@ in {
     unstable.html-tidy
     nixfmt
     hunspell
+    hunspellDicts.en-gb-large
     proselint
     nix-linter
     ripgrep

@@ -65,6 +65,7 @@
 (global-set-key (kbd "C-<right>") 'shrink-window-horizontally)
 
 (setq projectile-project-search-path '("~/dev/"))
+(setq projectile-indexing-method 'alien)
 
 (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
 

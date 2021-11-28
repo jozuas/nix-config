@@ -48,12 +48,13 @@
 
        :lang
        rest
-       (web +lsp)
        yaml
        json
        emacs-lisp
        nix
        markdown
+       (web +lsp)
+       (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)
        (python +lsp +pyright +poetry)
