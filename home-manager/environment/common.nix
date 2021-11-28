@@ -44,6 +44,7 @@ in {
     unstable.html-tidy
     nixfmt
     hunspell
+    hunspellDicts.en-gb-large
     proselint
     nix-linter
     ripgrep
