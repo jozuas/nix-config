@@ -72,6 +72,16 @@
 ;; Config for all LSPs
 (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
+;; Erlang
+(map! :leader
+      (:prefix ("e" . "erlang")
+       :desc "Jump back within func"
+       "b" #'erlang-beginning-of-function))
+(map! :leader
+      (:prefix ("e" . "erlang")
+       :desc "Jump forward within func"
+       "f" #'erlang-end-of-function))
+
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
 (setq lsp-pyright-typechecking-mode "strict")
