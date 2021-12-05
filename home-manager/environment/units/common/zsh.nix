@@ -44,6 +44,7 @@
       DIRENV_LOG_FORMAT = "";
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS="(main brackets cursor)";
+      ERL_AFLAGS="-kernel shell_history enabled";
     };
     initExtra = ''
       autoload -Uz promptinit
