@@ -29,6 +29,8 @@
       set -g base-index 1
       setw -g pane-base-index 1
 
+      bind-key c new-window -n 'window'
+
       # VI-like tmux selection
       set-window-option -g mode-keys vi
       unbind p
