@@ -121,6 +121,12 @@
    (magit-diff-file-heading-highlight :foreground yellow :weight 'bold)
    (magit-diff-file-heading-selection :foreground magenta :weight 'bold)
 
+   (magit-blame-heading :background teal :foreground bg)
+   (magit-blame-name :background teal :foreground bg :weight 'bold)
+   (magit-blame-hash :background teal :foreground bg :weight 'bold)
+   (magit-blame-date :background teal :foreground bg :weight 'light)
+   (magit-blame-summary :background teal :foreground bg :weight 'bold)
+
    ;; Get rid of annoying light grey backgrounds for tables in variety of modes
    (markdown-code-face :background bg-alt :foreground fg-alt)
    (markdown-table-face :background bg-alt :foreground fg-alt)
