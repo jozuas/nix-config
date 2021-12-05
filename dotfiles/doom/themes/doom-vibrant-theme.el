@@ -83,9 +83,9 @@
    ((line-number-current-line &override) :foreground cyan :bold bold)
 
    ;; Search
-   (lazy-highlight :background cyan :foreground bg :weight 'bold)
-   (evil-snipe-first-match-face :background cyan :foreground bg :weight 'bold)
-   (evil-snipe-matches-face :background cyan :foreground bg :weight 'bold)
+   (lazy-highlight :background yellow :foreground bg :weight 'bold)
+   (evil-snipe-first-match-face :background yellow :foreground bg :weight 'bold)
+   (evil-snipe-matches-face :background yellow :foreground bg :weight 'bold)
    ((company-tooltip-selection &override) :background dark-cyan)
    (nav-flash-face :background cyan :foreground bg :weight 'bold)
 
