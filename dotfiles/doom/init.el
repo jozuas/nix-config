@@ -17,6 +17,7 @@
        vc-gutter          ;; Show VC changes next to line numbers
        window-select      ;; Switch to window by letter
        workspaces         ;; Isolated buffer groups
+       (treemacs +lsp)    ;; Project structure view
 
        :editor
        (evil +everywhere) ;; Vim mode
