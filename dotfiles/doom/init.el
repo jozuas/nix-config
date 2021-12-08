@@ -43,7 +43,7 @@
        direnv
        lookup
        lsp
-       magit
+       (magit +forge)
        make
        rgb
 
