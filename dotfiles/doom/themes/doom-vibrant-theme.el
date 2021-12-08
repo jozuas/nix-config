@@ -99,7 +99,7 @@
    (solaire-mode-line-inactive-face :inherit 'mode-line-inactive :background bg)
 
    ;; Erlang
-   ;; TODO
+   (erlang-font-lock-exported-function-name-face :foreground teal :underline t)
 
    ;; css / scss
    (css-proprietary-property :foreground orange)

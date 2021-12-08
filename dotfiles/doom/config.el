@@ -3,7 +3,7 @@
 (setq user-full-name "Juozas Norkus")
 
 (if (eq system-type 'darwin)
-  (setq user-mail-address "jnorkus@evolution.com")
+    (setq user-mail-address "jnorkus@evolution.com")
   (setq user-mail-address "norkus@norkus.net"))
 
 (setq doom-theme 'doom-vibrant)
@@ -69,6 +69,16 @@
 
 (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
 
+;; TODO: does not work properly, need to follow
+;; https://magit.vc/manual/ghub/Getting-Started.html for user and token setup
+;; Configure Forge repositories
+;; (add-to-list
+;;  'forge-alist
+;;  '("gitlab.evolution.com"
+;;    "gitlab.evolution.com/api/v4"
+;;    "gitlab.evolution.com"
+;;    forge-gitlab-repository))
+
 ;; Config for all LSPs
 (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
@@ -81,6 +91,14 @@
       (:prefix ("e" . "erlang")
        :desc "Jump forward within func"
        "f" #'erlang-end-of-function))
+(map! :leader
+      (:prefix ("e" . "erlang")
+       :desc "Manual for under cursor"
+       "s" #'erlang-man-function-no-prompt))
+(map! :leader
+      (:prefix ("e" . "erlang")
+       :desc "Manual for module"
+       "m" #'erlang-man-module))
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
@@ -96,7 +114,7 @@
   (setq web-mode-script-padding 2)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-current-column-highlight t)
-)
+  )
 
 (with-eval-after-load 'company
   ;; Company
@@ -119,4 +137,4 @@
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "TAB") #'company-complete-selection)
   (setq company-auto-complete-chars nil)
-)
+  )
