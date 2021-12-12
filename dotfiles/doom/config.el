@@ -69,6 +69,10 @@
 
 (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
 
+;; Bug in Emacs 27 on MacOS - git gutter is not shown, remove after switch to Emacs 28
+(after! git-gutter-fringe
+  (fringe-mode '16))
+
 ;; TODO: does not work properly, need to follow
 ;; https://magit.vc/manual/ghub/Getting-Started.html for user and token setup
 ;; Configure Forge repositories
