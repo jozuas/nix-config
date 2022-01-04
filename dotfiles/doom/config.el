@@ -106,7 +106,7 @@
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
-(setq lsp-pyright-typechecking-mode "strict")
+;; (setq lsp-pyright-typechecking-mode "strict")
 
 ;; Web mode
 (with-eval-after-load 'web-mode
