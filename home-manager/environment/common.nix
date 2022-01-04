@@ -6,7 +6,6 @@ let
 in {
   imports =
     [
-      ./units/common/alacritty.nix
       ./units/common/bat.nix
       ./units/common/doom.nix
       ./units/common/fzf.nix
@@ -70,11 +69,10 @@ in {
     rebar
 
     ## Nix
-    nix-prefetch-git
-    niv
     nox
     manix
     nixpkgs-fmt
+    nix-prefetch-git
     nixpkgs-review
   ];
 

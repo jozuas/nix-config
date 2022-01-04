@@ -9,6 +9,7 @@ in {
       ./common.nix
       ./units/linux/rofi.nix
       ./units/linux/xdg.nix
+      ./units/linux/alacritty.nix
     ];
 
   home.packages = with pkgs; [
@@ -59,6 +60,9 @@ in {
     gnome3.nautilus
     gnome3.cheese
     transmission-gtk
+
+    # No M1 support
+    niv
   ];
 
   services = {
