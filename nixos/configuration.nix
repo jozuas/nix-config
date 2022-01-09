@@ -47,7 +47,7 @@
   };
 
   # Localisation
-  time.timeZone = "Europe/Vilnius";
+  time.timeZone = "Europe/Lisbon";
   location.provider = "geoclue2";
   i18n.defaultLocale = "en_GB.UTF-8";
 
@@ -153,10 +153,12 @@
 
       # Enable the X11 windowing system.
       enable = true;
-      layout = "gb,ru";
-      xkbVariant = ",phonetic_winkeys";
 
-      xkbOptions = "caps:escape,grp:switch,grp:alt_space_toggle";
+      layout = "gb";
+      # layout = "gb,ru";
+      # xkbVariant = ",phonetic_winkeys";
+
+      xkbOptions = "compose:ralt,caps:escape,grp:switch,grp:alt_space_toggle";
     };
   };
 
