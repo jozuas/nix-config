@@ -33,7 +33,6 @@ in {
     # Doom, Vim
     unstable.pyright
     python3Packages.pytest
-    python3Packages.pyflakes
     python3Packages.flake8
     python3Packages.black
     python3Packages.isort
