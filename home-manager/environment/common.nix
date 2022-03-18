@@ -62,8 +62,8 @@ in {
     nodejs
     yarn
     ## Erlang / Elixir
-    elixir
-    erlang
+    unstable.elixir
+    unstable.erlang
     rebar3
     rebar
 
