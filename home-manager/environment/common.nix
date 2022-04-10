@@ -51,6 +51,7 @@ in {
 
     # Programming language tooling
     gnumake
+    cmake
     docker-compose
     sqlite
     ## Bash
