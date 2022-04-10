@@ -39,6 +39,7 @@ in {
     unstable.erlang-ls
     unstable.elvis-erlang
     unstable.elixir_ls
+    unstable.ccls
     unstable.html-tidy
     nixfmt
     hunspell

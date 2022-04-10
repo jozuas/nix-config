@@ -58,7 +58,8 @@
        (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)
-       (python +lsp +pyright +poetry)
+       (cc +lsp)
+       (python +lsp +pyright)
 
        :config
        (default +bindings +smartparens))
