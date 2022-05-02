@@ -25,6 +25,7 @@
       }
     ];
     shellAliases = {
+      x86brew = "arch -x86_64 /usr/local/homebrew/bin/brew";
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";

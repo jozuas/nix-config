@@ -2,3 +2,4 @@
 ;;; $DOOMDIR/packages.el
 
 (package! adoc-mode)
+(package! groovy-mode)

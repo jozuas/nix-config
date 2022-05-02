@@ -49,6 +49,7 @@ in {
     coreutils
 
     # Programming language tooling
+    vagrant
     gnumake
     docker-compose
     sqlite
