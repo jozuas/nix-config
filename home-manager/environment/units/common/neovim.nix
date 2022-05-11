@@ -39,6 +39,7 @@
       set autoread               "update the file if it has been changed externally
       set scrolloff=5            "show extra lines when scrolling
       set autoindent             "automatic indentation
+      set nofoldenable           "disable folding
 
       syntax enable              "enable syntax processing
       colorscheme vim_theme      "my custom colorscheme
