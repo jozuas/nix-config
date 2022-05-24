@@ -3,6 +3,7 @@
 let
   unstable = import <unstable> {};
   variables = import ~/nix-config/variables.nix;
+  private-pkgs = import ../../private-pkgs;
 in {
   imports =
     [
@@ -29,6 +30,10 @@ in {
     # Broken on MacOS
     python3Packages.bpython
 
+    docker-compose
+    sqlite
+    vagrant
+    private-pkgs.s4
     ngrok
     awscli2
     nmap

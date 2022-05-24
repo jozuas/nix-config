@@ -2,7 +2,6 @@
 
 let
   unstable = import <unstable> {};
-  private-pkgs = import ../../private-pkgs;
 in {
   imports =
     [
@@ -27,8 +26,6 @@ in {
     fd
     neofetch
     wget
-    pandoc
-    private-pkgs.s4
 
     # Doom, Vim
     unstable.pyright
@@ -50,17 +47,12 @@ in {
     coreutils
 
     # Programming language tooling
-    vagrant
     gnumake
-    cmake
-    docker-compose
-    sqlite
     ## Bash
     shellcheck
     shfmt
     ## Python
     python3Full
-    poetry
     ## JavaScript
     nodejs
     yarn
@@ -72,6 +64,7 @@ in {
 
     ## Nix
     nox
+    comma
     manix
     nixpkgs-fmt
     nix-prefetch-git
