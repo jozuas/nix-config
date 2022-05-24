@@ -48,6 +48,7 @@ in {
 
     # Programming language tooling
     gnumake
+    sqlite
     ## Bash
     shellcheck
     shfmt
