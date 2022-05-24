@@ -9,8 +9,6 @@
   home.packages = with pkgs; [
     htop
     fontconfig
-    cloc
-    # openjdk
   ];
 
   programs = {

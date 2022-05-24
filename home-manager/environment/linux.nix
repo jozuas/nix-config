@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  unstable = import <unstable> {};
+  pkgs_unstable = import <nixpkgs-unstable> {};
   variables = import ~/nix-config/variables.nix;
   private-pkgs = import ../../private-pkgs;
 in {
@@ -40,7 +40,7 @@ in {
     speedtest-cli
 
     # GUIs
-    unstable.spotify
+    pkgs_unstable.spotify
     vscodium
     gimp
     inkscape
@@ -51,8 +51,8 @@ in {
     zoom-us
     bitwarden
     chromium
-    unstable.tdesktop
-    unstable.discord
+    pkgs_unstable.tdesktop
+    pkgs_unstable.discord
     firefox-devedition-bin
 
     youtube-dl

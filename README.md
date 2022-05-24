@@ -1,10 +1,13 @@
 # nix-config
+
 My NixOS, Home Manager configuration and dotfiles 
 
 ## What is NixOS?
+
 [NixOS](https://nixos.org/) is a Linux distribution built around the Nix purely functional package manager.
 
 ## What is Home Manager?
+
 [Home Manager](https://github.com/rycee/home-manager) is NixOS for your home folder.
 That is, NixOS manages the operating system and system-wide configuration, home-manager manages the home folder (dotfiles).
 

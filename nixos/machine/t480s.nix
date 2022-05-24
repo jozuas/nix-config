@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  unstable = import <unstable> {};
+  pkgs_unstable = import <nixpkgs-unstable> {};
 in {
   imports = [
     <nixos-hardware/lenovo/thinkpad/t480s>
@@ -32,7 +32,7 @@ in {
 
   virtualisation.virtualbox.host = {
     enable = true;
-    package = unstable.virtualbox;
+    package = pkgs_unstable.virtualbox;
   };
 
   users.extraGroups.vboxusers.members = [ "juozas" ];

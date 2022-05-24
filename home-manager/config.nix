@@ -1,4 +1,6 @@
 { ... }:
 
-# Hack, due to how nixos-unstable channel is used
-{ allowUnfree = true; }
+{
+  # Hack for nixpkgs-unstable
+  allowUnfree = true;
+}

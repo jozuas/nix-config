@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  unstable = import <unstable> {};
+  pkgs_unstable = import <nixpkgs-unstable> {};
 in {
   imports =
     [
@@ -28,16 +28,16 @@ in {
     wget
 
     # Doom, Vim
-    unstable.pyright
+    pkgs_unstable.pyright
     python3Packages.pytest
     python3Packages.flake8
     python3Packages.black
     python3Packages.isort
-    unstable.erlang-ls
-    unstable.elvis-erlang
-    unstable.elixir_ls
-    unstable.ccls
-    unstable.html-tidy
+    pkgs_unstable.erlang-ls
+    pkgs_unstable.elvis-erlang
+    pkgs_unstable.elixir_ls
+    pkgs_unstable.ccls
+    pkgs_unstable.html-tidy
     nixfmt
     hunspell
     hunspellDicts.en-gb-large
@@ -58,14 +58,14 @@ in {
     nodejs
     yarn
     ## Erlang / Elixir
-    unstable.elixir
-    unstable.erlang
+    pkgs_unstable.elixir
+    pkgs_unstable.erlang
     rebar3
     rebar
 
     ## Nix
     nox
-    comma
+    pkgs_unstable.comma
     manix
     nixpkgs-fmt
     nix-prefetch-git
