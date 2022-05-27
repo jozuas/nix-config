@@ -52,6 +52,9 @@
       promptinit
       prompt walters
 
+      # print a newline before prompt
+      precmd() { print "" }
+
       bindkey -e
 
       # extra history config
