@@ -2,12 +2,9 @@
 
 # This script and all scripts under ./macos are idempotent
 
-nixpkgs_version="21.11"
+nixpkgs_version="22.05"
 
 bash ./macos/*.sh
-
-ln -sfn ~/nix-config/scripts ~/scripts
-ln -sfn ~/nix-config/pictures ~/Pictures/resources
 
 sudo nix-channel --add \
   "https://github.com/nix-community/home-manager/archive/release-${nixpkgs_version}.tar.gz" home-manager

@@ -30,13 +30,6 @@ in {
     };
   };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    package = pkgs_unstable.virtualbox;
-  };
-
-  users.extraGroups.vboxusers.members = [ "juozas" ];
-
   # DPI>200 options to play with
   # fonts.fontconfig.antialias
   # fonts.fontconfig.subpixel.lcdfilter

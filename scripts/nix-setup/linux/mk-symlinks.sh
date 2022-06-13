@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ln -sfn ~/nix-config/scripts ~/scripts
+
 mkdir -p ~/.local/share/nvim/site/autoload/airline/themes
 ln -sf ~/nix-config/dotfiles/airline-theme.vim \
   ~/.local/share/nvim/site/autoload/airline/themes/airline_theme.vim

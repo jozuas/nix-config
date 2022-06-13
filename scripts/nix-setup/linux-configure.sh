@@ -2,16 +2,14 @@
 
 # This script and all scripts under ./linux are idempotent
 
-nixpkgs_version="21.11"
+nixpkgs_version="22.05"
 
-bash ./linux/*.sh
-
-mkdir -p /home/juozas/pictures
-ln -sfn /home/juozas/nix-config/resources /home/juozas/pictures/resources
-ln -sfn /home/juozas/nix-config/scripts /home/juozas/scripts
+# bash ./linux/*.sh
 
 sudo nix-channel --add \
   "https://github.com/NixOS/nixos-hardware/archive/master.tar.gz" nixos-hardware
+sudo nix-channel --add \
+  "https://channels.nixos.org/nixos-${nixpkgs_version}" nixos
 sudo nix-channel --add \
   "https://channels.nixos.org/nixos-${nixpkgs_version}" nixpkgs
 sudo nix-channel --add \

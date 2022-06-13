@@ -1,5 +1,4 @@
 # Core System-wide configuration.
-# Machine and desktop specific settings are pointed by current.nix symlinks.
 
 { pkgs, ... }:
 
@@ -8,8 +7,8 @@
     [
       ./state-version.nix
       ./hardware-configuration.nix
-      ./machine/current.nix
-      ./desktop/current.nix
+      ./machine/t480s.nix
+      ./desktop/i3.nix
     ];
 
   boot = {
@@ -93,7 +92,6 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
-      extraModules = [ pkgs.pulseaudio-modules-bt ];
       daemon.config = {
         default-sample-format = "float32le";
         default-sample-rate = "48000";
@@ -161,6 +159,9 @@
       xkbOptions = "compose:ralt,caps:escape,grp:switch,grp:alt_space_toggle";
     };
   };
+
+  users.users.tcpcryptd.group = "tcpcryptd";
+  users.groups.tcpcryptd = {};
 
   users.defaultUserShell = pkgs.zsh;
   users.users.juozas = {
