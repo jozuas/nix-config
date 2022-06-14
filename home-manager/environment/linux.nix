@@ -8,9 +8,11 @@ in {
   imports =
     [
       ./common.nix
+      ./units/linux/alacritty.nix
+      ./units/linux/gtk.nix
       ./units/linux/rofi.nix
       ./units/linux/xdg.nix
-      ./units/linux/alacritty.nix
+      ./units/linux/xorg.nix
     ];
 
   home.packages = with pkgs; [

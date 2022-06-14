@@ -6,6 +6,7 @@ in {
   imports = [
     ./xorg/redshift.nix
     ./xorg/xresources.nix
+    ./xorg/i3.nix
   ];
 
   home.packages = with pkgs; [
