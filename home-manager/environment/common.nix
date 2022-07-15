@@ -64,7 +64,6 @@ in {
     rebar
 
     ## Nix
-    nox
     pkgs_unstable.comma
     manix
     nixpkgs-fmt

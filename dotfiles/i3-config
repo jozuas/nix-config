@@ -38,7 +38,7 @@ bindsym Mod4+Ctrl+p exec --no-startup-id "bash /home/juozas/nix-config/scripts/p
 bindsym Mod4+Ctrl+i exec --no-startup-id "bash /home/juozas/nix-config/scripts/invert-colour.sh"
 bindsym Mod4+Ctrl+c exec --no-startup-id "pkill picom"
 bindsym Mod4+Ctrl+l exec --no-startup-id $LOCK
-bindsym Mod4+d exec --no-startup-id rofi -show drun -display-drun "> " -fullscreen
+bindsym Mod4+d exec --no-startup-id rofi -show drun -display-drun "> "
 bindsym Mod4+Return exec --no-startup-id $TERMINAL
 bindsym Mod4+Ctrl+Return exec --no-startup-id "alacritty -t 'floating-terminal'"
 bindsym Mod4+Ctrl+slash exec --no-startup-id "playerctl play-pause"

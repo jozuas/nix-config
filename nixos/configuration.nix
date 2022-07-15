@@ -142,6 +142,7 @@
       enable = true;
       package = pkgs.wireshark;
     };
+    steam.enable = true;
   };
 
   services = {

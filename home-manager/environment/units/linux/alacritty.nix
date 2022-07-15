@@ -6,6 +6,7 @@
     package = pkgs.alacritty;
     settings = {
       window = {
+        opacity = 1.0;
         padding = {
           x = 4;
           y = 5;
@@ -58,7 +59,6 @@
         unfocused_hollow = true;
       };
       selection.semantic_escape_chars = ",│`|:\"' ()[]{}<>";
-      background_opacity = 1.0;
       scrolling.history = 10000;
       live_config_reload = true;
       mouse.hints.launcher = "xdg-open";
