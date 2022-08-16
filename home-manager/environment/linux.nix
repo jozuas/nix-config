@@ -32,7 +32,6 @@ in {
     # Broken on MacOS
     python3Packages.bpython
 
-    docker-compose
     sqlite
     vagrant
     private-pkgs.s4

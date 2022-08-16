@@ -171,14 +171,11 @@
       "wheel"
       "wireshark"
       "networkmanager"
-      "docker"
       "video"
       "vboxusers"
     ];
     home = "/home/juozas";
   };
-
-  virtualisation.docker.enable = true;
 
   system.autoUpgrade.enable = true;
 }
