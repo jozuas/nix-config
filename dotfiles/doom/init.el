@@ -54,7 +54,7 @@
        emacs-lisp
        nix
        markdown
-       (web +lsp)
+       web
        (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)

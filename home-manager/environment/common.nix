@@ -33,6 +33,8 @@ in {
     python3Packages.flake8
     python3Packages.black
     python3Packages.isort
+    pkgs_unstable.nodePackages.stylelint
+    pkgs_unstable.nodePackages.js-beautify
     pkgs_unstable.erlang-ls
     pkgs_unstable.elvis-erlang
     pkgs_unstable.elixir_ls
