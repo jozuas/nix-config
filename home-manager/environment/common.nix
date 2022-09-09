@@ -51,6 +51,9 @@ in {
     # Programming language tooling
     gnumake
     sqlite
+    ## Zig
+    #pkgs_unstable.zig
+    pkgs_unstable.zls
     ## Bash
     shellcheck
     shfmt

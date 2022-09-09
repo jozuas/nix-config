@@ -55,6 +55,7 @@
        nix
        markdown
        web
+       (zig +lsp)
        (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)
