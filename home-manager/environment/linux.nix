@@ -41,6 +41,7 @@ in {
     speedtest-cli
 
     # GUIs
+    obsidian
     pkgs_unstable.spotify
     vscodium
     gimp
