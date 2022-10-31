@@ -46,6 +46,7 @@
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS="(main brackets cursor)";
       ERL_AFLAGS="-kernel shell_history enabled";
+      ERL_EPMD_ADDRESS="127.0.0.1";
     };
     initExtra = ''
       autoload -Uz promptinit
