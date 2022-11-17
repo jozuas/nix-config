@@ -42,6 +42,7 @@
        :tools
        direnv
        lookup
+       docker
        lsp
        (magit +forge)
        make

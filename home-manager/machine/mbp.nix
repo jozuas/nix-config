@@ -17,6 +17,9 @@
       initExtra = ''
         source $HOME/.iterm2_shell_integration.zsh
       '';
+      shellAliases = {
+        essh = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
+      };
     };
   };
 }
