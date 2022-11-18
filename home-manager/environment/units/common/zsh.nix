@@ -5,6 +5,8 @@
     enable = true;
     defaultKeymap = "emacs";
     enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
     history = {
       expireDuplicatesFirst = true;
       ignoreDups = true;
@@ -12,20 +14,13 @@
       save = 5000;
       size = 5000;
     };
-    plugins = [
-      {
-        # Once home manager supports this manage through home-manager
-        name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-syntax-highlighting";
-          rev = "0.7.1";
-          sha256 = "03r6hpb5fy4yaakqm3lbf4xcvd408r44jgpv4lnzl9asp4sb9qc0";
-        };
-      }
+    cdpath = [
+      "$HOME/dev"
+      "$HOME/dev-templates"
+      "$HOME/scripts"
+      "$HOME/nix-config"
     ];
     shellAliases = {
-      x86brew = "HOMEBREW_CELLAR=/usr/local/Cellar HOMEBREW_PREFIX=/usr/local HOMEBREW_REPOSITORY=/usr/local PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin arch -x86_64 /usr/local/bin/brew";
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
@@ -33,8 +28,6 @@
       vim = "nvim";
       vi = "nvim";
       cd = ">/dev/null cd";
-      gg = "git ack";
-      ggn = "git ack --no-index";
       nix-stray-roots = "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/\w+-system|\{memory)'";
     };
     sessionVariables = {
@@ -46,7 +39,8 @@
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS="(main brackets cursor)";
       ERL_AFLAGS="-kernel shell_history enabled";
-      ERL_EPMD_ADDRESS="127.0.0.1";
+      ERL_EPMD_ADDRESS="127.0.0.1"; # By default epmd listens on 0.0.0.0
+      NIXPKGS_ALLOW_BROKEN="1";
     };
     initExtra = ''
       autoload -Uz promptinit
@@ -54,7 +48,7 @@
       prompt walters
 
       # print a newline before prompt
-      precmd() { print "" }
+      # precmd() { print "" }
 
       bindkey -e
 

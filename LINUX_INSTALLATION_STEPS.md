@@ -129,6 +129,5 @@ reboot
 - Generate an SSH Key with `ssh-keygen -t rsa -b 4096 -C "norkus@norkus.net`
   and run `ssh-add ~/.ssh/id_rsa` to add the key into the keychain.
 - Set `layers.acceleration.force-enabled` to `true` to get rid of screen tearing on Firefox.
-- Import Greasemonkey and UBlock origin backups
 - Create a keyring named `login` with Seahorse. Password must be the same as the login password.
 - Import manual backups from ~/nix-config/backups

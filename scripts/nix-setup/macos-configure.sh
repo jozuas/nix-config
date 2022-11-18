@@ -4,14 +4,23 @@
 
 nixpkgs_version="22.05"
 
+export SETUP_MACHINE="mbp"
+export SETUP_OS="macos"
 bash ./macos/*.sh
 
-sudo nix-channel --add \
+nix-channel --remove home-manager
+nix-channel --add \
   "https://github.com/nix-community/home-manager/archive/release-${nixpkgs_version}.tar.gz" home-manager
-sudo nix-channel --add \
-  "https://channels.nixos.org/nixpkgs-${nixpkgs_version}-darwin" nixpkgs
-sudo nix-channel --add \
-  "https://channels.nixos.org/nixpkgs-unstable" nixpkgs-unstable
-sudo nix-channel --update
 
-nix-shell '<home-manager>' -A install
+nix-channel --remove nixpkgs
+nix-channel --add \
+  "https://channels.nixos.org/nixpkgs-${nixpkgs_version}-darwin" nixpkgs
+
+nix-channel --remove nixpkgs-unstable
+nix-channel --add \
+  "https://channels.nixos.org/nixpkgs-unstable" nixpkgs-unstable
+
+nix-channel --update
+darwin-rebuild switch
+
+echo "Done, please reboot"

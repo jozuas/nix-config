@@ -17,6 +17,5 @@
     };
   };
 
-
   gtk.font.name = "Dejavu Sans Book 14";
 }
