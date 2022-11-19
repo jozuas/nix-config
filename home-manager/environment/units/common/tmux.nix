@@ -10,12 +10,10 @@
     disableConfirmationPrompt = true;
     newSession = true;
     aggressiveResize = true;
-    plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-      }
-    ];
+    plugins = with pkgs; [{
+      plugin = tmuxPlugins.resurrect;
+      extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+    }];
     extraConfig = ''
       # Functionality
       bind | split-window -h

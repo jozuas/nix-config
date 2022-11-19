@@ -14,12 +14,8 @@
       save = 5000;
       size = 5000;
     };
-    cdpath = [
-      "$HOME/dev"
-      "$HOME/dev-templates"
-      "$HOME/scripts"
-      "$HOME/nix-config"
-    ];
+    cdpath =
+      [ "$HOME/dev" "$HOME/dev-templates" "$HOME/scripts" "$HOME/nix-config" ];
     shellAliases = {
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
@@ -28,7 +24,9 @@
       vim = "nvim";
       vi = "nvim";
       cd = ">/dev/null cd";
-      nix-stray-roots = "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/\w+-system|\{memory)'";
+      nix-direnv-new = "nix flake new -t github:nix-community/nix-direnv";
+      nix-stray-roots =
+        "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/w+-system|{memory)'";
     };
     sessionVariables = {
       EDITOR = "nvim";
@@ -37,10 +35,10 @@
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";
       PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:$PATH";
-      ZSH_HIGHLIGHT_HIGHLIGHTERS="(main brackets cursor)";
-      ERL_AFLAGS="-kernel shell_history enabled";
-      ERL_EPMD_ADDRESS="127.0.0.1"; # By default epmd listens on 0.0.0.0
-      NIXPKGS_ALLOW_BROKEN="1";
+      ZSH_HIGHLIGHT_HIGHLIGHTERS = "(main brackets cursor)";
+      ERL_AFLAGS = "-kernel shell_history enabled";
+      ERL_EPMD_ADDRESS = "127.0.0.1"; # By default epmd listens on 0.0.0.0
+      NIXPKGS_ALLOW_BROKEN = "1";
     };
     initExtra = ''
       autoload -Uz promptinit

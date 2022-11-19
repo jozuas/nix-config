@@ -58,7 +58,7 @@
         style = "Beam";
         unfocused_hollow = true;
       };
-      selection.semantic_escape_chars = ",│`|:\"' ()[]{}<>";
+      selection.semantic_escape_chars = '',│`|:"' ()[]{}<>'';
       scrolling.history = 10000;
       live_config_reload = true;
       mouse.hints.launcher = "xdg-open";

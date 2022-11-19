@@ -1,9 +1,7 @@
 { pkgs, ... }:
 
-let
-  fdExclude = "--exclude .git --exclude node_modules --exclude result";
-in
-{
+let fdExclude = "--exclude .git --exclude node_modules --exclude result";
+in {
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -20,9 +18,8 @@ in
       "--bind ctrl-p:toggle-preview,alt-k:preview-up,alt-j:preview-down"
     ];
     changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d ${fdExclude}";
-    changeDirWidgetOptions = [
-      "--preview '${pkgs.tree}/bin/tree -C {} | head -200'"
-    ];
+    changeDirWidgetOptions =
+      [ "--preview '${pkgs.tree}/bin/tree -C {} | head -200'" ];
     fileWidgetCommand = "${pkgs.fd}/bin/fd --type f ${fdExclude}";
     fileWidgetOptions = [
       "--preview '(${pkgs.bat}/bin/bat --color=always {} || cat {}) 2> /dev/null'"

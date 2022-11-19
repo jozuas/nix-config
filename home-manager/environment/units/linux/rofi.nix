@@ -5,7 +5,7 @@
     enable = true;
     terminal = "${pkgs.alacritty}/bin/alacritty";
     theme = "~/nix-config/dotfiles/rofi-theme.rasi";
-    extraConfig ={
+    extraConfig = {
       modi = "drun";
       kb-row-up = "Control+k";
       kb-row-down = "Control+j";

@@ -1,12 +1,8 @@
 { pkgs, ... }:
 
-let
-  pkgs_unstable = import <nixpkgs-unstable> {};
+let pkgs_unstable = import <nixpkgs-unstable> { };
 in {
-  imports = [
-    <nixos-hardware/lenovo/thinkpad/t480s>
-    ./laptop-common.nix
-  ];
+  imports = [ <nixos-hardware/lenovo/thinkpad/t480s> ./laptop-common.nix ];
 
   boot.initrd.luks.devices.root = {
     device = "/dev/disk/by-uuid/08e759d3-4463-42bc-817b-a025d2f840ba";

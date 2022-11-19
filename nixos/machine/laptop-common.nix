@@ -4,7 +4,7 @@
 
 {
   boot.initrd.luks.devices.root = {
-    preLVM = true;        # First lukOpen, then LVM scan
+    preLVM = true; # First lukOpen, then LVM scan
     allowDiscards = true; # Enable TRIM requests
   };
 
@@ -44,17 +44,13 @@
 
   security.sudo = {
     enable = true;
-    extraRules = [
-      {
-        users = [ "juozas" ];
-        runAs = "root";
-        commands = [
-          {
-            command = "/run/current-system/sw/bin/bluetooth";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-      }
-    ];
+    extraRules = [{
+      users = [ "juozas" ];
+      runAs = "root";
+      commands = [{
+        command = "/run/current-system/sw/bin/bluetooth";
+        options = [ "NOPASSWD" ];
+      }];
+    }];
   };
 }

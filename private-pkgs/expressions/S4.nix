@@ -1,10 +1,7 @@
-{ lib
-, fetchFromGitHub
-, python3
-, pkgs
-}:
+{ lib, fetchFromGitHub, python3, pkgs }:
 
-with pkgs.python3Packages; buildPythonApplication rec {
+with pkgs.python3Packages;
+buildPythonApplication rec {
   pname = "S4";
   version = "0.4.4";
 

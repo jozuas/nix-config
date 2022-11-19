@@ -6,9 +6,9 @@
 
     systemPackages = with pkgs; [
       dconf
-      libsecret                 # Gnome-Keyring
+      libsecret # Gnome-Keyring
       gnome3.adwaita-icon-theme # Fallback theme
-      hicolor-icon-theme        # Fallback icon theme
+      hicolor-icon-theme # Fallback icon theme
     ];
   };
 
@@ -49,9 +49,7 @@
         defaultSession = "none+i3";
       };
 
-      windowManager.i3 = {
-        enable = true;
-      };
+      windowManager.i3 = { enable = true; };
     };
   };
 }

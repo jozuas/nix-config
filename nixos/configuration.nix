@@ -3,18 +3,15 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./state-version.nix
-      ./hardware-configuration.nix
-      ./machine/t480s.nix
-      ./desktop/i3.nix
-    ];
+  imports = [
+    ./state-version.nix
+    ./hardware-configuration.nix
+    ./machine/t480s.nix
+    ./desktop/i3.nix
+  ];
 
   boot = {
-    kernel.sysctl = {
-      "vm.swappiness" = 1;
-    };
+    kernel.sysctl = { "vm.swappiness" = 1; };
 
     loader = {
       systemd-boot = {
@@ -36,13 +33,11 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [8000];
-      allowedUDPPorts = [];
+      allowedTCPPorts = [ 8000 ];
+      allowedUDPPorts = [ ];
     };
 
-    hosts = {
-      "192.168.1.42" = [ "pi" ];
-    };
+    hosts = { "192.168.1.42" = [ "pi" ]; };
   };
 
   # Localisation
@@ -56,19 +51,14 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
-      dejavu_fonts
-      ubuntu_font_family
-      corefonts
-      nerdfonts
-    ];
+    fonts = with pkgs; [ dejavu_fonts ubuntu_font_family corefonts nerdfonts ];
     fontconfig = {
-     defaultFonts = {
-       emoji = [ "Noto Color Emoji" ];
-       monospace = [ "DejaVu Sans Mono" ];
-       sansSerif = [ "DejaVu Sans" ];
-       serif = [ "DejaVu Serif" ];
-     };
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "DejaVu Sans Mono" ];
+        sansSerif = [ "DejaVu Sans" ];
+        serif = [ "DejaVu Serif" ];
+      };
     };
   };
 
@@ -87,7 +77,6 @@
         libvdpau-va-gl
       ];
     };
-
 
     pulseaudio = {
       enable = true;
@@ -135,9 +124,7 @@
   };
 
   programs = {
-    zsh = {
-      enable = true;
-    };
+    zsh = { enable = true; };
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
@@ -162,18 +149,12 @@
   };
 
   users.users.tcpcryptd.group = "tcpcryptd";
-  users.groups.tcpcryptd = {};
+  users.groups.tcpcryptd = { };
 
   users.defaultUserShell = pkgs.zsh;
   users.users.juozas = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "wireshark"
-      "networkmanager"
-      "video"
-      "vboxusers"
-    ];
+    extraGroups = [ "wheel" "wireshark" "networkmanager" "video" "vboxusers" ];
     home = "/home/juozas";
   };
 

@@ -40,27 +40,26 @@
        (spell +flyspell +everywhere)
 
        :tools
+       ansible
        direnv
        lookup
-       docker
        lsp
        (magit +forge)
        make
        rgb
 
        :lang
+       data
        rest
-       yaml
-       json
        emacs-lisp
-       nix
        markdown
        web
-       (zig +lsp)
+       (yaml +lsp)
+       (json +lsp)
+       (nix +lsp)
        (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)
-       (cc +lsp)
        (python +lsp +pyright)
 
        :config

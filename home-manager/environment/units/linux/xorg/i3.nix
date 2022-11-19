@@ -21,13 +21,7 @@
     feh
   ];
 
-  programs = {
-    git = {
-      extraConfig = {
-        credential.helper = "libsecret";
-      };
-    };
-  };
+  programs = { git = { extraConfig = { credential.helper = "libsecret"; }; }; };
 
   services = {
     blueman-applet.enable = true;

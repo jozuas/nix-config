@@ -1,18 +1,16 @@
 { pkgs, ... }:
 
-let
-  pkgs_unstable = import <nixpkgs-unstable> {};
+let pkgs_unstable = import <nixpkgs-unstable> { };
 in {
-  imports =
-    [
-      ./units/common/bat.nix
-      ./units/common/doom.nix
-      ./units/common/fzf.nix
-      ./units/common/git.nix
-      ./units/common/neovim.nix
-      ./units/common/tmux.nix
-      ./units/common/zsh.nix
-    ];
+  imports = [
+    ./units/common/bat.nix
+    ./units/common/doom.nix
+    ./units/common/fzf.nix
+    ./units/common/git.nix
+    ./units/common/neovim.nix
+    ./units/common/tmux.nix
+    ./units/common/zsh.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -28,37 +26,39 @@ in {
     wget
 
     # Doom, Vim
-    pkgs_unstable.pyright
     python3Packages.pytest
     python3Packages.flake8
     python3Packages.black
     python3Packages.isort
-    pkgs_unstable.nodePackages.stylelint
-    pkgs_unstable.nodePackages.js-beautify
+    nodePackages.pyright
+    nodePackages.bash-language-server
+    nodePackages.vscode-html-languageserver-bin
+    nodePackages.vscode-css-languageserver-bin
+    nodePackages.vscode-json-languageserver
+    nodePackages.yaml-language-server
+    nodePackages.typescript-language-server
+    nodePackages.stylelint
+    elvis-erlang
     pkgs_unstable.erlang-ls
-    pkgs_unstable.elvis-erlang
     pkgs_unstable.elixir_ls
-    pkgs_unstable.ccls
-    pkgs_unstable.html-tidy
+    html-tidy
+    rnix-lsp
     nixfmt
+    nix-linter
     hunspell
     hunspellDicts.en-gb-large
     proselint
-    nix-linter
     ripgrep
     coreutils
 
     # Programming language tooling
     gnumake
     sqlite
-    ## Zig
-    #pkgs_unstable.zig
-    pkgs_unstable.zls
     ## Bash
     shellcheck
     shfmt
     ## Python
-    python3Full
+    python3
     ## JavaScript
     nodejs
     yarn

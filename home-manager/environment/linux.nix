@@ -1,39 +1,26 @@
 { pkgs, ... }:
 
 let
-  pkgs_unstable = import <nixpkgs-unstable> {};
+  pkgs_unstable = import <nixpkgs-unstable> { };
   variables = import ~/nix-config/variables.nix;
   private-pkgs = import ../../private-pkgs;
 in {
-  imports =
-    [
-      ./common.nix
-      ./units/linux/alacritty.nix
-      ./units/linux/gtk.nix
-      ./units/linux/rofi.nix
-      ./units/linux/xdg.nix
-      ./units/linux/xorg.nix
-    ];
+  imports = [
+    ./common.nix
+    ./units/linux/alacritty.nix
+    ./units/linux/gtk.nix
+    ./units/linux/rofi.nix
+    ./units/linux/xdg.nix
+    ./units/linux/xorg.nix
+  ];
 
   home.packages = with pkgs; [
     # Doom
     clang
 
-    # Work Mac flags as malware
-    cachix
-
-    # I don't want 10GB of Haskell dependencies on my work laptop
-    # ghc
-    # ghcid
-    # hlint
-    # haskellPackages.brittany
-    # haskell-language-server
-
     # Broken on MacOS
     python3Packages.bpython
 
-    sqlite
-    vagrant
     private-pkgs.s4
     ngrok
     awscli2
@@ -42,8 +29,7 @@ in {
 
     # GUIs
     obsidian
-    pkgs_unstable.spotify
-    vscodium
+    spotify
     gimp
     inkscape
     audacity
@@ -57,7 +43,7 @@ in {
     pkgs_unstable.discord
     firefox-devedition-bin
 
-    pkgs_unstable.youtube-dl
+    youtube-dl
     pick-colour-picker
     simplescreenrecorder
     zathura
@@ -67,9 +53,6 @@ in {
     gnome3.nautilus
     gnome3.cheese
     transmission-gtk
-
-    # No M1 support
-    niv
   ];
 
   services = {
