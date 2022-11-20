@@ -30,7 +30,3 @@ ln -sfn ~/nix-config/dotfiles/doom ~/.doom.d
 mkdir -p ~/.local/share/nvim/site/autoload/airline/themes
 ln -sfn ~/nix-config/dotfiles/airline-theme.vim \
   ~/.local/share/nvim/site/autoload/airline/themes/airline_theme.vim
-
-mkdir -p ~/.local/share/nvim/site/colors
-ln -sfn ~/nix-config/dotfiles/vim-theme.vim \
-  ~/.local/share/nvim/site/colors/vim_theme.vim

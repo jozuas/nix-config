@@ -38,10 +38,10 @@ in {
     nodePackages.yaml-language-server
     nodePackages.typescript-language-server
     nodePackages.stylelint
+    html-tidy
     elvis-erlang
     pkgs_unstable.erlang-ls
     pkgs_unstable.elixir_ls
-    html-tidy
     rnix-lsp
     nixfmt
     nix-linter
