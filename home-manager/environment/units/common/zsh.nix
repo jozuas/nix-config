@@ -15,7 +15,7 @@
       size = 5000;
     };
     cdpath =
-      [ "$HOME/dev" "$HOME/dev-templates" "$HOME/scripts" "$HOME/nix-config" ];
+      [ "$HOME" "$HOME/dev" "$HOME/.nix-defexpr/channels" ];
     shellAliases = {
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
