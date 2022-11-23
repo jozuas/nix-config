@@ -17,6 +17,7 @@ in {
   home.packages = with pkgs; [
     # CLI Tools
     cloc
+    onefetch
     delta
     ranger
     tldr
@@ -24,8 +25,10 @@ in {
     fd
     neofetch
     wget
+    cmatrix
 
     # Doom, Vim
+    emacs-all-the-icons-fonts
     python3Packages.pytest
     python3Packages.flake8
     python3Packages.black

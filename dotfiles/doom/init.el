@@ -41,6 +41,7 @@
 
        :tools
        ansible
+       editorconfig
        direnv
        lookup
        lsp

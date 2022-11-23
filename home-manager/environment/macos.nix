@@ -5,6 +5,10 @@
 
   home.packages = with pkgs; [ htop fontconfig ansible ];
 
+  # Allow fontconfig to discover fonts and configurations installed through
+  # home.packages and nix-env
+  fonts.fontconfig.enable = true;
+
   programs = {
     zsh = {
       sessionVariables = {
