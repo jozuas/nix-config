@@ -40,6 +40,7 @@ in {
     nodePackages.vscode-json-languageserver
     nodePackages.yaml-language-server
     nodePackages.typescript-language-server
+    nodePackages.typescript # Seems to be needed for DOOM to detect typescript-language-server
     nodePackages.stylelint
     html-tidy
     elvis-erlang
