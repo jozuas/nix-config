@@ -35,9 +35,7 @@ in {
     python3Packages.isort
     nodePackages.pyright
     nodePackages.bash-language-server
-    nodePackages.vscode-html-languageserver-bin
-    nodePackages.vscode-css-languageserver-bin
-    nodePackages.vscode-json-languageserver
+    nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodePackages.typescript-language-server
     nodePackages.typescript # Seems to be needed for DOOM to detect typescript-language-server
