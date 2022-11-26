@@ -2,6 +2,3 @@
 desktop/current.nix
 machine/current.nix
 environment/current.nix
-
-# Specific to machine
-home.nix
