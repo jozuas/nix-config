@@ -2,8 +2,8 @@
 
 let
   pkgs_unstable = import <nixpkgs-unstable> { };
-  variables = import ~/nix-config/variables.nix;
-  private-pkgs = import ../../private-pkgs;
+  variables = import ./../variables.nix;
+  private-pkgs = import ./../private-pkgs;
 in {
   imports = [
     ./common.nix
@@ -40,7 +40,7 @@ in {
     bitwarden
     chromium
     pkgs_unstable.tdesktop
-    pkgs_unstable.discord
+    # pkgs_unstable.discord
     firefox-devedition-bin
 
     youtube-dl
@@ -66,10 +66,11 @@ in {
     zsh = {
       enableVteIntegration = true;
       sessionVariables = {
-        BROWSER = "${pkgs.chromium}/bin/chromium";
+        BROWSER = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition";
         TERMINAL = "${pkgs.alacritty}/bin/alacritty";
         CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
         GITHUB_TOKEN = "${variables.GITHUB_TOKEN}";
+        OPENWEATHER_API_KEY = "${variables.OPENWEATHER_API_KEY}";
       };
     };
 

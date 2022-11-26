@@ -2,3 +2,6 @@
 desktop/current.nix
 machine/current.nix
 environment/current.nix
+
+# Secrets
+variables.nix

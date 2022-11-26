@@ -116,10 +116,9 @@ reboot
    ```
 6. Move `networking.interfaces.*` and `boot.initrd.luks.devices.root` config into the
    respective machine directory under the git nixos directory (e.g. `nixos/machine/x220`)
-7. Create `variables.env` in the root directory of the git repo with `NIX_CONFIG_MACHINE`,
-   `NIX_CONFIG_DE`, `NIX_CONFIG_ENV` and `OPENWEATHER_API_KEY`.
-8. Run `linux_configure.sh` as normal user from the `scripts/nix-setup` directory.
-9. `chown -R root:root /home/juozas/nix-config/nixos`
+7. Create `variables.nix` in the `home-manager` directory of the git repo with `OPENWEATHER_API_KEY`.
+   and `GITHUB_TOKEN` vars.
+8. Modify and run `linux_configure.sh` as normal user from the `scripts/nix-setup` directory.
 
 
 ### Other manual configuration

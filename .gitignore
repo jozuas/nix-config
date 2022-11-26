@@ -1,6 +1,3 @@
-variables.env
-variables.nix
-
 .DS_Store
 
 # Cachix

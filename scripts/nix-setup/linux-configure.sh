@@ -4,8 +4,8 @@
 
 nixpkgs_version="22.05"
 
-export SETUP_MACHINE="mbp"
-export SETUP_OS="macos"
+export SETUP_MACHINE="t480s"
+export SETUP_OS="linux"
 bash ./linux/*.sh
 
 sudo nix-channel --remove nixos-hardware

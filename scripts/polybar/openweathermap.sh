@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source /home/juozas/nix-config/variables.env
-
 get_icon() {
   case $1 in
   01d) icon="" ;;

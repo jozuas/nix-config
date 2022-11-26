@@ -2,12 +2,16 @@
 
 { pkgs, ... }:
 
-{
+let
+  home = "/home/juozas";
+in {
   imports = [
     ./state-version.nix
     ./hardware-configuration.nix
     ./machine/t480s.nix
     ./desktop/i3.nix
+
+     <home-manager/nixos>
   ];
 
   boot = {
@@ -104,7 +108,15 @@
   sound.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nix.autoOptimiseStore = true;
+
+  nix = {
+    autoOptimiseStore = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
 
   environment = {
     systemPackages = with pkgs; [
@@ -148,6 +160,8 @@
     };
   };
 
+  system.autoUpgrade.enable = true;
+
   users.users.tcpcryptd.group = "tcpcryptd";
   users.groups.tcpcryptd = { };
 
@@ -155,8 +169,9 @@
   users.users.juozas = {
     isNormalUser = true;
     extraGroups = [ "wheel" "wireshark" "networkmanager" "video" "vboxusers" ];
-    home = "/home/juozas";
+    home = home;
   };
 
-  system.autoUpgrade.enable = true;
+  # Setup home-manager
+  home-manager.users.juozas = (import "${home}/.config/nixpkgs/home.nix");
 }

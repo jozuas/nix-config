@@ -3,6 +3,10 @@
 {
   imports = [ ./common.nix ];
 
+  # Let Home Manager install and manage itself.
+  # Only needed for MacOS.
+  programs.home-manager.enable = true;
+
   home.packages = with pkgs; [ htop fontconfig ansible ];
 
   # Allow fontconfig to discover fonts and configurations installed through

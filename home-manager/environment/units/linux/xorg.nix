@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let private-pkgs = import /home/juozas/nix-config/private-pkgs;
+let private-pkgs = import ./../../../private-pkgs;
 in {
   imports = [ ./xorg/redshift.nix ./xorg/xresources.nix ./xorg/i3.nix ];
 
