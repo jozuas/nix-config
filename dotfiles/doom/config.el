@@ -68,6 +68,7 @@
 (setq projectile-indexing-method 'alien)
 (after! projectile  
   (add-to-list 'projectile-globally-ignored-directories "*dist") ;; JS
+  (add-to-list 'projectile-globally-ignored-directories "*.yarn") ;; JS
   (add-to-list 'projectile-globally-ignored-directories "*_build") ;; Erlang/Elixir
   (add-to-list 'projectile-globally-ignored-directories "*deps") ;; Elixir
   (add-to-list 'projectile-globally-ignored-directories "*.direnv") ;; Nix
