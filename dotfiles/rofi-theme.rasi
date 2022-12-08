@@ -46,17 +46,22 @@
 element {
     border: 0;
     border-radius: 0;
-    padding: 18px ;
+    padding: 18px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
 }
 
 element.normal, element.alternate {
     background-color: @normal-background;
-    text-color:       @foreground;
+    text-color:       @selected-normal-background;
 }
 
 element.selected, button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+    background-color: rgba(255, 255, 255, 100%);
+    text-color:       rgba(0, 0, 0, 100%);
 }
 
 scrollbar {

@@ -35,7 +35,7 @@ bindsym Print exec --no-startup-id "maim -s | xclip -selection clipboard -t imag
 bindsym Mod4+Ctrl+s exec --no-startup-id "maim -s ~/pictures/$(date +%s).png"
 bindsym Mod4+Ctrl+t exec --no-startup-id "bash /home/juozas/nix-config/scripts/touchpad-toggle.sh"
 bindsym Mod4+Ctrl+p exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/tray-toggle.sh"
-bindsym Mod4+Ctrl+i exec --no-startup-id "bash /home/juozas/nix-config/scripts/invert-colour.sh"
+bindsym Mod4+Ctrl+i exec --no-startup-id "bash /home/juozas/nix-config/scripts/jn-invert-colour.sh"
 bindsym Mod4+Ctrl+c exec --no-startup-id "pkill picom"
 bindsym Mod4+Ctrl+l exec --no-startup-id $LOCK
 bindsym Mod4+d exec --no-startup-id rofi -show drun -display-drun "> "
