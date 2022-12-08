@@ -132,6 +132,7 @@ in {
       binutils
       whois
       curl
+      nix-index
     ];
   };
 
