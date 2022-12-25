@@ -46,8 +46,10 @@ in
       enable = true;
       interfaces = {
         wg0 = {
-          ips = [ "10.0.0.1/24" ];
+          ips = [ "10.0.0.100/32" ];
           listenPort = 51820; # to match firewall allowedUDPPorts (wg uses random port numbers by default)
+
+          generatePrivateKeyFile = true;
           privateKeyFile = "/etc/wireguard/private.key";
 
           peers = [
