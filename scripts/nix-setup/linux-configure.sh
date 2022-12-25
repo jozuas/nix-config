@@ -37,4 +37,12 @@ if [[ ! -d ~/.emacs.d ]]; then
   ~/.emacs.d/bin/doom install
 fi
 
+# Setup wireguard keys
+if [[ ! -d /etc/wireguard ]]; then
+  sudo mkdir -m 600 /etc/wireguard
+  umask 077
+  sudo bash -c "wg genkey > /etc/wireguard/private.key"
+  sudo bash -c "wg pubkey < /etc/wireguard/private.key > /etc/wireguard/public.key"
+fi
+
 echo "Done, please reboot"
