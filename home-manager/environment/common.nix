@@ -17,6 +17,7 @@ in {
   home.packages = with pkgs; [
     # CLI Tools
     cloc
+    git-quick-stats
     onefetch
     delta
     ranger
@@ -42,6 +43,7 @@ in {
     nodePackages.stylelint
     html-tidy
     elvis-erlang
+    erlfmt
     pkgs_unstable.erlang-ls
     pkgs_unstable.elixir_ls
     rnix-lsp

@@ -94,6 +94,7 @@
 (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
 ;; Erlang
+(set-formatter! 'erlfmt  "erlfmt -" :modes '(erlang-mode))
 (map! :leader
       (:prefix ("e" . "erlang")
        :desc "Jump back within func"
