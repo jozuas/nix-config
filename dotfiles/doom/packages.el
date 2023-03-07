@@ -3,3 +3,4 @@
 
 (package! adoc-mode)
 (package! groovy-mode)
+(package! rfc-mode)

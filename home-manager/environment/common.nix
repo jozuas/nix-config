@@ -27,6 +27,8 @@ in {
     neofetch
     wget
     cmatrix
+    ssldump
+    nmap
 
     # Doom, Vim
     emacs-all-the-icons-fonts
@@ -68,7 +70,7 @@ in {
     yarn
     ## Erlang / Elixir
     pkgs_unstable.elixir
-    pkgs_unstable.erlang
+    pkgs_unstable.erlangR25
     rebar3
     rebar
 
