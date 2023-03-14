@@ -7,7 +7,16 @@
   # Only needed for MacOS.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [ htop fontconfig ansible ];
+  home.packages = with pkgs; [ 
+    htop
+    fontconfig
+    
+    # Work
+    postgresql
+    sqitchPg
+    redis
+    rabbitmq-server
+  ];
 
   # Allow fontconfig to discover fonts and configurations installed through
   # home.packages and nix-env

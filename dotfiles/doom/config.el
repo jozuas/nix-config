@@ -67,11 +67,13 @@
 (setq projectile-project-search-path '("~/dev/"))
 (setq projectile-indexing-method 'alien)
 (after! projectile  
+  (add-to-list 'projectile-globally-ignored-directories "node-modules") ;; JS
   (add-to-list 'projectile-globally-ignored-directories "*dist") ;; JS
   (add-to-list 'projectile-globally-ignored-directories "*.yarn") ;; JS
   (add-to-list 'projectile-globally-ignored-directories "*_build") ;; Erlang/Elixir
   (add-to-list 'projectile-globally-ignored-directories "*deps") ;; Elixir
   (add-to-list 'projectile-globally-ignored-directories "*.direnv") ;; Nix
+  (add-to-list 'projectile-globally-ignored-directories "*.data") ;; Usually where I locallise DBs
 )
 
 ;; (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
@@ -93,28 +95,11 @@
 ;; Config for all LSPs
 (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
-;; Erlang
-(set-formatter! 'erlfmt  "erlfmt -" :modes '(erlang-mode))
-(map! :leader
-      (:prefix ("e" . "erlang")
-       :desc "Jump back within func"
-       "b" #'erlang-beginning-of-function))
-(map! :leader
-      (:prefix ("e" . "erlang")
-       :desc "Jump forward within func"
-       "f" #'erlang-end-of-function))
-(map! :leader
-      (:prefix ("e" . "erlang")
-       :desc "Manual for under cursor"
-       "s" #'erlang-man-function-no-prompt))
-(map! :leader
-      (:prefix ("e" . "erlang")
-       :desc "Manual for module"
-       "m" #'erlang-man-module))
+;; rfc-mode
+(setq rfc-mode-directory (expand-file-name "~/.rfc/"))
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
-;; (setq lsp-pyright-typechecking-mode "strict")
 
 ;; Web mode
 (with-eval-after-load 'web-mode

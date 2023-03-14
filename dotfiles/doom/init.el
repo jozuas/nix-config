@@ -61,7 +61,8 @@
        (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)
-       (python +lsp +pyright)
+       ;;(python +lsp +pyright) at the moment crashes Doom with "Too many files open"
+       python
 
        :config
        (default +bindings +smartparens))
