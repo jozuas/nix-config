@@ -16,6 +16,7 @@
     ignores = [ "*.swp" ".ignore" ];
     extraConfig = {
       pull = { rebase = false; };
+      push = { autoSetupRemote = true; };
       core = { editor = "nvim"; };
       grep = {
         lineNumber = true;
