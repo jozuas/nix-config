@@ -46,8 +46,8 @@ in {
     html-tidy
     elvis-erlang
     erlfmt
-    pkgs_unstable.erlang-ls
-    pkgs_unstable.elixir_ls
+    erlang-ls
+    elixir_ls
     rnix-lsp
     nixfmt
     nix-linter

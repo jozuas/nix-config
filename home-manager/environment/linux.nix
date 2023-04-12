@@ -45,8 +45,9 @@ in {
     pkgs_unstable.tdesktop
     # pkgs_unstable.discord
     firefox-devedition-bin
+    pkgs_unstable.zeal
 
-    youtube-dl
+    pkgs_unstable.youtube-dl
     pick-colour-picker
     simplescreenrecorder
     zathura

@@ -76,7 +76,7 @@
   (add-to-list 'projectile-globally-ignored-directories "*.data") ;; Usually where I locallise DBs
 )
 
-(define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
+;; (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
 
 ;; Bug in Emacs 27 on MacOS - git gutter is not shown, remove after switch to Emacs 28
 (after! git-gutter-fringe
