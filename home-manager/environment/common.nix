@@ -28,6 +28,7 @@ in {
     wget
     cmatrix
     ssldump
+    bind
     nmap
 
     # Doom, Vim
