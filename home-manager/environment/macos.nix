@@ -37,6 +37,8 @@
           "HOMEBREW_CELLAR=/usr/local/Cellar HOMEBREW_PREFIX=/usr/local HOMEBREW_REPOSITORY=/usr/local PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin arch -x86_64 /usr/local/bin/brew";
         essh =
           "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
+        escp =
+          "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
       };
     };
     tmux = {
