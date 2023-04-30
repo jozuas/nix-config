@@ -78,6 +78,7 @@ in {
     rebar
     ## Rust
     rustc
+    cargo
 
     ## Nix
     pkgs_unstable.comma
@@ -85,6 +86,9 @@ in {
     nixpkgs-fmt
     nix-prefetch-git
     nixpkgs-review
+
+    ## Other
+    ansible
   ];
 
   programs = {

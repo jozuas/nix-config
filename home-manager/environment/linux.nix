@@ -15,9 +15,6 @@ in {
   ];
 
   home.packages = with pkgs; [
-    # Dev
-    ansible
-
     # Doom
     clang
 
