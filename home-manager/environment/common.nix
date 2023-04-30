@@ -57,6 +57,8 @@ in {
     proselint
     ripgrep
     coreutils
+    rustfmt
+    rust-analyzer
 
     # Programming language tooling
     gnumake
@@ -74,6 +76,8 @@ in {
     pkgs_unstable.erlangR25
     rebar3
     rebar
+    ## Rust
+    rustc
 
     ## Nix
     pkgs_unstable.comma
