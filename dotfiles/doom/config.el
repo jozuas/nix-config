@@ -66,7 +66,7 @@
 
 (setq projectile-project-search-path '("~/dev/"))
 (setq projectile-indexing-method 'alien)
-(after! projectile  
+(after! projectile
   (add-to-list 'projectile-globally-ignored-directories "node-modules") ;; JS
   (add-to-list 'projectile-globally-ignored-directories "*dist") ;; JS
   (add-to-list 'projectile-globally-ignored-directories "*.yarn") ;; JS
@@ -74,7 +74,7 @@
   (add-to-list 'projectile-globally-ignored-directories "*deps") ;; Elixir
   (add-to-list 'projectile-globally-ignored-directories "*.direnv") ;; Nix
   (add-to-list 'projectile-globally-ignored-directories "*.data") ;; Usually where I locallise DBs
-)
+  )
 
 ;; (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
 
@@ -113,6 +113,11 @@
   (setq web-mode-enable-current-column-highlight t)
   )
 
+;; ChatGPT
+(setq chatgpt-shell-openai-key
+      (lambda ()
+        (nth 0 (process-lines "pass" "show" "openai-key"))))
+
 (with-eval-after-load 'company
   ;; Company
   ;; Prevent suggestions from being triggered automatically. In particular,
@@ -127,9 +132,9 @@
     ;; when the user has not explicitly interacted with Company.
     (define-key company-active-map (kbd key)
       `(menu-item nil company-complete
-                  :filter ,(lambda (cmd)
-                             (when (company-explicit-action-p)
-                               cmd)))))
+        :filter ,(lambda (cmd)
+                   (when (company-explicit-action-p)
+                     cmd)))))
   (define-key company-active-map (kbd "RET") nil)
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "TAB") #'company-complete-selection)

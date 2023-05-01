@@ -98,6 +98,12 @@ in {
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
+
     gpg.enable = true;
+
+    password-store = {
+      enable = true;
+      package = pkgs.pass;
+    };
   };
 }

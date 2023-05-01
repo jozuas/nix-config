@@ -4,3 +4,4 @@
 (package! adoc-mode)
 (package! groovy-mode)
 (package! rfc-mode)
+(package! chatgpt-shell)
