@@ -14,8 +14,6 @@ in {
   };
 
   services = {
-    teamviewer.enable = true;
-
     # Gets rid of screen tearing
     xserver = {
       videoDrivers = [ "intel" ];

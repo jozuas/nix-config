@@ -2,7 +2,7 @@
 
 # This script and all scripts under ./linux are idempotent
 
-nixpkgs_version="22.05"
+nixpkgs_version="22.11"
 
 export SETUP_MACHINE="t480s"
 export SETUP_OS="linux"
