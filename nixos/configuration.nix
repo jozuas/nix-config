@@ -177,9 +177,6 @@ in
   };
 
   services = {
-    # Distribute hardware interrupts accross processors
-    irqbalance.enable = true;
-
     xserver = {
       # Support for most mice and keyboards
       libinput.enable = true;
