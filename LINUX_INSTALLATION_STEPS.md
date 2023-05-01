@@ -130,3 +130,4 @@ reboot
 - Set `layers.acceleration.force-enabled` to `true` to get rid of screen tearing on Firefox.
 - Create a keyring named `login` with Seahorse. Password must be the same as the login password.
 - Import manual backups from ~/nix-config/backups
+- Create password store with `pass init GPG-KEY-ID`

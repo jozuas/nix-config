@@ -11,3 +11,5 @@
 - Generate an SSH Key with `ssh-keygen -t rsa -b 4096 -C "norkus@norkus.net`
   and run `ssh-add ~/.ssh/id_rsa` to add the key into the keychain.
 - Import manual backups from ~/nix-config/backups
+- Create password store with `pass init GPG-KEY-ID`
+
