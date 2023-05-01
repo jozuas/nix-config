@@ -16,7 +16,11 @@ in
   ];
 
   boot = {
-    kernel.sysctl = { "vm.swappiness" = 1; };
+    kernel.sysctl = {
+      "vm.swappiness" = 1; 
+      "net.core.default_qdisc" = "cake";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+    };
 
     loader = {
       systemd-boot = {
@@ -134,13 +138,15 @@ in
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    autoOptimiseStore = true;
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    settings.experimental-features = "nix-command flakes";
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };
   };
 
   environment = {
@@ -179,8 +185,6 @@ in
       enable = true;
 
       layout = "gb";
-      # layout = "gb,ru";
-      # xkbVariant = ",phonetic_winkeys";
 
       xkbOptions = "compose:ralt,caps:escape,grp:switch,grp:alt_space_toggle";
     };
