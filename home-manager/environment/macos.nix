@@ -38,7 +38,7 @@
         essh =
           "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
         escp =
-          "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
+          "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
       };
     };
     tmux = {
