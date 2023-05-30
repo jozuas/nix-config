@@ -30,6 +30,7 @@ in {
     ssldump
     bind
     nmap
+    sshpass
 
     # Doom, Vim
     emacs-all-the-icons-fonts
