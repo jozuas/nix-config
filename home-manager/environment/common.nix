@@ -49,7 +49,7 @@ in {
     elvis-erlang
     erlfmt
     erlang-ls
-    elixir_ls
+    pkgs_unstable.elixir_ls
     rnix-lsp
     nixfmt
     nix-linter
