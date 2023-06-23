@@ -53,7 +53,7 @@ in {
     erlang-ls
     elixir_ls
     nixfmt
-    pkgs_unstable.nixd
+    # pkgs_unstable.nixd
     rustfmt
     rust-analyzer
     hunspell
