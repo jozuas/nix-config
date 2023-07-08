@@ -31,6 +31,7 @@ in {
     bind
     nmap
     sshpass
+    pstree
 
     # Doom, Vim
     emacs-all-the-icons-fonts
