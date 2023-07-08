@@ -33,7 +33,7 @@ in {
     sshpass
     pstree
 
-    # Doom, Vim
+    # IDE tools
     emacs-all-the-icons-fonts
     python3Packages.pytest
     python3Packages.flake8
@@ -41,6 +41,8 @@ in {
     python3Packages.isort
     nodePackages.pyright
     nodePackages.bash-language-server
+    shellcheck
+    shfmt
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodePackages.typescript-language-server
@@ -51,23 +53,19 @@ in {
     erlfmt
     erlang-ls
     elixir_ls
-    rnix-lsp
     nixfmt
-    nix-linter
+    # pkgs_unstable.nixd
+    rustfmt
+    rust-analyzer
     hunspell
     hunspellDicts.en-gb-large
     proselint
     ripgrep
     coreutils
-    rustfmt
-    rust-analyzer
 
     # Programming language tooling
     gnumake
     sqlite
-    ## Bash
-    shellcheck
-    shfmt
     ## Python
     python3
     ## JavaScript
@@ -77,7 +75,6 @@ in {
     pkgs_unstable.elixir
     pkgs_unstable.erlangR25
     rebar3
-    rebar
     ## Rust
     rustc
     cargo

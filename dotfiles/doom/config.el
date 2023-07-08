@@ -93,13 +93,15 @@
 ;;    forge-gitlab-repository))
 
 ;; Config for all LSPs
-(setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
+;; (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
 ;; rfc-mode
 (setq rfc-mode-directory (expand-file-name "~/.rfc/"))
 
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
+
+(add-hook! company-mode (yas-minor-mode))
 
 ;; Web mode
 (with-eval-after-load 'web-mode
