@@ -32,7 +32,7 @@ in
       efi.canTouchEfiVariables = true;
     };
 
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
