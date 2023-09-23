@@ -13,8 +13,6 @@
       name = "Papirus-Dark";
     };
     gtk2.extraConfig = ''
-      gtk-cursor-theme-name="Bibata-Original-Ice"
-      gtk-cursor-theme-size=0
       gtk-toolbar-style=GTK_TOOLBAR_BOTH
       gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
       gtk-button-images=1
@@ -27,8 +25,6 @@
       gtk-xft-rgba="rgb"
     '';
     gtk3.extraConfig = {
-      gtk-cursor-theme-name = "Bibata-Original-Ice";
-      gtk-cursor-theme-size = "0";
       gtk-toolbar-style = "GTK_TOOLBAR_BOTH";
       gtk-toolbar-icon-size = "GTK_ICON_SIZE_LARGE_TOOLBAR";
       gtk-button-images = "1";

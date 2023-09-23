@@ -28,7 +28,7 @@ in {
     speedtest-cli
 
     # GUIs
-    obsidian
+    pkgs_unstable.obsidian
     vscode
     spotify
     gimp
@@ -56,6 +56,14 @@ in {
     gnome3.cheese
     transmission-gtk
   ];
+
+  home.pointerCursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Original-Ice";
+
+    gtk.enable = true;
+    x11.enable = true;
+  };
 
   services = {
     unclutter = {

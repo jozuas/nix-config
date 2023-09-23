@@ -2,8 +2,6 @@
 
 {
   xresources.properties = {
-    "Xcursor.theme" = "Bibata_Ice";
-    "Xcursor.size" = "16";
     "*.foreground" = "#fdfdfd";
     "*.background" = "#15161d";
     "*.cursorColor" = "#fdfdfd";

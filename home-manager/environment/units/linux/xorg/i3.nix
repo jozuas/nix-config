@@ -16,7 +16,6 @@
     deadd-notification-center
     xob
 
-    bibata-cursors
     light
     feh
   ];

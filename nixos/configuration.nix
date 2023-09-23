@@ -38,35 +38,11 @@ in
 
   networking = {
     hostName = "nixos";
-    tcpcrypt.enable = true;
 
     firewall = {
       enable = true;
       allowedTCPPorts = [ ];
       allowedUDPPorts = [ 51820 ];
-    };
-
-    wireguard = {
-      enable = true;
-      interfaces = {
-        wg0 = {
-          ips = [ "10.0.0.100/32" ];
-          listenPort = 51820; # to match firewall allowedUDPPorts (wg uses random port numbers by default)
-
-          generatePrivateKeyFile = true;
-          privateKeyFile = "/etc/wireguard/private.key";
-
-          peers = [
-            {
-              ## Terrapin ##
-              publicKey = "R7+sWoJON9sEsLzqY19N5qV5txZCj6Y1mb0ckckr2gI=";
-              endpoint = "167.235.148.205:51820";
-              allowedIPs = [ "10.0.0.0/16" ]; # Forward only subnet traffic
-              persistentKeepalive = 20; # Important to keep NAT tables alive.
-            }
-          ];
-        };
-      };
     };
 
     hosts = { "192.168.1.42" = [ "pi" ]; };
@@ -191,9 +167,6 @@ in
   };
 
   system.autoUpgrade.enable = true;
-
-  users.users.tcpcryptd.group = "tcpcryptd";
-  users.groups.tcpcryptd = { };
 
   users.defaultUserShell = pkgs.zsh;
   users.users.juozas = {
