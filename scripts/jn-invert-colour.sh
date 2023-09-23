@@ -7,5 +7,5 @@ if [ "$(pidof picom)" ]; then
 else
   ID=$(xdotool getactivewindow)
   COND="client=${ID}"
-  picom --experimental-backends --invert-color-include "$COND" -b
+  picom --invert-color-include "$COND" -b
 fi

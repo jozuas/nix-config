@@ -29,6 +29,7 @@ in {
 
     # GUIs
     obsidian
+    vscode
     spotify
     gimp
     inkscape
