@@ -42,7 +42,6 @@
        :tools
        pass
        ansible
-       docker
        editorconfig
        direnv
        lookup
