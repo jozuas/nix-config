@@ -41,7 +41,7 @@ in {
     bitwarden
     chromium
     pkgs_unstable.tdesktop
-    # pkgs_unstable.discord
+    pkgs_unstable.discord
     firefox-devedition-bin
     pkgs_unstable.zeal
 
