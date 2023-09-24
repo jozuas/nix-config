@@ -3,7 +3,7 @@
 {
   gtk = {
     enable = true;
-    font = { package = pkgs.dejavu_fonts; };
+    font = { package = pkgs.ubuntu_font_family; };
     theme = {
       package = pkgs.matcha-gtk-theme;
       name = "Matcha-dark-sea";
