@@ -73,7 +73,7 @@
   (add-to-list 'projectile-globally-ignored-directories "*_build") ;; Erlang/Elixir
   (add-to-list 'projectile-globally-ignored-directories "*deps") ;; Elixir
   (add-to-list 'projectile-globally-ignored-directories "*.direnv") ;; Nix
-  (add-to-list 'projectile-globally-ignored-directories "*.data") ;; Usually where I locallise DBs
+  (add-to-list 'projectile-globally-ignored-directories "*.devenv") ;; Devenv
   )
 
 ;; (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)

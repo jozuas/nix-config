@@ -7,6 +7,7 @@ let
 in
 {
   imports = [
+    ./cachix.nix
     ./state-version.nix
     ./hardware-configuration.nix
     ./machine/t480s.nix

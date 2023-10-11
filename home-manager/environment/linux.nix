@@ -29,6 +29,9 @@ in {
 
     # GUIs
     pkgs_unstable.obsidian
+    pkgs_unstable.thunderbird
+    pkgs_unstable.notion-app-enhanced
+    pkgs_unstable.slack
     vscode
     spotify
     gimp
@@ -36,10 +39,10 @@ in {
     audacity
     libreoffice-fresh
     teamviewer
-    teams
+    #teams
     zoom-us
     bitwarden
-    chromium
+    #chromium
     pkgs_unstable.tdesktop
     pkgs_unstable.discord
     firefox-devedition-bin
