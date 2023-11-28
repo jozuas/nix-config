@@ -17,6 +17,7 @@ in {
   home.packages = with pkgs; [
     # Doom
     clang
+    gcc
 
     # Broken on MacOS
     python3Packages.bpython
@@ -32,20 +33,22 @@ in {
     pkgs_unstable.thunderbird
     pkgs_unstable.notion-app-enhanced
     pkgs_unstable.slack
-    vscode
+    pkgs_unstable.beekeeper-studio
+    pkgs_unstable.vscode
+    pkgs_unstable.gh
     spotify
     gimp
     inkscape
     audacity
     libreoffice-fresh
     teamviewer
-    #teams
     zoom-us
     bitwarden
     #chromium
     pkgs_unstable.tdesktop
     pkgs_unstable.discord
     firefox-devedition-bin
+    #brave
     pkgs_unstable.zeal
 
     pkgs_unstable.youtube-dl
@@ -83,7 +86,6 @@ in {
         BROWSER = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition";
         TERMINAL = "${pkgs.alacritty}/bin/alacritty";
         CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
-        GITHUB_TOKEN = "${variables.GITHUB_TOKEN}";
         OPENWEATHER_API_KEY = "${variables.OPENWEATHER_API_KEY}";
       };
     };

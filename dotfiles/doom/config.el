@@ -115,11 +115,6 @@
   (setq web-mode-enable-current-column-highlight t)
   )
 
-;; ChatGPT
-(setq chatgpt-shell-openai-key
-      (lambda ()
-        (nth 0 (process-lines "pass" "show" "openai-key"))))
-
 (with-eval-after-load 'company
   ;; Company
   ;; Prevent suggestions from being triggered automatically. In particular,
