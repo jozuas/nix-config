@@ -8,6 +8,7 @@ in {
   imports = [
     ./common.nix
     ./units/linux/alacritty.nix
+    ./units/common/doom.nix
     ./units/linux/gtk.nix
     ./units/linux/rofi.nix
     ./units/linux/xdg.nix

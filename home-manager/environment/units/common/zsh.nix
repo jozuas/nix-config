@@ -33,7 +33,7 @@
       TERM = "xterm-256color";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";
-      PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:$PATH";
+      PATH = "$HOME/.npm-packages/bin:$HOME/.emacs.d/bin:$HOME/scripts:/usr/bin/git/:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS = "(main brackets cursor)";
       ERL_AFLAGS = "-kernel shell_history enabled";
       ERL_EPMD_ADDRESS = "127.0.0.1"; # By default epmd listens on 0.0.0.0

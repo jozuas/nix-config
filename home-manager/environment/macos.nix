@@ -10,12 +10,6 @@
   home.packages = with pkgs; [ 
     htop
     fontconfig
-    
-    # Work
-    postgresql
-    sqitchPg
-    redis
-    rabbitmq-server
   ];
 
   # Allow fontconfig to discover fonts and configurations installed through
@@ -31,13 +25,14 @@
       };
       initExtra = ''
         source $HOME/.iterm2_shell_integration.zsh
+        source $HOME/.ory_shell_integration.zsh
       '';
       shellAliases = {
         x86brew =
           "HOMEBREW_CELLAR=/usr/local/Cellar HOMEBREW_PREFIX=/usr/local HOMEBREW_REPOSITORY=/usr/local PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin arch -x86_64 /usr/local/bin/brew";
-        essh =
+        ussh =
           "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
-        escp =
+        uscp =
           "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
       };
     };

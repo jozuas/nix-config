@@ -4,7 +4,6 @@ let pkgs_unstable = import <nixpkgs-unstable> { };
 in {
   imports = [
     ./units/common/bat.nix
-    ./units/common/doom.nix
     ./units/common/fzf.nix
     ./units/common/git.nix
     ./units/common/neovim.nix
@@ -18,7 +17,6 @@ in {
     # CLI Tools
     cloc
     git-quick-stats
-    onefetch
     delta
     ranger
     tldr
@@ -26,7 +24,6 @@ in {
     fd
     neofetch
     wget
-    cmatrix
     ssldump
     bind
     nmap
@@ -35,11 +32,6 @@ in {
 
     # IDE tools
     emacs-all-the-icons-fonts
-    python3Packages.pytest
-    python3Packages.flake8
-    python3Packages.black
-    python3Packages.isort
-    nodePackages.pyright
     nodePackages.bash-language-server
     shellcheck
     shfmt
@@ -49,14 +41,13 @@ in {
     nodePackages.typescript # Seems to be needed for DOOM to detect typescript-language-server
     nodePackages.stylelint
     html-tidy
-    elvis-erlang
-    erlfmt
-    erlang-ls
-    elixir_ls
+    # DOOM Emacs/VS Code download their own
+    # elvis-erlang
+    # erlfmt
+    # erlang-ls
+    # elixir_ls - 
     nixfmt
-    # pkgs_unstable.nixd
-    rustfmt
-    rust-analyzer
+    pkgs_unstable.nixd
     hunspell
     hunspellDicts.en-gb-large
     proselint
@@ -73,7 +64,7 @@ in {
     yarn
     ## Erlang / Elixir
     pkgs_unstable.elixir
-    pkgs_unstable.erlangR25
+    pkgs_unstable.erlang
     rebar3
     ## Rust
     rustc
@@ -81,7 +72,6 @@ in {
 
     ## Nix
     pkgs_unstable.comma
-    manix
     nixpkgs-fmt
     nix-prefetch-git
     nixpkgs-review

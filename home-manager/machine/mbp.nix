@@ -3,8 +3,8 @@
 {
   programs = {
     git = {
-      userEmail = "jnorkus@evolution.com";
-      signing.key = "2E6C9ABEFDF480C7";
+      userEmail = "norkus@norkus.net";
+      signing.key = "A1BC0103F3EE3ECE";
     };
   };
 }

@@ -2,14 +2,12 @@
 
 (setq user-full-name "Juozas Norkus")
 
-(if (eq system-type 'darwin)
-    (setq user-mail-address "jnorkus@evolution.com")
-  (setq user-mail-address "norkus@norkus.net"))
+(setq user-mail-address "norkus@norkus.net")
 
 (setq doom-theme 'doom-vibrant)
 (setq display-line-numbers-type 'relative)
 (setq doom-font (font-spec
-                 :family "Hack Nerd Font Mono"
+                 :family "DejaVuSansM Nerd Font Mono"
                  :size (if (eq system-type 'darwin) 14 16)
                  :weight 'regular))
 
@@ -82,16 +80,6 @@
 (after! git-gutter-fringe
   (fringe-mode '16))
 
-;; TODO: does not work properly, need to follow
-;; https://magit.vc/manual/ghub/Getting-Started.html for user and token setup
-;; Configure Forge repositories
-;; (add-to-list
-;;  'forge-alist
-;;  '("gitlab.evolution.com"
-;;    "gitlab.evolution.com/api/v4"
-;;    "gitlab.evolution.com"
-;;    forge-gitlab-repository))
-
 ;; Config for all LSPs
 ;; (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
@@ -101,7 +89,8 @@
 ;; Python
 (add-hook 'before-save-hook 'py-isort-before-save)
 
-(add-hook! company-mode (yas-minor-mode))
+;; TODO: what is this
+;; (add-hook! company-mode (yas-minor-mode))
 
 ;; Web mode
 (with-eval-after-load 'web-mode

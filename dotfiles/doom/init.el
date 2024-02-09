@@ -59,10 +59,10 @@
        (yaml +lsp)
        (json +lsp)
        (nix +lsp)
-       (javascript +lsp)
        (erlang +lsp)
        (elixir +lsp)
-       (rust +lsp)
+       ;;(javascript +lsp)
+       ;;(rust +lsp)
        ;;(python +lsp +pyright) at the moment crashes Doom with "Too many files open"
        python
 

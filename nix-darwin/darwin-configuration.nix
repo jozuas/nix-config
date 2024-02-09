@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  username = "jnorkus";
+  username = "juozas";
   home = "/Users/${username}";
 in {
   # Auto upgrade nix package and the daemon service.
@@ -9,8 +9,8 @@ in {
 
   # Setup home-manager
   imports = [ <home-manager/nix-darwin> ];
-  users.users.jnorkus.home = home;
-  home-manager.users.jnorkus = (import ~/.config/nixpkgs/home.nix);
+  users.users.juozas.home = home;
+  home-manager.users.juozas = (import ~/.config/nixpkgs/home.nix);
 
   nix = {
     gc.automatic = true; # Run nix-collect-garbage once a week
