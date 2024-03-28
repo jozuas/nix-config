@@ -29,6 +29,7 @@ in {
     nmap
     sshpass
     pstree
+    ngrok
 
     # IDE tools
     emacs-all-the-icons-fonts
@@ -71,13 +72,13 @@ in {
     cargo
 
     ## Nix
-    pkgs_unstable.comma
     nixpkgs-fmt
-    nix-prefetch-git
     nixpkgs-review
+    nix-prefetch-git
 
     ## Other
     ansible
+    ansible-lint
   ];
 
   programs = {

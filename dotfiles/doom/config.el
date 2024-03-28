@@ -74,23 +74,11 @@
   (add-to-list 'projectile-globally-ignored-directories "*.devenv") ;; Devenv
   )
 
-;; (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
-
-;; Bug in Emacs 27 on MacOS - git gutter is not shown, remove after switch to Emacs 28
-(after! git-gutter-fringe
-  (fringe-mode '16))
-
 ;; Config for all LSPs
 ;; (setq lsp-ui-doc-enable nil)  ;; Do not show documentation popups
 
 ;; rfc-mode
 (setq rfc-mode-directory (expand-file-name "~/.rfc/"))
-
-;; Python
-(add-hook 'before-save-hook 'py-isort-before-save)
-
-;; TODO: what is this
-;; (add-hook! company-mode (yas-minor-mode))
 
 ;; Web mode
 (with-eval-after-load 'web-mode
