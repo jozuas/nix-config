@@ -16,7 +16,6 @@ in {
   home.packages = with pkgs; [
     # CLI Tools
     cloc
-    git-quick-stats
     delta
     ranger
     tldr
@@ -30,6 +29,8 @@ in {
     sshpass
     pstree
     ngrok
+    git-quick-stats
+    pkgs_unstable.gh
 
     # IDE tools
     emacs-all-the-icons-fonts
@@ -78,7 +79,8 @@ in {
 
     ## Other
     ansible
-    ansible-lint
+    pkgs_unstable.ansible-lint
+    #python311Packages.pip # ansible-lint crashes without pip
   ];
 
   programs = {

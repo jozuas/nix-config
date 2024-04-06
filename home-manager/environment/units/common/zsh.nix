@@ -26,6 +26,7 @@
       nix-direnv-new = "nix flake new -t github:nix-community/nix-direnv";
       nix-stray-roots =
         "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/w+-system|{memory)'";
+      ghcs = "gh copilot suggest";
     };
     sessionVariables = {
       EDITOR = "nvim";

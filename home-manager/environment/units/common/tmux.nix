@@ -3,7 +3,7 @@
 {
   programs.tmux = {
     enable = true;
-    shortcut = "space";
+    shortcut = "w";
     terminal = "screen-256color";
     keyMode = "vi";
     customPaneNavigationAndResize = true;
