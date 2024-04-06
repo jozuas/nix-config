@@ -8,7 +8,6 @@ in {
   imports = [
     ./common.nix
     ./units/linux/alacritty.nix
-    ./units/common/doom.nix
     ./units/linux/gtk.nix
     ./units/linux/rofi.nix
     ./units/linux/xdg.nix
@@ -16,40 +15,23 @@ in {
   ];
 
   home.packages = with pkgs; [
-    # Doom
-    clang
-    gcc
-
-    # Broken on MacOS
-    python3Packages.bpython
-
-    private-pkgs.s4
-    ngrok
-    awscli2
     nmap
     speedtest-cli
 
     # GUIs
     pkgs_unstable.obsidian
-    pkgs_unstable.thunderbird
-    pkgs_unstable.notion-app-enhanced
     pkgs_unstable.slack
     pkgs_unstable.beekeeper-studio
     pkgs_unstable.vscode
-    pkgs_unstable.gh
     spotify
     gimp
     inkscape
     audacity
-    libreoffice-fresh
-    teamviewer
-    zoom-us
     bitwarden
     #chromium
     pkgs_unstable.tdesktop
     pkgs_unstable.discord
     firefox-devedition-bin
-    #brave
     pkgs_unstable.zeal
 
     pkgs_unstable.youtube-dl
