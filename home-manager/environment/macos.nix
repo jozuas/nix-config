@@ -25,7 +25,6 @@
       };
       initExtra = ''
         source $HOME/.iterm2_shell_integration.zsh
-        source $HOME/.ory_shell_integration.zsh
       '';
       shellAliases = {
         x86brew =

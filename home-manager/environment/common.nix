@@ -31,6 +31,8 @@ in {
     ngrok
     git-quick-stats
     pkgs_unstable.gh
+    rclone
+    mosh
 
     # IDE tools
     emacs-all-the-icons-fonts
@@ -65,7 +67,7 @@ in {
     nodejs
     yarn
     ## Erlang / Elixir
-    pkgs_unstable.elixir
+    pkgs_unstable.beam.packages.erlangR26.elixir_1_15
     pkgs_unstable.erlang
     rebar3
     ## Rust
