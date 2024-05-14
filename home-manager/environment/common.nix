@@ -23,7 +23,7 @@ in {
     fd
     neofetch
     wget
-    ssldump
+    # ssldump broken right now
     bind
     nmap
     sshpass

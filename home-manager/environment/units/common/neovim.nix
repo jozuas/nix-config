@@ -17,7 +17,7 @@
       vim-sneak
 
       # Functionality
-      YouCompleteMe
+      #YouCompleteMe
       vim-polyglot
       ale
       neoformat
