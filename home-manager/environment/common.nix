@@ -50,7 +50,7 @@ in {
     # erlfmt
     # erlang-ls
     # elixir_ls - 
-    nixfmt
+    nixfmt-classic
     pkgs_unstable.nixd
     hunspell
     hunspellDicts.en-gb-large
@@ -67,8 +67,9 @@ in {
     nodejs
     yarn
     ## Erlang / Elixir
-    pkgs_unstable.beam.packages.erlangR26.elixir_1_15
+    pkgs_unstable.beam.packages.erlang_26.elixir_1_15
     pkgs_unstable.erlang
+    pkgs_unstable.gleam
     rebar3
     ## Rust
     rustc
