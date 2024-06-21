@@ -69,7 +69,7 @@ in {
     ## Erlang / Elixir
     pkgs_unstable.beam.packages.erlang_26.elixir_1_15
     pkgs_unstable.erlang
-    pkgs_unstable.gleam
+    pkgs_unstable.scala
     rebar3
     ## Rust
     rustc
