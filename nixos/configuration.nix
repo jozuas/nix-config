@@ -2,10 +2,8 @@
 
 { pkgs, ... }:
 
-let
-  home = "/home/juozas";
-in
-{
+let home = "/home/juozas";
+in {
   imports = [
     ./cachix.nix
     ./state-version.nix
@@ -18,7 +16,7 @@ in
 
   boot = {
     kernel.sysctl = {
-      "vm.swappiness" = 1; 
+      "vm.swappiness" = 1;
       "net.core.default_qdisc" = "cake";
       "net.ipv4.tcp_congestion_control" = "bbr";
     };

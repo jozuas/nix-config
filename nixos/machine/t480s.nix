@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
-let pkgs_unstable = import <nixpkgs-unstable> { };
-in {
+{
   imports = [ <nixos-hardware/lenovo/thinkpad/t480s> ./laptop-common.nix ];
 
   boot.initrd.luks.devices.root = {

@@ -4,18 +4,18 @@ let private-pkgs = import ./../../../private-pkgs;
 in {
   imports = [ ./xorg/redshift.nix ./xorg/xresources.nix ./xorg/i3.nix ];
 
-  home.packages = with pkgs; [
+  home.packages = [
     private-pkgs.disable-mouse-acceleration
 
-    maim
+    pkgs.maim
 
-    arandr
-    xclip
-    xdotool
-    xorg.xev
-    xorg.xrandr
-    xorg.xmodmap
-    xorg.xwininfo
-    xorg.xkill
+    pkgs.arandr
+    pkgs.xclip
+    pkgs.xdotool
+    pkgs.xorg.xev
+    pkgs.xorg.xrandr
+    pkgs.xorg.xmodmap
+    pkgs.xorg.xwininfo
+    pkgs.xorg.xkill
   ];
 }

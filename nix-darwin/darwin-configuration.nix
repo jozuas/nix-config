@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+_:
 
 let
   username = "juozas";
@@ -10,7 +10,7 @@ in {
   # Setup home-manager
   imports = [ <home-manager/nix-darwin> ];
   users.users.juozas.home = home;
-  home-manager.users.juozas = (import ~/.config/nixpkgs/home.nix);
+  home-manager.users.juozas = import ~/.config/nixpkgs/home.nix;
 
   nix = {
     gc.automatic = true; # Run nix-collect-garbage once a week
@@ -18,10 +18,8 @@ in {
       auto-optimise-store = true; # Run nix-store --optimise
 
       # Binary caches
-      substituters = [
-        "https://nix-community.cachix.org" 
-        "https://devenv.cachix.org"
-      ];
+      substituters =
+        [ "https://nix-community.cachix.org" "https://devenv.cachix.org" ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="

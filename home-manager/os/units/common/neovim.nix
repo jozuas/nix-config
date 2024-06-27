@@ -6,6 +6,19 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+
+    coc = {
+      enable = true;
+      settings = {
+        languageserver = {
+          nix = {
+            command = "nixd";
+            filetypes = [ "nix" ];
+          };
+        };
+      };
+    };
+
     plugins = with pkgs.vimPlugins; [
       # Looks
       vim-airline
@@ -17,9 +30,7 @@
       vim-sneak
 
       # Functionality
-      #YouCompleteMe
       vim-polyglot
-      ale
       neoformat
 
       # Language specific
@@ -64,16 +75,6 @@
       let g:airline#extensions#ale#enabled = 1
       let g:airline#extensions#branch#enabled = 1
       let g:airline_powerline_fonts = 1
-
-      let g:ale_lint_on_text_changed = 'normal'
-      let g:ale_sign_column_always = 1
-      let g:ale_sign_error = '>>'
-      let g:ale_sign_warning = '--'
-
-      highlight ALEWarning ctermbg=black
-      highlight ALEError ctermbg=black
-
-      let g:ale_linters = {'markdown': [], 'python': ['flake8', 'bandit']}
 
       let g:ycm_autoclose_preview_window_after_completion = 1
       let g:ycm_autoclose_preview_window_after_insertion = 1

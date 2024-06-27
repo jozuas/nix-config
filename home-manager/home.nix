@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-  imports = [ ./environment/current.nix ./machine/current.nix ];
+  imports = [ ./os/current.nix ./machine/current.nix ];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

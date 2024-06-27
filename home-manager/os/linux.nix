@@ -3,7 +3,6 @@
 let
   pkgs_unstable = import <nixpkgs-unstable> { };
   variables = import ./../variables.nix;
-  private-pkgs = import ./../private-pkgs;
 in {
   imports = [
     ./common.nix
@@ -14,36 +13,34 @@ in {
     ./units/linux/xorg.nix
   ];
 
-  home.packages = with pkgs; [
-    nmap
-    speedtest-cli
+  home.packages = [
+    pkgs.nmap
+    pkgs.speedtest-cli
 
     # GUIs
     pkgs_unstable.obsidian
     pkgs_unstable.slack
     pkgs_unstable.beekeeper-studio
     pkgs_unstable.vscode
-    spotify
-    gimp
-    inkscape
-    audacity
-    bitwarden
-    #chromium
+    pkgs.spotify
+    pkgs.gimp
+    pkgs.inkscape
+    pkgs.audacity
+    pkgs.bitwarden
     pkgs_unstable.tdesktop
     pkgs_unstable.discord
-    firefox-devedition-bin
-    pkgs_unstable.zeal
+    pkgs.firefox-devedition-bin
 
     pkgs_unstable.youtube-dl
-    pick-colour-picker
-    simplescreenrecorder
-    zathura
-    android-file-transfer
+    pkgs.pick-colour-picker
+    pkgs.simplescreenrecorder
+    pkgs.zathura
+    pkgs.android-file-transfer
 
-    gnome3.totem
-    gnome3.nautilus
-    gnome3.cheese
-    transmission-gtk
+    pkgs.gnome3.totem
+    pkgs.gnome3.nautilus
+    pkgs.gnome3.cheese
+    pkgs.transmission-gtk
   ];
 
   home.pointerCursor = {
