@@ -23,10 +23,4 @@ nix-channel --add \
 nix-channel --update
 darwin-rebuild switch
 
-# Install DOOM emacs
-if [[ ! -d ~/.emacs.d ]]; then
-  git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-  ~/.emacs.d/bin/doom install
-fi
-
 echo "Done, please reboot"

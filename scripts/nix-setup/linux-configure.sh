@@ -31,10 +31,4 @@ sudo nix-channel --add \
 sudo nix-channel --update
 sudo nixos-rebuild switch
 
-# Install DOOM emacs
-if [[ ! -d ~/.emacs.d ]]; then
-  git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-  ~/.emacs.d/bin/doom install
-fi
-
 echo "Done, please reboot"
