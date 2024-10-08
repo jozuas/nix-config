@@ -35,16 +35,32 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  # systemd = {
+  #   services."tp-data-cleaner" = {
+  #     enable = true;
+  #     serviceConfig = {
+  #       Type = "oneshot";
+  #     };
+  #     script = ''
+  #       ${pkgs.findutils}/bin/find /tmp/tp-data/dev/docx -type f -cmin +90 -exec rm {} \;
+  #     '';
+  #   };
+
+  #   timers."tp-data-cleaner" = {
+  #     wantedBy = [ "timers.target" ];
+  #     timerConfig.OnCalendar = "hourly";
+  #     timerConfig.Persistent = true;
+  #   };
+  # };
+
   networking = {
     hostName = "nixos";
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ ];
+      allowedTCPPorts = [ 2200 ];
       allowedUDPPorts = [ 51820 ];
     };
-
-    hosts = { "192.168.1.42" = [ "pi" ]; };
   };
 
   # Localisation
@@ -162,6 +178,15 @@ in {
       layout = "gb";
 
       xkbOptions = "compose:ralt,caps:escape,grp:switch,grp:alt_space_toggle";
+    };
+
+    openssh = {
+      enable = true;
+      ports = [ 2200 ];
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+      };
     };
   };
 

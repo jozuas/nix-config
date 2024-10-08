@@ -59,7 +59,7 @@
         unfocused_hollow = true;
       };
       selection.semantic_escape_chars = '',│`|:"' ()[]{}<>'';
-      scrolling.history = 10000;
+      scrolling.history = 100000;
       live_config_reload = true;
       mouse.hints.launcher = "xdg-open";
       draw_bold_text_with_bright_colors = true;

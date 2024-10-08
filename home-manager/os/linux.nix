@@ -13,9 +13,11 @@ in {
     ./units/linux/xorg.nix
   ];
 
-  home.packages = [
-    pkgs.nmap
-    pkgs.speedtest-cli
+  home.packages = with pkgs; [
+    rclone
+    brave
+    nmap
+    speedtest-cli
 
     # GUIs
     pkgs_unstable.obsidian
