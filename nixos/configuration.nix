@@ -74,7 +74,7 @@ in {
   };
 
   fonts = {
-    fonts = with pkgs; [ dejavu_fonts ubuntu_font_family corefonts nerdfonts ];
+    packages = with pkgs; [ dejavu_fonts ubuntu_font_family corefonts nerdfonts ];
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
@@ -168,16 +168,18 @@ in {
   };
 
   services = {
+    # Support for most mice and keyboards
+    libinput.enable = true;
+
     xserver = {
-      # Support for most mice and keyboards
-      libinput.enable = true;
 
       # Enable the X11 windowing system.
       enable = true;
 
-      layout = "gb";
-
-      xkbOptions = "compose:ralt,caps:escape,grp:switch,grp:alt_space_toggle";
+      xkb = {
+        layout = "gb";
+        options = "compose:ralt,caps:escape,grp:switch,grp:alt_space_toggle";
+      };
     };
 
     openssh = {

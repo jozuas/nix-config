@@ -25,6 +25,10 @@
     gvfs.enable = true;
     udisks2.enable = true;
 
+    displayManager = {
+      defaultSession = "none+i3";
+    };
+
     xserver = {
       desktopManager = {
         xterm.enable = false;
@@ -46,7 +50,6 @@
             background-image = "/usr/share/backgrounds/background.jpg"
           '';
         };
-        defaultSession = "none+i3";
       };
 
       windowManager.i3 = { enable = true; };
