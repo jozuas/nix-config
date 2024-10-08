@@ -11,7 +11,6 @@ _:
 
     git = {
       userEmail = "norkus@norkus.net";
-      signing.key = "3C5AA30C300E6439E3D49283DB6D4A68B6AFA263";
     };
   };
 

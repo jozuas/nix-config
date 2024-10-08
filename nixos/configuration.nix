@@ -35,24 +35,6 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  # systemd = {
-  #   services."tp-data-cleaner" = {
-  #     enable = true;
-  #     serviceConfig = {
-  #       Type = "oneshot";
-  #     };
-  #     script = ''
-  #       ${pkgs.findutils}/bin/find /tmp/tp-data/dev/docx -type f -cmin +90 -exec rm {} \;
-  #     '';
-  #   };
-
-  #   timers."tp-data-cleaner" = {
-  #     wantedBy = [ "timers.target" ];
-  #     timerConfig.OnCalendar = "hourly";
-  #     timerConfig.Persistent = true;
-  #   };
-  # };
-
   networking = {
     hostName = "nixos";
 
@@ -95,7 +77,7 @@ in {
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         intel-ocl
-        vaapiIntel
+        #vaapiIntel broken right now
         vaapiVdpau
         libvdpau-va-gl
       ];
@@ -164,7 +146,6 @@ in {
       enable = true;
       package = pkgs.wireshark;
     };
-    steam.enable = true;
   };
 
   services = {

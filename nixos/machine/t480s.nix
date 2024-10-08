@@ -24,11 +24,11 @@
   };
 
   # Steam
-  hardware = {
-    opengl.driSupport32Bit = true;
-    opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-    pulseaudio.support32Bit = true;
-  };
+  #hardware = {
+  #  opengl.driSupport32Bit = true;
+  #  opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  #  pulseaudio.support32Bit = true;
+  #};
 
   # DPI>200 options to play with
   # fonts.fontconfig.antialias

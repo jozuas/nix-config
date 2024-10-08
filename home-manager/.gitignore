@@ -1,7 +1,7 @@
 # Symlinks pointing to the current file
 desktop/current.nix
 machine/current.nix
-environment/current.nix
+os/current.nix
 
 # Secrets
 variables.nix

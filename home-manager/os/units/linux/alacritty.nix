@@ -13,16 +13,6 @@
         };
         title = "Terminal";
       };
-      font = {
-        family = "HackMono Nerd";
-        style = "Book";
-        bold_style = "Bold";
-        italic_style = "Italic";
-        offset = {
-          x = 0;
-          y = 0;
-        };
-      };
       colors = {
         primary = {
           background = "0x15161d";
@@ -61,8 +51,6 @@
       selection.semantic_escape_chars = '',│`|:"' ()[]{}<>'';
       scrolling.history = 100000;
       live_config_reload = true;
-      mouse.hints.launcher = "xdg-open";
-      draw_bold_text_with_bright_colors = true;
     };
   };
 }

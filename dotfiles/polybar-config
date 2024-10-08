@@ -41,8 +41,8 @@ module-margin-left = 0
 module-margin-right = 1
 modules-left = i3
 modules-center = date
-modules-right = openweathermap pulseaudio battery
-tray-position = right
+modules-right = pulseaudio battery
+;tray-position = right
 tray-padding = 9
 tray-offset-y = 0%
 tray-offset-x = 0%
@@ -143,14 +143,6 @@ ramp-volume-1 = 󰖀
 ramp-volume-2 = 󰖀
 ramp-volume-3 = 󰕾
 ramp-headphones-0 = 
-
-[module/openweathermap]
-type = custom/script
-exec = ~/nix-config/scripts/polybar/openweathermap.sh
-interval = 600
-label-font = 3
-format-padding = 1
-format-underline = ${colors.my_color4}
 
 [settings]
 screenchange-reload = true

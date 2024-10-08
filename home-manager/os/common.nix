@@ -22,6 +22,7 @@ in {
     pkgs.jq
     pkgs.fd
     pkgs.wget
+    pkgs.ripgrep
     # Broken right now
     # ssldump
     pkgs.bind
@@ -36,22 +37,16 @@ in {
     pkgs.hurl
 
     # IDE tools
-    pkgs.nodePackages.bash-language-server
-    pkgs.shellcheck
-    pkgs.shfmt
     pkgs.nodePackages.yaml-language-server
-    pkgs.nixpkgs-fmt
-    pkgs.nixfmt-classic
-    pkgs_unstable.nixd
-    # hunspell
-    # hunspellDicts.en-gb-large
-    # proselint
-    pkgs.ripgrep
     pkgs.coreutils
 
     # Programming language tooling
     pkgs.gnumake
     pkgs.sqlite
+    ## Bash
+    pkgs.nodePackages.bash-language-server
+    pkgs.shellcheck
+    pkgs.shfmt
     ## JavaScript
     pkgs.nodejs
     pkgs.yarn
@@ -59,16 +54,11 @@ in {
     pkgs_unstable.beam.packages.erlang_26.elixir_1_15
     pkgs_unstable.erlang
     pkgs.rebar3
-    ## Rust
-    pkgs.rustc
-    pkgs.cargo
     ## Nix
+    pkgs.nixfmt-rfc-style
     pkgs.nixpkgs-review
     pkgs.nix-prefetch-git
-
-    ## Other
-    pkgs.ansible
-    pkgs_unstable.ansible-lint
+    pkgs_unstable.nixd
   ];
 
   programs = {

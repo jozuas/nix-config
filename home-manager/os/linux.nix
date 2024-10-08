@@ -2,7 +2,6 @@
 
 let
   pkgs_unstable = import <nixpkgs-unstable> { };
-  variables = import ./../variables.nix;
 in {
   imports = [
     ./common.nix
@@ -15,7 +14,6 @@ in {
 
   home.packages = with pkgs; [
     rclone
-    brave
     nmap
     speedtest-cli
 
@@ -25,19 +23,14 @@ in {
     pkgs_unstable.beekeeper-studio
     pkgs_unstable.vscode
     pkgs.spotify
-    pkgs.gimp
-    pkgs.inkscape
     pkgs.audacity
-    pkgs.bitwarden
     pkgs_unstable.tdesktop
     pkgs_unstable.discord
     pkgs.firefox-devedition-bin
 
-    pkgs_unstable.youtube-dl
     pkgs.pick-colour-picker
     pkgs.simplescreenrecorder
     pkgs.zathura
-    pkgs.android-file-transfer
 
     pkgs.gnome3.totem
     pkgs.gnome3.nautilus
@@ -48,7 +41,7 @@ in {
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Ice";
-    size = 16;
+    size = 24;
 
     gtk.enable = true;
     x11.enable = true;
@@ -68,33 +61,15 @@ in {
         BROWSER = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition";
         TERMINAL = "${pkgs.alacritty}/bin/alacritty";
         CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
-        OPENWEATHER_API_KEY = "${variables.OPENWEATHER_API_KEY}";
       };
     };
 
-    ssh = {
-      enable = true;
-      matchBlocks = {
-        "pi" = {
-          hostname = "pi";
-          user = "juozas";
-          port = 42000;
-        };
-      };
-    };
+    ssh.enable = true;
 
     tmux = {
       extraConfig = ''
         bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
       '';
-    };
-  };
-
-  services = {
-    gpg-agent = {
-      enable = true;
-      defaultCacheTtl = 1800;
-      enableSshSupport = true;
     };
   };
 }

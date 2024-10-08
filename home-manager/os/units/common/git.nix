@@ -5,7 +5,6 @@
     enable = true;
     package = pkgs.gitAndTools.gitFull;
     userName = "Juozas Norkus";
-    signing.signByDefault = true;
     aliases = {
       "ack" = ''
         -c color.grep.linenumber="bold yellow" 
