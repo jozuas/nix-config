@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+postgres_devenv_state="/Users/juozas/dev/terrapin-app/.devenv/state/postgres"
+
+function stop_process_compose() {
+  pid=$(pgrep process-compose)
+
+  if [ -z "$pid" ]; then
+    echo "No process-compose running"
+  else
+    echo "Found process-compose pid=$pid"
+    kill -SIGINT $pid
+  fi
+}
+
+if [[ -d "/Volumes/big-boi" ]]; then
+  if [[ -L "$postgres_devenv_state" ]]; then
+    echo "$postgres_devenv_state is already a symlink"
+  else
+    stop_process_compose
+    mv -v "$postgres_devenv_state" "$postgres_devenv_state.bk"
+    ln -s '/Volumes/big-boi/devenv-state/postgres' '/Users/juozas/dev/terrapin-app/.devenv/state'
+  fi
+else
+  if [[ -L "$postgres_devenv_state" ]]; then
+    stop_process_compose
+    rm -v $postgres_devenv_state
+    mv -v "$postgres_devenv_state.bk" "$postgres_devenv_state"
+  else
+    echo "$postgres_devenv_state is already a local dir"
+  fi
+fi

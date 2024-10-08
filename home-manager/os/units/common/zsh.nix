@@ -14,7 +14,7 @@
       save = 5000;
       size = 5000;
     };
-    cdpath = [ "$HOME" "$HOME/dev" "$HOME/.nix-defexpr/channels" ];
+    cdpath = [ "$HOME" "$HOME/dev" "$HOME/.nix-defexpr/channels" "/Volumes" ];
     shellAliases = {
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
