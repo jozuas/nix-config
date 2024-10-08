@@ -16,6 +16,9 @@
     deadd-notification-center
     xob
 
+    # TODO: why is this needed?
+    networkmanagerapplet
+
     light
     feh
   ];

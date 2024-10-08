@@ -36,6 +36,8 @@ in {
     pkgs.gnome3.nautilus
     pkgs.gnome3.cheese
     pkgs.transmission-gtk
+
+    pkgs_unstable.anydesk
   ];
 
   home.pointerCursor = {
