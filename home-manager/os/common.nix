@@ -35,6 +35,7 @@ in {
     pkgs.rclone
     pkgs.mosh
     pkgs.hurl
+    pkgs.zstd
 
     # IDE tools
     pkgs.nodePackages.yaml-language-server
