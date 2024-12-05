@@ -52,8 +52,7 @@ in {
     pkgs.nodejs
     pkgs.yarn
     ## Erlang / Elixir
-    pkgs_unstable.beam.packages.erlang_26.elixir_1_15
-    pkgs_unstable.erlang
+    pkgs_unstable.beam.packages.erlang_27.elixir_1_17
     pkgs.rebar3
     ## Nix
     pkgs.nixfmt-rfc-style
