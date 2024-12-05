@@ -13,10 +13,10 @@ in {
   home-manager.users.juozas = import ~/.config/nixpkgs/home.nix;
 
   nix = {
+    optimise.automatic = true; # Automatically run the nix store optimiser
     gc.automatic = true; # Run nix-collect-garbage once a week
-    settings = {
-      auto-optimise-store = true; # Run nix-store --optimise
 
+    settings = {
       trusted-users = [ "root" "juozas" ];
 
       # Binary caches
