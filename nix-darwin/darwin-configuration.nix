@@ -1,4 +1,4 @@
-_:
+{ pkgs, ... }:
 
 let
   username = "juozas";
@@ -11,6 +11,18 @@ in {
   imports = [ <home-manager/nix-darwin> ];
   users.users.juozas.home = home;
   home-manager.users.juozas = import ~/.config/nixpkgs/home.nix;
+
+  environment.systemPackages = [
+    pkgs.pam-reattach
+  ];
+
+  # Hack to make pam-reattach work
+  # Meanwhile waiting for the following to be merged
+  # https://github.com/LnL7/nix-darwin/pull/1020
+  environment.etc."pam.d/sudo_local".text = ''
+    # Written by nix-darwin
+    auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so
+  '';
 
   nix = {
     optimise.automatic = true; # Automatically run the nix store optimiser

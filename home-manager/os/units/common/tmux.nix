@@ -10,10 +10,19 @@
     disableConfirmationPrompt = true;
     newSession = true;
     aggressiveResize = true;
-    plugins = with pkgs; [{
-      plugin = tmuxPlugins.resurrect;
-      extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-    }];
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+      {
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavor "macchiato"
+          set -g @catppuccin_window_status_style "rounded"
+        '';
+      }
+    ];
     extraConfig = ''
       # Functionality
       bind | split-window -h
@@ -26,6 +35,7 @@
       set -g visual-activity on
       set -g base-index 1
       setw -g pane-base-index 1
+      set -g history-limit 10000
 
       bind-key c new-window -n 'window'
 
@@ -39,21 +49,17 @@
       # <C-w-w> for jumping between recent windows
       bind -r w select-pane -l
 
-      # Styling
-      setw -g window-status-current-style fg=black,bg=red
-      setw -g window-status-activity-style fg=cyan,bg=black
-      set -g status-style fg=black,bg=cyan
-      set -g message-style fg=black,bg=red
-      set-window-option -g window-status-current-format '#I:#W'
-      set-window-option -g window-status-format '#I:#W'
-
-      # Hide status bar if only 1 window is present
-      if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"
-      set-hook -g window-linked 'if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"'
-      set-hook -g window-unlinked 'if -F "#{==:#{session_windows},1}" "set -g status off" "set -g status on"'
+      # Make the status line pretty and remove catppuccin modules
+      set -g status-right-length 100
+      set -g status-left-length 100
+      set -g status-left ""
+      set -g status-right ""
 
       # Destroy sessions that are not explicitly deattached
       set-option destroy-unattached
+
+      set -gu default-command
+      set -g default-shell $SHELL
     '';
   };
 }
