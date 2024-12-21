@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
-{
+let
+  auto-dark-mode = 
+    pkgs.vimUtils.buildVimPlugin {
+      name = "auto-dark-mode";
+      src = pkgs.fetchFromGitHub {
+        owner = "f-person";
+        repo = "auto-dark-mode.nvim";
+        rev = "d365beccca05ffcb01e50109f2adca2459c3995a";
+        hash = "sha256-pZpFZ5GwVxz74CUDA9v970lcH3NNo5Rvg+9L3/87QV8=";
+      };
+    };
+in {
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -25,6 +36,7 @@
       vim-airline-themes
       vim-devicons
       catppuccin-nvim
+      auto-dark-mode
 
       # Core functionality
       vim-surround
@@ -39,6 +51,22 @@
     ];
     extraConfig = ''
       colorscheme catppuccin-macchiato
+
+      lua << EOF
+      local auto_dark_mode = require('auto-dark-mode')
+
+      auto_dark_mode.setup({
+        update_interval = 1000,
+        set_dark_mode = function()
+          vim.api.nvim_set_option_value('background', 'dark', {})
+          vim.cmd('colorscheme catppuccin-macchiato')
+        end,
+        set_light_mode = function()
+          vim.api.nvim_set_option_value('background', 'light', {})
+          vim.cmd('colorscheme catppuccin-latte')
+        end,
+      })
+      EOF
 
       set encoding=utf-8
       set number relativenumber  "show the number of lines
