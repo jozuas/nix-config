@@ -1,17 +1,17 @@
 { pkgs, ... }:
 
 let
-  auto-dark-mode = 
-    pkgs.vimUtils.buildVimPlugin {
-      name = "auto-dark-mode";
-      src = pkgs.fetchFromGitHub {
-        owner = "f-person";
-        repo = "auto-dark-mode.nvim";
-        rev = "d365beccca05ffcb01e50109f2adca2459c3995a";
-        hash = "sha256-pZpFZ5GwVxz74CUDA9v970lcH3NNo5Rvg+9L3/87QV8=";
-      };
+  auto-dark-mode = pkgs.vimUtils.buildVimPlugin {
+    name = "auto-dark-mode";
+    src = pkgs.fetchFromGitHub {
+      owner = "f-person";
+      repo = "auto-dark-mode.nvim";
+      rev = "d365beccca05ffcb01e50109f2adca2459c3995a";
+      hash = "sha256-pZpFZ5GwVxz74CUDA9v970lcH3NNo5Rvg+9L3/87QV8=";
     };
-in {
+  };
+in
+{
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -131,9 +131,6 @@ in {
       autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
       autocmd BufEnter,WinEnter * call matchadd("Error", "\\s\\+$", -1)
       autocmd BufRead,BufNewFile * syn match parens /[(){}]/ | hi parens gui=bold ctermfg=red
-
-      "" On leave reset cursor
-      autocmd VimLeave * set guicursor=a:ver25
     '';
   };
 }
