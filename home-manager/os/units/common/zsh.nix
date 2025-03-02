@@ -14,7 +14,12 @@
       save = 5000;
       size = 5000;
     };
-    cdpath = [ "$HOME" "$HOME/dev" "$HOME/.nix-defexpr/channels" "/Volumes" ];
+    cdpath = [
+      "$HOME"
+      "$HOME/dev"
+      "$HOME/.nix-defexpr/channels"
+      "/Volumes"
+    ];
     shellAliases = {
       ls = "ls -h --color=auto";
       grep = "grep --color=auto";
@@ -23,10 +28,7 @@
       vim = "nvim";
       vi = "nvim";
       cd = ">/dev/null cd";
-      nix-direnv-new = "nix flake new -t github:nix-community/nix-direnv";
-      nix-stray-roots =
-        "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/w+-system|{memory)'";
-      ghcs = "gh copilot suggest";
+      nix-stray-roots = "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/w+-system|{memory)'";
     };
     sessionVariables = {
       EDITOR = "nvim";
@@ -34,20 +36,14 @@
       TERM = "xterm-256color";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
       DIRENV_LOG_FORMAT = "";
-      PATH =
-        "$HOME/.npm-packages/bin:$HOME/scripts:/usr/bin/git/:$PATH";
+      PATH = "$HOME/.npm-packages/bin:$HOME/scripts:/usr/bin/git/:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS = "(main brackets cursor)";
       ERL_AFLAGS = "-kernel shell_history enabled";
       ERL_EPMD_ADDRESS = "127.0.0.1"; # By default epmd listens on 0.0.0.0
       NIXPKGS_ALLOW_BROKEN = "1";
     };
     initExtra = ''
-      autoload -Uz promptinit
-      promptinit
-      prompt walters
-
-      # print a newline before prompt
-      # precmd() { print "" }
+      PROMPT='%B%(?..[%?] )%b %~ > '
 
       bindkey -e
 

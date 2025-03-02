@@ -52,13 +52,19 @@ in {
     pkgs.nodejs
     pkgs.yarn
     ## Erlang / Elixir
-    pkgs_unstable.beam.packages.erlang_27.elixir_1_17
+    pkgs_unstable.beam.packages.erlang_27.elixir_1_18
+    pkgs_unstable.elixir-ls
     pkgs.rebar3
     ## Nix
     pkgs.nixfmt-rfc-style
     pkgs.nixpkgs-review
     pkgs.nix-prefetch-git
     pkgs_unstable.nixd
+    ##
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.rust-analyzer
+    pkgs.rustfmt
   ];
 
   programs = {
