@@ -43,7 +43,7 @@
       NIXPKGS_ALLOW_BROKEN = "1";
     };
     initExtra = ''
-      PROMPT='%B%(?..[%?] )%b %~ > '
+      PROMPT='%B%(?..[%?] )%b%~ > '
 
       bindkey -e
 
