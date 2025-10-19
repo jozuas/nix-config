@@ -3,14 +3,14 @@
 let
   username = "juozas";
   home = "/Users/${username}";
-in {
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
+in
+{
   # Setup home-manager
   imports = [ <home-manager/nix-darwin> ];
   users.users.juozas.home = home;
-  home-manager.users.juozas = import ~/.config/nixpkgs/home.nix;
+  home-manager.users.juozas = import /Users/juozas/.config/nixpkgs/home.nix;
+
+  system.primaryUser = username;
 
   environment.systemPackages = [
     pkgs.pam-reattach
@@ -29,11 +29,14 @@ in {
     gc.automatic = true; # Run nix-collect-garbage once a week
 
     settings = {
-      trusted-users = [ "root" "juozas" ];
+      sandbox = true;
+      trusted-users = [
+        "root"
+        "juozas"
+      ];
 
       # Binary caches
-      substituters =
-        [ "https://nix-community.cachix.org" ];
+      substituters = [ "https://nix-community.cachix.org" ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
@@ -44,7 +47,7 @@ in {
     '';
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
