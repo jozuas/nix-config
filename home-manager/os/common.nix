@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
-let pkgs_unstable = import <nixpkgs-unstable> { };
+let pkgs_unstable = import <nixpkgs-unstable> {
+  config = {
+      allowUnfree = true;
+    };
+};
 in {
   imports = [
     ./units/common/bat.nix
@@ -8,8 +12,7 @@ in {
     ./units/common/git.nix
     ./units/common/neovim.nix
     ./units/common/tmux.nix
-    ./units/common/zsh.nix
-  ];
+    ./units/common/zsh.nix ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -40,6 +43,7 @@ in {
     # IDE tools
     pkgs.nodePackages.yaml-language-server
     pkgs.coreutils
+    pkgs_unstable.claude-code
 
     # Programming language tooling
     pkgs.gnumake
