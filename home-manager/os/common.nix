@@ -1,18 +1,23 @@
 { pkgs, ... }:
 
-let pkgs_unstable = import <nixpkgs-unstable> {
-  config = {
+let
+  private_pkgs = import ./../private-pkgs;
+
+  pkgs_unstable = import <nixpkgs-unstable> {
+    config = {
       allowUnfree = true;
     };
-};
-in {
+  };
+in
+{
   imports = [
     ./units/common/bat.nix
     ./units/common/fzf.nix
     ./units/common/git.nix
     ./units/common/neovim.nix
     ./units/common/tmux.nix
-    ./units/common/zsh.nix ];
+    ./units/common/zsh.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -44,6 +49,7 @@ in {
     pkgs.nodePackages.yaml-language-server
     pkgs.coreutils
     pkgs_unstable.claude-code
+    private_pkgs.cc-acp
 
     # Programming language tooling
     pkgs.gnumake
