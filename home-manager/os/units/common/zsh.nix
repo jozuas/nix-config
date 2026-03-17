@@ -17,7 +17,6 @@
     cdpath = [
       "$HOME"
       "$HOME/dev"
-      "$HOME/.nix-defexpr/channels"
       "/Volumes"
     ];
     shellAliases = {
@@ -31,18 +30,18 @@
       nix-stray-roots = "nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/w+-system|{memory)'";
     };
     sessionVariables = {
+      DIRENV_LOG_FORMAT = "";
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERM = "xterm-256color";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
-      DIRENV_LOG_FORMAT = "";
       PATH = "$HOME/.npm-packages/bin:$HOME/scripts:/usr/bin/git/:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS = "(main brackets cursor)";
       ERL_AFLAGS = "-kernel shell_history enabled";
       ERL_EPMD_ADDRESS = "127.0.0.1"; # By default epmd listens on 0.0.0.0
       NIXPKGS_ALLOW_BROKEN = "1";
     };
-    initExtra = ''
+    initContent = ''
       PROMPT='%B%(?..[%?] )%b%~ > '
 
       bindkey -e

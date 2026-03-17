@@ -22,11 +22,12 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages = [
+    # (pkgs.azure-cli.withExtensions [ pkgs.azure-cli-extensions.image-copy-extension ])
+
     # CLI Tools
     pkgs.cloc
     pkgs.delta
     pkgs.ranger
-    pkgs.tldr
     pkgs.jq
     pkgs.fd
     pkgs.wget
@@ -35,9 +36,7 @@ in
     # ssldump
     pkgs.bind
     pkgs.nmap
-    pkgs.sshpass
     pkgs.pstree
-    pkgs.ngrok
     pkgs.git-quick-stats
     pkgs_unstable.gh
     pkgs.rclone
@@ -48,7 +47,7 @@ in
     # IDE tools
     pkgs.nodePackages.yaml-language-server
     pkgs.coreutils
-    pkgs_unstable.claude-code
+    # pkgs_unstable.claude-code
     private_pkgs.cc-acp
 
     # Programming language tooling
@@ -71,10 +70,10 @@ in
     pkgs.nix-prefetch-git
     pkgs_unstable.nixd
     ##
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.rust-analyzer
-    pkgs.rustfmt
+    pkgs_unstable.cargo
+    pkgs_unstable.rustc
+    pkgs_unstable.rust-analyzer
+    pkgs_unstable.rustfmt
   ];
 
   programs = {

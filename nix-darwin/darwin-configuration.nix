@@ -29,7 +29,8 @@ in
     gc.automatic = true; # Run nix-collect-garbage once a week
 
     settings = {
-      sandbox = true;
+      # Cannot build livebook otherwise for now
+      sandbox = false;
       trusted-users = [
         "root"
         "juozas"

@@ -22,7 +22,7 @@
         DICTIONARY = "$HOME/Library/Spelling/en_GB";
         NIX_PATH = "$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels:$NIX_PATH";
       };
-      initExtra = ''
+      initContent = ''
         source $HOME/.iterm2_shell_integration.zsh
       '';
       shellAliases = {
