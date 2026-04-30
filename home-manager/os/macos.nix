@@ -1,5 +1,12 @@
 { pkgs, ... }:
 
+let
+  pkgs_unstable = import <nixpkgs-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
 {
   imports = [ ./common.nix ];
 
@@ -7,9 +14,10 @@
   # Only needed for MacOS.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-    htop
-    fontconfig
+  home.packages = [
+    pkgs_unstable.ghostty-bin
+    pkgs.htop
+    pkgs.fontconfig
   ];
 
   # Allow fontconfig to discover fonts and configurations installed through

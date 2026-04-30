@@ -2,7 +2,7 @@
 
 # This script and all scripts under ./macos are idempotent
 
-nixpkgs_version="25.05"
+nixpkgs_version="26.05"
 
 export SETUP_MACHINE="mbp"
 export SETUP_OS="macos"
