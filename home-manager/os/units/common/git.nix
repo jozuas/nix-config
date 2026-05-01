@@ -19,8 +19,22 @@
             grep --break --heading --line-number
           '';
         };
+        init = {
+          defaultBranch = "main";
+        };
         pull = {
           rebase = false;
+          ff = "only";
+        };
+        fetch = {
+          prune = true;
+          pruneTags = true;
+        };
+        branch = {
+          sort = "-committerdate";
+        };
+        column = {
+          ui = "auto";
         };
         push = {
           autoSetupRemote = true;
