@@ -39,6 +39,7 @@ in
     pkgs.pstree
     pkgs.git-quick-stats
     pkgs_unstable.gh
+    pkgs.s5cmd
     pkgs.rclone
     pkgs.mosh
     pkgs.hurl

@@ -14,9 +14,10 @@
         alias = {
           "ack" = ''
             -c color.grep.linenumber="bold yellow"
-                           -c color.grep.filename="bold green"
-                           -c color.grep.match="reverse yellow"
-                           grep --break --heading --line-number'';
+            -c color.grep.filename="bold green"
+            -c color.grep.match="reverse yellow"
+            grep --break --heading --line-number
+          '';
         };
         pull = {
           rebase = false;
@@ -44,6 +45,9 @@
         };
       };
     };
-    delta.enable = true;
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
   };
 }
