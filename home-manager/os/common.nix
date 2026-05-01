@@ -48,8 +48,6 @@ in
     # IDE tools
     pkgs.nodePackages.yaml-language-server
     pkgs.coreutils
-    # pkgs_unstable.claude-code
-    private_pkgs.cc-acp
 
     # Programming language tooling
     pkgs.gnumake
