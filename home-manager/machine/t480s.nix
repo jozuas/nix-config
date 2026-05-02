@@ -10,7 +10,7 @@ _:
     rofi.font = "Dejavu Sans Book 18";
 
     git = {
-      userEmail = "norkus@norkus.net";
+      userEmail = "j@norkus.net";
     };
   };
 
