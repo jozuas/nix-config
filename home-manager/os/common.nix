@@ -1,8 +1,6 @@
 { config, pkgs, pkgs-unstable, ... }:
 
 let
-  private_pkgs = import ./../private-pkgs;
-
   # Live-symlink to a path inside the cloned nix-config repo (assumed at ~/nix-config).
   # Edits apply immediately without a home-manager rebuild.
   repoLink = path:
@@ -36,13 +34,12 @@ in
     pkgs.fd
     pkgs.wget
     pkgs.ripgrep
-    # Broken right now
-    # ssldump
+    pkgs.ssldump
     pkgs.bind
     pkgs.nmap
     pkgs.pstree
     pkgs.git-quick-stats
-    pkgs-unstable.gh
+    pkgs.gh
     pkgs.s5cmd
     pkgs.rclone
     pkgs.mosh
@@ -64,7 +61,7 @@ in
     pkgs.nodejs
     pkgs.yarn
     ## Erlang / Elixir
-    pkgs-unstable.beam.packages.erlang_27.elixir_1_18
+    pkgs-unstable.beam.packages.erlang_28.elixir_1_19
     pkgs-unstable.elixir-ls
     pkgs.rebar3
     ## Nix
