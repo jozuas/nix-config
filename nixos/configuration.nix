@@ -10,8 +10,6 @@ in {
     ./hardware-configuration.nix
     ./machine/t480s.nix
     ./desktop/i3.nix
-
-    <home-manager/nixos>
   ];
 
   boot = {
@@ -173,15 +171,10 @@ in {
     };
   };
 
-  system.autoUpgrade.enable = true;
-
   users.defaultUserShell = pkgs.zsh;
   users.users.juozas = {
     isNormalUser = true;
     extraGroups = [ "wheel" "wireshark" "networkmanager" "video" "vboxusers" ];
     home = home;
   };
-
-  # Setup home-manager
-  home-manager.users.juozas = (import "${home}/.config/nixpkgs/home.nix");
 }

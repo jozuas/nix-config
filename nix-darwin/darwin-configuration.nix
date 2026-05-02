@@ -5,12 +5,11 @@ let
   home = "/Users/${username}";
 in
 {
-  # Setup home-manager
-  imports = [ <home-manager/nix-darwin> ];
   users.users.juozas.home = home;
-  home-manager.users.juozas = import /Users/juozas/.config/nixpkgs/home.nix;
 
   system.primaryUser = username;
+
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = [
     pkgs.pam-reattach

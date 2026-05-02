@@ -1,12 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
-let
-  pkgs_unstable = import <nixpkgs-unstable> {
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   imports = [ ./common.nix ];
 
@@ -15,7 +8,7 @@ in
   programs.home-manager.enable = true;
 
   home.packages = [
-    pkgs_unstable.ghostty-bin
+    pkgs-unstable.ghostty-bin
     pkgs.htop
     pkgs.fontconfig
   ];

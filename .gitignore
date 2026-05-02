@@ -3,3 +3,6 @@
 # Cachix
 cachix.nix
 nixos/cachix/*
+
+# Vibes
+.claude

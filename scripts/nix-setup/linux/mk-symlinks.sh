@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
 mkdir -p ~/.config/
-ln -sfn ~/nix-config/home-manager ~/.config/nixpkgs
-
-ln -sfn "${HOME}/.config/nixpkgs/os/${SETUP_OS}.nix" ~/.config/nixpkgs/os/current.nix
-ln -sfn "${HOME}/.config/nixpkgs/machine/${SETUP_MACHINE}.nix" ~/.config/nixpkgs/machine/current.nix
 
 ln -sfn ~/nix-config/scripts ~/scripts
 
@@ -24,8 +20,6 @@ ln -sfn ~/nix-config/dotfiles/deadd.css ~/.config/deadd/deadd.css
 ln -sfn ~/nix-config/dotfiles/xscreensaver-config ~/.xscreensaver
 
 ln -sfn ~/nix-config/resources/backgrounds/forest.jpg ~/.background-image
-
-ln -sfn ~/nix-config/dotfiles/doom ~/.doom.d
 
 mkdir -p ~/.local/share/nvim/site/autoload/airline/themes
 ln -sfn ~/nix-config/dotfiles/airline-theme.vim \

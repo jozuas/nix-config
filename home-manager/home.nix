@@ -1,7 +1,10 @@
-{ ... }:
+{ machine, isDarwin, ... }:
 
 {
-  imports = [ ./os/current.nix ./machine/current.nix ];
+  imports = [
+    (if isDarwin then ./os/macos.nix else ./os/linux.nix)
+    ./machine/${machine}.nix
+  ];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

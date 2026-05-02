@@ -1,8 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
-let
-  pkgs_unstable = import <nixpkgs-unstable> { };
-in {
+{
   imports = [
     ./common.nix
     ./units/linux/alacritty.nix
@@ -18,14 +16,14 @@ in {
     speedtest-cli
 
     # GUIs
-    pkgs_unstable.obsidian
-    pkgs_unstable.slack
-    pkgs_unstable.beekeeper-studio
-    pkgs_unstable.vscode
+    pkgs-unstable.obsidian
+    pkgs-unstable.slack
+    pkgs-unstable.beekeeper-studio
+    pkgs-unstable.vscode
     pkgs.spotify
     pkgs.audacity
-    pkgs_unstable.tdesktop
-    pkgs_unstable.discord
+    pkgs-unstable.tdesktop
+    pkgs-unstable.discord
     pkgs.firefox-devedition-bin
 
     pkgs.pick-colour-picker
@@ -37,7 +35,7 @@ in {
     pkgs.gnome3.cheese
     pkgs.transmission-gtk
 
-    pkgs_unstable.anydesk
+    pkgs-unstable.anydesk
   ];
 
   home.pointerCursor = {

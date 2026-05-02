@@ -64,9 +64,8 @@ nixos-generate-config --root /mnt
 Find the UUID of Linux LVM with `sudo blkid`. The entry should have
 TYPE="crypto_LUKS". This UUID will be required in the next step.
 
-__TODO - HACK: Ideally, temporary configuration wouldn't be needed,
-but right now it is because of how I am symlinking configuration__.
-Add the following temporary options to `configuration.nix`
+Add the following temporary options to `/mnt/etc/nixos/configuration.nix` so
+the live system can boot, connect to wifi, and unlock the LUKS volume:
 ```nix
 networking.hostName = "nixos";
 networking.wireless.enable = true;
@@ -106,26 +105,40 @@ reboot
 3. `su -l juozas`.
 4. Git clone this repo in `/home/juozas`.
 5. Move `system.stateVersion` declaration into a new file called
-   `state-version.nix` in the git nixos directory.
+   `state-version.nix` in `~/nix-config/nixos/` (gitignored, per-machine):
    ```nix
-   # Example
-   { config, pkgs, ... }:
+   { ... }:
    {
      system.stateVersion = "19.09"; # DO NOT CHANGE, unless NixOS tells you to
    }
    ```
-6. Move `networking.interfaces.*` and `boot.initrd.luks.devices.root` config into the
-   respective machine directory under the git nixos directory (e.g. `nixos/machine/x220`)
-7. Create `variables.nix` in the `home-manager` directory of the git repo with `OPENWEATHER_API_KEY`.
-   and `GITHUB_TOKEN` vars.
-8. Modify and run `linux_configure.sh` as normal user from the `scripts/nix-setup` directory.
+6. Copy `/etc/nixos/hardware-configuration.nix` into `~/nix-config/nixos/`
+   (also gitignored, per-machine).
+7. Move `networking.interfaces.*` and `boot.initrd.luks.devices.root` config
+   into the appropriate machine file under `~/nix-config/nixos/machine/`
+   (e.g. `t480s.nix`).
+8. Create `variables.nix` in `~/nix-config/home-manager/` with
+   `OPENWEATHER_API_KEY` and `GITHUB_TOKEN` vars.
+9. Link non-Nix-managed dotfiles:
+   ```bash
+   bash ~/nix-config/scripts/nix-setup/linux/mk-symlinks.sh
+   ```
+10. Build and switch to the flake configuration:
+    ```bash
+    sudo nixos-rebuild switch --flake ~/nix-config#t480s
+    ```
+    Replace `t480s` with the appropriate `nixosConfigurations.<name>` entry
+    from `flake.nix` if setting up a different machine.
+
+Subsequent updates are `nix flake update` (in `~/nix-config`) followed by the
+same `nixos-rebuild switch --flake` command.
 
 
 ### Other manual configuration
 
 - Generate a GPG Key with `gpg --full-generate-key`. Put the signature into the
   machine git config as all commits will be signed with this key.
-- Generate an SSH Key with `ssh-keygen -t rsa -b 4096 -C "norkus@norkus.net`
+- Generate an SSH Key with `ssh-keygen -t rsa -b 4096 -C "j@norkus.net"`
   and run `ssh-add ~/.ssh/id_rsa` to add the key into the keychain.
 - Set `layers.acceleration.force-enabled` to `true` to get rid of screen tearing on Firefox.
 - Create a keyring named `login` with Seahorse. Password must be the same as the login password.
