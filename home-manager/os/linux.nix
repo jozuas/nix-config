@@ -1,5 +1,10 @@
-{ pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
+let
+  repoLink = path:
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nix-config/${path}";
+in
 {
   imports = [
     ./common.nix
@@ -9,6 +14,15 @@
     ./units/linux/xdg.nix
     ./units/linux/xorg.nix
   ];
+
+  xdg.configFile."polybar/config".source = repoLink "dotfiles/polybar-config";
+  xdg.configFile."i3/config".source = repoLink "dotfiles/i3-config";
+  xdg.configFile."deadd/deadd.conf".source = repoLink "dotfiles/deadd.conf";
+  xdg.configFile."deadd/deadd.css".source = repoLink "dotfiles/deadd.css";
+
+  home.file.".xscreensaver".source = repoLink "dotfiles/xscreensaver-config";
+  home.file.".background-image".source = repoLink "resources/backgrounds/forest.jpg";
+  home.file.".doom.d".source = repoLink "dotfiles/doom";
 
   home.packages = with pkgs; [
     rclone

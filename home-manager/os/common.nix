@@ -1,9 +1,21 @@
-{ pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 let
   private_pkgs = import ./../private-pkgs;
+
+  # Live-symlink to a path inside the cloned nix-config repo (assumed at ~/nix-config).
+  # Edits apply immediately without a home-manager rebuild.
+  repoLink = path:
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nix-config/${path}";
 in
 {
+  home.file."scripts".source = repoLink "scripts";
+
+  xdg.configFile."ranger/rc.conf".source = repoLink "dotfiles/ranger-config";
+  xdg.dataFile."nvim/site/autoload/airline/themes/airline_theme.vim".source =
+    repoLink "dotfiles/airline-theme.vim";
+
   imports = [
     ./units/common/bat.nix
     ./units/common/fzf.nix

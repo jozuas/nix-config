@@ -119,16 +119,12 @@ reboot
    (e.g. `t480s.nix`).
 8. Create `variables.nix` in `~/nix-config/home-manager/` with
    `OPENWEATHER_API_KEY` and `GITHUB_TOKEN` vars.
-9. Link non-Nix-managed dotfiles:
+9. Build and switch to the flake configuration:
    ```bash
-   bash ~/nix-config/scripts/nix-setup/linux/mk-symlinks.sh
+   sudo nixos-rebuild switch --flake ~/nix-config#t480s
    ```
-10. Build and switch to the flake configuration:
-    ```bash
-    sudo nixos-rebuild switch --flake ~/nix-config#t480s
-    ```
-    Replace `t480s` with the appropriate `nixosConfigurations.<name>` entry
-    from `flake.nix` if setting up a different machine.
+   Replace `t480s` with the appropriate `nixosConfigurations.<name>` entry
+   from `flake.nix` if setting up a different machine.
 
 Subsequent updates are `nix flake update` (in `~/nix-config`) followed by the
 same `nixos-rebuild switch --flake` command.
