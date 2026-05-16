@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 let
   username = "juozas";
@@ -15,13 +15,19 @@ in
     pkgs.pam-reattach
   ];
 
-  # Hack to make pam-reattach work
-  # Meanwhile waiting for the following to be merged
-  # https://github.com/LnL7/nix-darwin/pull/1020
-  environment.etc."pam.d/sudo_local".text = ''
-    # Written by nix-darwin
-    auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so
-  '';
+  environment.etc = {
+    # Symlink nixpkgs and nixpkgs-unstable to /etc for convenience
+    "nixpkgs".source = "${pkgs.path}";
+    "nixpkgs-unstable".source = "${pkgs-unstable.path}";
+
+    # Hack to make pam-reattach work
+    # Meanwhile waiting for the following to be merged
+    # https://github.com/LnL7/nix-darwin/pull/1020
+    "pam.d/sudo_local".text = ''
+      # Written by nix-darwin
+      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so
+    '';
+  };
 
   nix = {
     optimise.automatic = true; # Automatically run the nix store optimiser
