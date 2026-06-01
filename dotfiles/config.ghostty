@@ -5,6 +5,8 @@ font-size = 13
 
 theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
 minimum-contrast = 1.1
+
 macos-icon = retro
+macos-option-as-alt = true
 
 auto-update = download
