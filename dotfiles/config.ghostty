@@ -1,0 +1,10 @@
+# ghostty +list-fonts
+font-family = DejaVuSansM Nerd Font Mono
+font-synthetic-style = false
+font-size = 13
+
+theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
+minimum-contrast = 1.1
+macos-icon = retro
+
+auto-update = download
