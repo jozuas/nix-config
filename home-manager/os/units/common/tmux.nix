@@ -4,7 +4,7 @@
   programs.tmux = {
     enable = true;
     shortcut = "w";
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     keyMode = "vi";
     customPaneNavigationAndResize = true;
     disableConfirmationPrompt = true;
@@ -29,6 +29,10 @@
       bind - split-window -v
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
       set -g mouse on
+      # Let programs (and OSC 8 hyperlinks) pass escape sequences through tmux
+      set -g allow-passthrough on
+      # Tell tmux the outer Ghostty terminal supports truecolor and OSC 8 hyperlinks
+      set -as terminal-features ",xterm-ghostty:RGB:hyperlinks"
       set-window-option -g automatic-rename off
       set-option -g allow-rename off
       setw -g monitor-activity on

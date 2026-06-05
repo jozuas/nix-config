@@ -56,16 +56,14 @@
       setopt PUSHD_SILENT
       setopt PUSHD_TO_HOME
 
-      function ranger-cd {
-        tempfile=$(mktemp -t tmp.XXXXXX)
-        ${pkgs.ranger}/bin/ranger --choosedir="$tempfile" "$(pwd)"
-        test -f "$tempfile" &&
-        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-            cd -- "$(cat "$tempfile")"
-        fi
-        rm -f -- "$tempfile"
+      function yazi-cd {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        ${pkgs.yazi}/bin/yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d "" cwd < "$tmp"
+        [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+        command rm -f -- "$tmp"
       }
-      bindkey -s "^O" "ranger-cd\n"
+      bindkey -s "^O" "yazi-cd\n"
 
       # b2-cli is crapping out without this with a buffer overflow
       # https://github.com/Backblaze/B2_Command_Line_Tool/issues/1119

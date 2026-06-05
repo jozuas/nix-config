@@ -15,7 +15,6 @@ in
   home.file."scripts".source = repoLink "scripts";
 
   xdg.configFile."ghostty/config.ghostty".source = repoLink "dotfiles/config.ghostty";
-  xdg.configFile."ranger/rc.conf".source = repoLink "dotfiles/ranger-config";
   xdg.dataFile."nvim/site/autoload/airline/themes/airline_theme.vim".source =
     repoLink "dotfiles/airline-theme.vim";
 
@@ -34,7 +33,7 @@ in
     # CLI Tools
     pkgs.cloc
     pkgs.delta
-    pkgs.ranger
+    pkgs.yazi
     pkgs.jq
     pkgs.fd
     pkgs.wget
