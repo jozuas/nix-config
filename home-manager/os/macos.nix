@@ -22,7 +22,6 @@
         DICTIONARY = "$HOME/Library/Spelling/en_GB";
       };
       shellAliases = {
-        x86brew = "HOMEBREW_CELLAR=/usr/local/Cellar HOMEBREW_PREFIX=/usr/local HOMEBREW_REPOSITORY=/usr/local PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin arch -x86_64 /usr/local/bin/brew";
         ussh = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
         uscp = "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
       };

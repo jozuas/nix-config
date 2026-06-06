@@ -17,6 +17,5 @@ same `darwin-rebuild switch --flake` command.
 
 - Generate a GPG Key with `gpg --full-generate-key`. Put the signature into the
   machine git config as all commits will be signed with this key.
-- Generate an SSH Key with `ssh-keygen -t rsa -b 4096 -C "j@norkus.net"`
-  and run `ssh-add ~/.ssh/id_rsa` to add the key into the keychain.
-- Create password store with `pass init GPG-KEY-ID`
+- Generate an SSH Key with `ssh-keygen -t ed25519 -C "j@norkus.net"`
+  and run `ssh-add ~/.ssh/id_ed25519` to add the key into the keychain.
