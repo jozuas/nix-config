@@ -3,7 +3,12 @@
 1. Install [Nix](https://github.com/DeterminateSystems/nix-installer) (the
    Determinate installer enables flakes by default).
 2. Clone this repo to `~/nix-config`.
-3. Build and switch:
+3. On Apple Silicon, install Rosetta 2 (required because the config sets
+   `nix-homebrew.enableRosetta = true` to manage the Intel Homebrew prefix):
+   ```bash
+   softwareupdate --install-rosetta --agree-to-license
+   ```
+4. Build and switch:
    ```bash
    sudo -H darwin-rebuild switch --flake ~/nix-config#mbp
    ```
