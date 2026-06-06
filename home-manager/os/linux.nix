@@ -1,6 +1,5 @@
 {
   pkgs,
-  repoLink,
   homeDirectory,
   ...
 }:
@@ -15,10 +14,10 @@
     ./units/linux/xorg.nix
   ];
 
-  xdg.configFile."polybar/config".source = repoLink "dotfiles/polybar-config";
-  xdg.configFile."i3/config".source = repoLink "dotfiles/i3-config";
+  xdg.configFile."polybar/config".source = ../../dotfiles/polybar-config;
+  xdg.configFile."i3/config".source = ../../dotfiles/i3-config;
 
-  home.file.".xscreensaver".source = repoLink "dotfiles/xscreensaver-config";
+  home.file.".xscreensaver".source = ../../dotfiles/xscreensaver-config;
 
   home.packages = with pkgs; [
     speedtest-cli

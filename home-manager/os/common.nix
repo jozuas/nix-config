@@ -1,25 +1,14 @@
 {
-  config,
   pkgs,
   ...
 }:
 
-let
-  # Live-symlink to a path inside the cloned nix-config repo (assumed at ~/nix-config).
-  # Edits apply immediately without a home-manager rebuild.
-  repoLink =
-    path: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/${path}";
-in
 {
-  # Expose repoLink to the rest of the module tree (e.g. os/linux.nix) so the
-  # helper is defined in a single place.
-  _module.args.repoLink = repoLink;
+  home.file."scripts".source = ../../scripts;
 
-  home.file."scripts".source = repoLink "scripts";
-
-  xdg.configFile."ghostty/config.ghostty".source = repoLink "dotfiles/config.ghostty";
+  xdg.configFile."ghostty/config.ghostty".source = ../../dotfiles/config.ghostty;
   xdg.dataFile."nvim/site/autoload/airline/themes/airline_theme.vim".source =
-    repoLink "dotfiles/airline-theme.vim";
+    ../../dotfiles/airline-theme.vim;
 
   imports = [
     ./units/common/bat.nix
