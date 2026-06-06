@@ -1,8 +1,14 @@
 { pkgs, ... }:
 
-let private-pkgs = import ./../../../private-pkgs;
-in {
-  imports = [ ./xorg/redshift.nix ./xorg/xresources.nix ./xorg/i3.nix ];
+let
+  private-pkgs = import ./../../../private-pkgs { inherit pkgs; };
+in
+{
+  imports = [
+    ./xorg/redshift.nix
+    ./xorg/xresources.nix
+    ./xorg/i3.nix
+  ];
 
   home.packages = [
     private-pkgs.disable-mouse-acceleration

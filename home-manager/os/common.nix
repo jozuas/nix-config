@@ -69,7 +69,7 @@ in
     pkgs-unstable.elixir-ls
     pkgs.rebar3
     ## Nix
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
     pkgs.nixpkgs-review
     pkgs.nix-prefetch-git
     pkgs-unstable.nixd
@@ -93,7 +93,7 @@ in
     password-store = {
       enable = true;
       package = pkgs.pass;
-      settings = {};
+      settings = { };
     };
   };
 }

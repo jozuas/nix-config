@@ -1,7 +1,5 @@
-let
-  pkgs = import <nixpkgs> { };
-in
-with pkgs;
+{ pkgs }:
+
 {
-  disable-mouse-acceleration = callPackage ./expressions/disable-mouse-acceleration.nix { };
+  disable-mouse-acceleration = pkgs.callPackage ./expressions/disable-mouse-acceleration.nix { };
 }
