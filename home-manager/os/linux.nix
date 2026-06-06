@@ -1,14 +1,10 @@
 {
-  config,
   pkgs,
-  pkgs-unstable,
+  repoLink,
+  homeDirectory,
   ...
 }:
 
-let
-  repoLink =
-    path: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/${path}";
-in
 {
   imports = [
     ./common.nix
@@ -21,37 +17,33 @@ in
 
   xdg.configFile."polybar/config".source = repoLink "dotfiles/polybar-config";
   xdg.configFile."i3/config".source = repoLink "dotfiles/i3-config";
-  xdg.configFile."deadd/deadd.conf".source = repoLink "dotfiles/deadd.conf";
-  xdg.configFile."deadd/deadd.css".source = repoLink "dotfiles/deadd.css";
 
   home.file.".xscreensaver".source = repoLink "dotfiles/xscreensaver-config";
 
   home.packages = with pkgs; [
-    rclone
-    nmap
     speedtest-cli
 
     # GUIs
-    pkgs-unstable.obsidian
-    pkgs-unstable.slack
-    pkgs-unstable.beekeeper-studio
-    pkgs-unstable.vscode
-    pkgs.spotify
-    pkgs.audacity
-    pkgs-unstable.tdesktop
-    pkgs-unstable.discord
-    pkgs.firefox-devedition-bin
+    unstable.obsidian
+    unstable.slack
+    unstable.beekeeper-studio
+    unstable.vscode
+    spotify
+    audacity
+    unstable.telegram-desktop
+    unstable.discord
+    firefox-devedition
 
     pkgs.pick-colour-picker
     pkgs.simplescreenrecorder
     pkgs.zathura
 
-    pkgs.gnome3.totem
-    pkgs.gnome3.nautilus
-    pkgs.gnome3.cheese
-    pkgs.transmission-gtk
+    pkgs.totem
+    pkgs.nautilus
+    pkgs.cheese
+    pkgs.transmission_4-gtk
 
-    pkgs-unstable.anydesk
+    unstable.anydesk
   ];
 
   home.pointerCursor = {
@@ -74,9 +66,9 @@ in
     zsh = {
       enableVteIntegration = true;
       sessionVariables = {
-        BROWSER = "${pkgs.firefox-devedition-bin}/bin/firefox-devedition";
+        BROWSER = "${pkgs.firefox-devedition}/bin/firefox-devedition";
         TERMINAL = "${pkgs.alacritty}/bin/alacritty";
-        CDPATH = ".:/home/juozas:/home/juozas/dev:/home/juozas/documents";
+        CDPATH = ".:${homeDirectory}:${homeDirectory}/dev:${homeDirectory}/documents";
       };
     };
 

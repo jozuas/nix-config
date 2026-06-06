@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -12,6 +11,10 @@ let
     path: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/${path}";
 in
 {
+  # Expose repoLink to the rest of the module tree (e.g. os/linux.nix) so the
+  # helper is defined in a single place.
+  _module.args.repoLink = repoLink;
+
   home.file."scripts".source = repoLink "scripts";
 
   xdg.configFile."ghostty/config.ghostty".source = repoLink "dotfiles/config.ghostty";
@@ -65,19 +68,19 @@ in
     pkgs.nodejs
     pkgs.yarn
     ## Erlang / Elixir
-    pkgs-unstable.beam.packages.erlang_28.elixir_1_19
-    pkgs-unstable.elixir-ls
+    pkgs.unstable.beam.packages.erlang_28.elixir_1_19
+    pkgs.unstable.elixir-ls
     pkgs.rebar3
     ## Nix
     pkgs.nixfmt
     pkgs.nixpkgs-review
     pkgs.nix-prefetch-git
-    pkgs-unstable.nixd
+    pkgs.unstable.nixd
     ##
-    pkgs-unstable.cargo
-    pkgs-unstable.rustc
-    pkgs-unstable.rust-analyzer
-    pkgs-unstable.rustfmt
+    pkgs.unstable.cargo
+    pkgs.unstable.rustc
+    pkgs.unstable.rust-analyzer
+    pkgs.unstable.rustfmt
   ];
 
   programs = {

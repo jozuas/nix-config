@@ -1,15 +1,14 @@
-{ pkgs, pkgs-unstable, ... }:
-
-let
-  username = "juozas";
-  home = "/Users/${username}";
-in
 {
-  users.users.juozas.home = home;
+  pkgs,
+  username,
+  homeDirectory,
+  ...
+}:
+
+{
+  users.users.${username}.home = homeDirectory;
 
   system.primaryUser = username;
-
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = [
     pkgs.pam-reattach
@@ -18,7 +17,7 @@ in
   environment.etc = {
     # Symlink nixpkgs and nixpkgs-unstable to /etc for convenience
     "nixpkgs".source = "${pkgs.path}";
-    "nixpkgs-unstable".source = "${pkgs-unstable.path}";
+    "nixpkgs-unstable".source = "${pkgs.unstable.path}";
 
     # Hack to make pam-reattach work
     # Meanwhile waiting for the following to be merged
@@ -38,7 +37,7 @@ in
       sandbox = false;
       trusted-users = [
         "root"
-        "juozas"
+        username
       ];
 
       # Binary caches

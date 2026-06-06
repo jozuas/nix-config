@@ -1,6 +1,10 @@
 # Configuration options commonly shared between laptops
 
-{ pkgs, ... }:
+{
+  pkgs,
+  username,
+  ...
+}:
 
 {
   boot.initrd.luks.devices.root = {
@@ -9,7 +13,11 @@
   };
 
   # SSD performance fine-tuning
-  fileSystems."/".options = [ "noatime" "nodiratime" "commit=60" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "commit=60"
+  ];
 
   networking = {
     networkmanager = {
@@ -44,13 +52,17 @@
 
   security.sudo = {
     enable = true;
-    extraRules = [{
-      users = [ "juozas" ];
-      runAs = "root";
-      commands = [{
-        command = "/run/current-system/sw/bin/bluetooth";
-        options = [ "NOPASSWD" ];
-      }];
-    }];
+    extraRules = [
+      {
+        users = [ username ];
+        runAs = "root";
+        commands = [
+          {
+            command = "/run/current-system/sw/bin/bluetooth";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
   };
 }

@@ -28,6 +28,8 @@
       ...
     }:
     let
+      inherit (nixpkgs.lib) filterAttrs mapAttrs;
+
       mkUnstable =
         system:
         import nixpkgs-unstable {
@@ -35,61 +37,89 @@
           config.allowUnfree = true;
         };
 
+      # Expose the unstable channel as `pkgs.unstable.*`
+      unstableOverlay = system: _final: _prev: {
+        unstable = mkUnstable system;
+      };
+
       mkSpecialArgs =
-        { machine, system, isDarwin }:
         {
-          inherit machine nixos-hardware isDarwin;
-          pkgs-unstable = mkUnstable system;
+          machine,
+          isDarwin,
+          ...
+        }:
+        let
+          username = "juozas";
+          homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
+        in
+        {
+          inherit
+            machine
+            nixos-hardware
+            isDarwin
+            username
+            homeDirectory
+            ;
         };
+
+      nixpkgsModule = system: {
+        nixpkgs.overlays = [ (unstableOverlay system) ];
+        nixpkgs.config.allowUnfree = true;
+      };
 
       homeManagerModule =
         args:
+        let
+          specialArgs = mkSpecialArgs args;
+        in
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = mkSpecialArgs args;
-          home-manager.users.juozas = import ./home-manager/home.nix;
+          home-manager.extraSpecialArgs = specialArgs;
+          home-manager.users.${specialArgs.username} = import ./home-manager/home.nix;
         };
 
-      mkDarwin =
-        { machine, system }:
-        let args = { inherit machine system; isDarwin = true; }; in
-        nix-darwin.lib.darwinSystem {
+      # Build a single host (NixOS or nix-darwin) from a `hosts` entry.
+      mkHost =
+        machine:
+        { system, isDarwin }:
+        let
+          args = { inherit machine system isDarwin; };
+          builder = if isDarwin then nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
+          mainModule = if isDarwin then ./nix-darwin/darwin-configuration.nix else ./nixos/configuration.nix;
+          hmModule =
+            if isDarwin then
+              home-manager.darwinModules.home-manager
+            else
+              home-manager.nixosModules.home-manager;
+        in
+        builder {
           inherit system;
           specialArgs = mkSpecialArgs args;
           modules = [
-            ./nix-darwin/darwin-configuration.nix
-            home-manager.darwinModules.home-manager
+            (nixpkgsModule system)
+            mainModule
+            hmModule
             (homeManagerModule args)
           ];
         };
 
-      mkNixos =
-        { machine, system }:
-        let args = { inherit machine system; isDarwin = false; }; in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = mkSpecialArgs args;
-          modules = [
-            ./nixos/configuration.nix
-            home-manager.nixosModules.home-manager
-            (homeManagerModule args)
-          ];
+      # One line per machine. `isDarwin` selects the builder and module set.
+      hosts = {
+        mbp = {
+          system = "aarch64-darwin";
+          isDarwin = true;
         };
+        t480s = {
+          system = "x86_64-linux";
+          isDarwin = false;
+        };
+      };
+
+      configurations = mapAttrs mkHost hosts;
     in
     {
-      darwinConfigurations = {
-        mbp = mkDarwin {
-          machine = "mbp";
-          system = "aarch64-darwin";
-        };
-      };
-
-      nixosConfigurations = {
-        t480s = mkNixos {
-          machine = "t480s";
-          system = "x86_64-linux";
-        };
-      };
+      darwinConfigurations = filterAttrs (name: _: hosts.${name}.isDarwin) configurations;
+      nixosConfigurations = filterAttrs (name: _: !hosts.${name}.isDarwin) configurations;
     };
 }

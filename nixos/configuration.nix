@@ -1,14 +1,18 @@
 # Core System-wide configuration.
 
-{ pkgs, ... }:
+{
+  pkgs,
+  machine,
+  username,
+  homeDirectory,
+  ...
+}:
 
-let home = "/home/juozas";
-in {
+{
   imports = [
-    ./cachix.nix
     ./state-version.nix
     ./hardware-configuration.nix
-    ./machine/t480s.nix
+    ./machine/${machine}.nix
     ./desktop/i3.nix
   ];
 
@@ -54,7 +58,12 @@ in {
   };
 
   fonts = {
-    packages = with pkgs; [ dejavu_fonts ubuntu_font_family corefonts nerdfonts ];
+    packages = with pkgs; [
+      dejavu_fonts
+      ubuntu-classic
+      corefonts
+      nerd-fonts.ubuntu
+    ];
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
@@ -69,44 +78,43 @@ in {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
 
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         intel-ocl
         #vaapiIntel broken right now
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };
-
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-      daemon.config = {
-        default-sample-format = "float32le";
-        default-sample-rate = "48000";
-        alternate-sample-rate = "44100";
-        default-sample-channels = "2";
-        default-channel-map = "front-left,front-right";
-        default-fragments = "2";
-        default-fragment-size-msec = "125";
-        resample-method = "soxr-vhq";
-        enable-lfe-remixing = "no";
-        high-priority = "yes";
-        nice-level = "-11";
-        realtime-scheduling = "yes";
-        realtime-priority = "9";
-        rlimit-rtprio = "9";
-        daemonize = "no";
-      };
-    };
   };
 
-  sound.enable = true;
+  # 26.05 enables PipeWire by default for graphical desktops; this config uses
+  # PulseAudio (with the tuned daemon config below), so opt out of PipeWire.
+  services.pipewire.enable = false;
 
-  nixpkgs.config.allowUnfree = true;
+  services.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    daemon.config = {
+      default-sample-format = "float32le";
+      default-sample-rate = "48000";
+      alternate-sample-rate = "44100";
+      default-sample-channels = "2";
+      default-channel-map = "front-left,front-right";
+      default-fragments = "2";
+      default-fragment-size-msec = "125";
+      resample-method = "soxr-vhq";
+      enable-lfe-remixing = "no";
+      high-priority = "yes";
+      nice-level = "-11";
+      realtime-scheduling = "yes";
+      realtime-priority = "9";
+      rlimit-rtprio = "9";
+      daemonize = "no";
+    };
+  };
 
   nix = {
     gc = {
@@ -117,6 +125,12 @@ in {
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
+
+      # Binary caches (previously generated into ./cachix.nix by `cachix use`)
+      substituters = [ "https://nix-community.cachix.org" ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
     };
   };
 
@@ -139,7 +153,9 @@ in {
   };
 
   programs = {
-    zsh = { enable = true; };
+    zsh = {
+      enable = true;
+    };
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
@@ -172,9 +188,15 @@ in {
   };
 
   users.defaultUserShell = pkgs.zsh;
-  users.users.juozas = {
+  users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "wireshark" "networkmanager" "video" "vboxusers" ];
-    home = home;
+    extraGroups = [
+      "wheel"
+      "wireshark"
+      "networkmanager"
+      "video"
+      "vboxusers"
+    ];
+    home = homeDirectory;
   };
 }

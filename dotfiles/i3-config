@@ -11,7 +11,6 @@ exec --no-startup-id "bash /home/juozas/nix-config/scripts/polybar/launch.sh"
 exec --no-startup-id "bash /home/juozas/nix-config/scripts/xob/launch.sh"
 exec --no-startup-id "copyq"
 exec --no-startup-id "bash ~/scripts/displays/t480s-startup.sh"
-exec --no-startup-id "deadd-notification-center &"
 
 # Only lock the screen automatically on suspend
 exec --no-startup-id "xset s 0"
@@ -44,7 +43,6 @@ bindsym Mod4+Ctrl+Return exec --no-startup-id "alacritty -t 'floating-terminal'"
 bindsym Mod4+Ctrl+slash exec --no-startup-id "playerctl play-pause"
 bindsym Mod4+Ctrl+less exec --no-startup-id "playerctl previous"
 bindsym Mod4+Ctrl+greater exec --no-startup-id "playerctl next"
-bindsym Mod4+Ctrl+n exec --no-startup-id "kill -s USR1 $(pidof deadd-notification-center)"
 
 # WM Controls
 bindsym Mod4+s layout stacking
@@ -165,4 +163,3 @@ bindsym Mod4+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym Mod4+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym Mod4+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym Mod4+Shift+9 move container to workspace $ws9; workspace $ws9
-

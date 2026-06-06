@@ -13,17 +13,22 @@
     picom
     copyq
     polybarFull
-    deadd-notification-center
     xob
 
     # TODO: why is this needed?
     networkmanagerapplet
 
-    light
+    brillo
     feh
   ];
 
-  programs = { git = { extraConfig = { credential.helper = "libsecret"; }; }; };
+  programs = {
+    git = {
+      settings = {
+        credential.helper = "libsecret";
+      };
+    };
+  };
 
   services = {
     blueman-applet.enable = true;

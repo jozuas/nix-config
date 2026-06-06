@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  username,
+  ...
+}:
 
 {
   environment = {
@@ -7,7 +11,7 @@
     systemPackages = with pkgs; [
       dconf
       libsecret # Gnome-Keyring
-      gnome3.adwaita-icon-theme # Fallback theme
+      adwaita-icon-theme # Fallback theme
       hicolor-icon-theme # Fallback icon theme
     ];
   };
@@ -42,7 +46,7 @@
       displayManager = {
         lightdm.greeters.mini = {
           enable = true;
-          user = "juozas";
+          user = username;
           extraConfig = ''
             [greeter]
             show-password-label = false
@@ -52,7 +56,9 @@
         };
       };
 
-      windowManager.i3 = { enable = true; };
+      windowManager.i3 = {
+        enable = true;
+      };
     };
   };
 }

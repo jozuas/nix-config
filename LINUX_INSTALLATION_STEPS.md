@@ -105,7 +105,7 @@ reboot
 3. `su -l juozas`.
 4. Git clone this repo in `/home/juozas`.
 5. Move `system.stateVersion` declaration into a new file called
-   `state-version.nix` in `~/nix-config/nixos/` (gitignored, per-machine):
+   `state-version.nix` in `~/nix-config/nixos/` (tracked in git, per-machine):
    ```nix
    { ... }:
    {
@@ -113,7 +113,10 @@ reboot
    }
    ```
 6. Copy `/etc/nixos/hardware-configuration.nix` into `~/nix-config/nixos/`
-   (also gitignored, per-machine).
+   (also tracked in git, per-machine).
+
+   Both files above must be committed: a flake only evaluates git-tracked
+   files, so `nixos-rebuild --flake` will fail to find them otherwise.
 7. Move `networking.interfaces.*` and `boot.initrd.luks.devices.root` config
    into the appropriate machine file under `~/nix-config/nixos/machine/`
    (e.g. `t480s.nix`).

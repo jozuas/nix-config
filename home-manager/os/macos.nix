@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   imports = [ ./common.nix ];
@@ -8,7 +8,7 @@
   programs.home-manager.enable = true;
 
   home.packages = [
-    pkgs-unstable.ghostty-bin
+    pkgs.unstable.ghostty-bin
     pkgs.htop
     pkgs.fontconfig
   ];
