@@ -11,4 +11,5 @@ let
       ${pkgs.xorg.xinput}/bin/xinput --set-prop "$xinput_device_id" "libinput Accel Speed" -1
     fi
   '';
-in script
+in
+script

@@ -31,6 +31,12 @@
   nix = {
     optimise.automatic = true; # Automatically run the nix store optimiser
     gc.automatic = true; # Run nix-collect-garbage once a week
+    gc.options = "--delete-older-than 30d";
+
+    nixPath = [
+      "nixpkgs=/etc/nixpkgs"
+      "nixpkgs-unstable=/etc/nixpkgs-unstable"
+    ];
 
     settings = {
       # Cannot build livebook otherwise for now

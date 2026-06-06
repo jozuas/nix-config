@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  home.sessionPath = [
+    "$HOME/.npm-packages/bin"
+    "$HOME/scripts"
+  ];
+
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
@@ -33,9 +38,7 @@
       DIRENV_LOG_FORMAT = "";
       EDITOR = "nvim";
       VISUAL = "nvim";
-      TERM = "xterm-256color";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
-      PATH = "$HOME/.npm-packages/bin:$HOME/scripts:/usr/bin/git/:$PATH";
       ZSH_HIGHLIGHT_HIGHLIGHTERS = "(main brackets cursor)";
       ERL_AFLAGS = "-kernel shell_history enabled";
       ERL_EPMD_ADDRESS = "127.0.0.1"; # By default epmd listens on 0.0.0.0

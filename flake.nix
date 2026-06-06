@@ -28,7 +28,13 @@
       ...
     }:
     let
-      inherit (nixpkgs.lib) filterAttrs mapAttrs;
+      inherit (nixpkgs.lib)
+        filterAttrs
+        mapAttrs
+        genAttrs
+        unique
+        mapAttrsToList
+        ;
 
       mkUnstable =
         system:
@@ -117,9 +123,15 @@
       };
 
       configurations = mapAttrs mkHost hosts;
+
+      # Every distinct system our hosts target.
+      systems = unique (mapAttrsToList (_: host: host.system) hosts);
+      forAllSystems = genAttrs systems;
     in
     {
       darwinConfigurations = filterAttrs (name: _: hosts.${name}.isDarwin) configurations;
       nixosConfigurations = filterAttrs (name: _: !hosts.${name}.isDarwin) configurations;
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
     };
 }
