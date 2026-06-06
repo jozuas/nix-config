@@ -58,6 +58,72 @@
     '';
   };
 
+  # Declaratively manage an existing Homebrew installation. nix-darwin does not
+  # install Homebrew itself, nor does it pull packages into the Nix store; on
+  # each `darwin-rebuild switch` it runs `brew bundle` so the installed
+  # brews/casks/taps match the lists below. This is useful for GUI/proprietary
+  # apps that aren't in (or don't work well from) nixpkgs.
+  homebrew = {
+    enable = true;
+
+    onActivation = {
+      autoUpdate = true; # `brew update` before installing
+      upgrade = true; # upgrade outdated formulae/casks
+      cleanup = "zap"; # delete any leftover config for packages not listed below
+      # Recent Homebrew refuses `brew bundle install --cleanup` without an
+      # explicit force flag; this nix-darwin version doesn't pass one, so add
+      # it here. (Can drop once nix-darwin's homebrew module is updated.)
+      extraFlags = [ "--force" ];
+    };
+
+    # Third-party taps. homebrew/core and homebrew/cask are built in and need no tap.
+    taps = [ ];
+
+    # CLI formulae (`brew list`)
+    brews = [
+      "b2-tools"
+      "git"
+      "icu4c@77"
+      "imagemagick"
+    ];
+
+    # GUI apps (`brew list --cask`).
+    casks = [
+      "alfred"
+      "arc"
+      "audacity"
+      "betterdisplay"
+      "calibre"
+      "dash"
+      "discord"
+      "firefox@developer-edition"
+      "ghostty"
+      "iterm2"
+      "keycastr"
+      "linear"
+      "microsoft-auto-update"
+      "microsoft-office"
+      "notunes"
+      "obs"
+      "obsidian"
+      "pika"
+      "proton-mail"
+      "proton-pass"
+      "protonvpn"
+      "rectangle"
+      "shottr"
+      "spotify"
+      "sublime-merge"
+      "tableplus"
+      "tailscale-app"
+      "telegram-desktop"
+      "transmission"
+      "vlc"
+      "wireshark-app"
+      "zed"
+    ];
+  };
+
   security.pam.services.sudo_local.touchIdAuth = true;
 
   system.keyboard.enableKeyMapping = true;
