@@ -51,14 +51,14 @@ in
     pkgs.zstd
 
     # IDE tools
-    pkgs.nodePackages.yaml-language-server
+    pkgs.yaml-language-server
     pkgs.coreutils
 
     # Programming language tooling
     pkgs.gnumake
     pkgs.sqlite
     ## Bash
-    pkgs.nodePackages.bash-language-server
+    pkgs.bash-language-server
     pkgs.shellcheck
     pkgs.shfmt
     ## JavaScript
@@ -93,6 +93,7 @@ in
     password-store = {
       enable = true;
       package = pkgs.pass;
+      settings = {};
     };
   };
 }

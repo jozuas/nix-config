@@ -18,6 +18,11 @@ in
     vimAlias = true;
     vimdiffAlias = true;
 
+    # Since nixpkgs 26.05 defaults to false, but we have old home manager state
+    # version, so we have to opt-in or out manually.
+    withPython3 = false;
+    withRuby = false;
+
     coc = {
       enable = true;
       settings = {
