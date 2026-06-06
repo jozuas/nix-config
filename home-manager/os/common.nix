@@ -20,8 +20,6 @@
   ];
 
   home.packages = [
-    # (pkgs.azure-cli.withExtensions [ pkgs.azure-cli-extensions.image-copy-extension ])
-
     # CLI Tools
     pkgs.cloc
     pkgs.delta
@@ -35,12 +33,12 @@
     pkgs.nmap
     pkgs.pstree
     pkgs.git-quick-stats
-    pkgs.gh
     pkgs.s5cmd
     pkgs.rclone
     pkgs.mosh
     pkgs.hurl
     pkgs.zstd
+    pkgs.htop
 
     # IDE tools
     pkgs.yaml-language-server
@@ -55,7 +53,7 @@
     pkgs.shfmt
     ## JavaScript
     pkgs.nodejs
-    pkgs.yarn
+    pkgs.pnpm
     ## Erlang / Elixir
     pkgs.unstable.beam.packages.erlang_28.elixir_1_19
     pkgs.unstable.elixir-ls
@@ -65,11 +63,6 @@
     pkgs.nixpkgs-review
     pkgs.nix-prefetch-git
     pkgs.unstable.nixd
-    ##
-    pkgs.unstable.cargo
-    pkgs.unstable.rustc
-    pkgs.unstable.rust-analyzer
-    pkgs.unstable.rustfmt
   ];
 
   programs = {
@@ -81,11 +74,5 @@
     };
 
     gpg.enable = true;
-
-    password-store = {
-      enable = true;
-      package = pkgs.pass;
-      settings = { };
-    };
   };
 }
