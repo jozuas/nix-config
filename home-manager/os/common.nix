@@ -63,6 +63,9 @@
     pkgs.nixpkgs-review
     pkgs.nix-prefetch-git
     pkgs.unstable.nixd
+
+    ## Vibes
+    pkgs.unstable.mcp-grafana
   ];
 
   programs = {

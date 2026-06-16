@@ -91,7 +91,6 @@
     casks = [
       "alfred"
       "arc"
-      "audacity"
       "betterdisplay"
       "calibre"
       "dash"
