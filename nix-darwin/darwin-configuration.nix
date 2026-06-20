@@ -39,8 +39,7 @@
     ];
 
     settings = {
-      # Cannot build livebook otherwise for now
-      sandbox = false;
+      sandbox = true;
       trusted-users = [
         "root"
         username
