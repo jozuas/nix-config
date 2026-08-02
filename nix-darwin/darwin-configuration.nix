@@ -76,7 +76,9 @@
     };
 
     # Third-party taps. homebrew/core and homebrew/cask are built in and need no tap.
-    taps = [ ];
+    taps = [
+      "aaf2tbz/tap"
+    ];
 
     # CLI formulae (`brew list`)
     brews = [
@@ -92,6 +94,8 @@
       "arc"
       "betterdisplay"
       "calibre"
+      "cursor"
+      "cursor-cli"
       "dash"
       "discord"
       "firefox@developer-edition"
@@ -118,6 +122,14 @@
       "wireshark-app"
       "zed"
     ];
+
+    # Casks from third-party taps must be marked `trusted:` since Homebrew 6.
+    # nix-darwin's `casks` option can't emit that key, and `onActivation.cleanup`
+    # rewrites the trust store from the Brewfile on every activation, so a manual
+    # `brew trust` would be discarded on the next switch.
+    extraConfig = ''
+      cask "aaf2tbz/tap/metalsharp", trusted: true
+    '';
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
