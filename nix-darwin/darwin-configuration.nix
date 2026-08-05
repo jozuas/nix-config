@@ -39,7 +39,13 @@
     ];
 
     settings = {
-      sandbox = true;
+      # "relaxed" sandboxes every build except derivations that explicitly opt
+      # out with `__noChroot`, which are then only permitted for trusted users.
+      # Needed because nixpkgs marks claude-code `__noChroot` on Darwin: its
+      # prebuilt Bun binary can't execute under the macOS sandbox, so the
+      # versionCheckHook fails. Nix's own Darwin default is `sandbox = false`,
+      # so this is still stricter than stock.
+      sandbox = "relaxed";
       trusted-users = [
         "root"
         username

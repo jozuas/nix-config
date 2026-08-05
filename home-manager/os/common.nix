@@ -65,7 +65,7 @@
     pkgs.unstable.nixd
 
     ## Vibes
-    pkgs.unstable.mcp-grafana
+    pkgs.unstable.claude-code
   ];
 
   programs = {
