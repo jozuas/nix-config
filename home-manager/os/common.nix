@@ -55,9 +55,9 @@
     pkgs.nodejs
     pkgs.pnpm
     ## Erlang / Elixir
-    pkgs.unstable.beam.packages.erlang_28.elixir_1_19
-    pkgs.unstable.elixir-ls
-    pkgs.rebar3
+    # pkgs.unstable.beam.packages.erlang_28.elixir_1_19
+    # pkgs.unstable.elixir-ls
+    # pkgs.rebar3
     ## Nix
     pkgs.nixfmt
     pkgs.nixpkgs-review
