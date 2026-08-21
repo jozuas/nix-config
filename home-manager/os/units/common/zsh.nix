@@ -73,6 +73,12 @@
       export LINES; export COLUMNS;
 
       eval "$(direnv hook zsh)"
+
+      # tp completion, from the primary terrapin-app checkout
+      if [[ -d "$HOME/dev/terrapin-app/nix/dev/completions" ]]; then
+        fpath=("$HOME/dev/terrapin-app/nix/dev/completions" $fpath)
+        autoload -Uz _tp; compdef _tp tp
+      fi
     '';
   };
 }

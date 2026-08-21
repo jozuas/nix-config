@@ -45,7 +45,6 @@
     pkgs.coreutils
 
     # Programming language tooling
-    pkgs.gnumake
     pkgs.sqlite
     ## Bash
     pkgs.bash-language-server
