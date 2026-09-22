@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [ ./common.nix ];
@@ -10,7 +14,15 @@
   home.packages = [
     pkgs.unstable.ghostty-bin
     pkgs.fontconfig
+    pkgs.pinentry_mac
   ];
+
+  # Resolve pinentry through the profile symlink instead of the store path
+  # gpg-agent would otherwise bake in at startup, so an agent that outlives a
+  # `nix.gc` run can still find it.
+  home.file.".gnupg/gpg-agent.conf".text = ''
+    pinentry-program ${config.home.profileDirectory}/bin/pinentry-mac
+  '';
 
   # Allow fontconfig to discover fonts and configurations installed through
   # home.packages and nix-env
