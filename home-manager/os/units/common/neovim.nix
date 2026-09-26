@@ -55,15 +55,27 @@ in
       lua << EOF
       local auto_dark_mode = require('auto-dark-mode')
 
+      -- vim-airline only defines :AirlineTheme once it has loaded, which happens
+      -- after auto-dark-mode's first callback fires.
+      local function set_airline_theme(theme)
+        if vim.fn.exists(':AirlineTheme') == 2 then
+          vim.cmd('AirlineTheme ' .. theme)
+        else
+          vim.g.airline_theme = theme
+        end
+      end
+
       auto_dark_mode.setup({
         update_interval = 1000,
         set_dark_mode = function()
           vim.api.nvim_set_option_value('background', 'dark', {})
           vim.cmd('colorscheme catppuccin-macchiato')
+          set_airline_theme('catppuccin_macchiato')
         end,
         set_light_mode = function()
           vim.api.nvim_set_option_value('background', 'light', {})
           vim.cmd('colorscheme catppuccin-latte')
+          set_airline_theme('catppuccin_latte')
         end,
       })
       EOF
@@ -102,7 +114,7 @@ in
 
       "" General plugin settings
       let g:airline_powerline_fonts = 1
-      let g:airline_theme = 'catppuccin'
+      let g:airline_theme = 'catppuccin_macchiato'
 
       "" Markdown environment
       let g:vim_markdown_strikethrough = 1

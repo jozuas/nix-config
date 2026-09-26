@@ -7,8 +7,10 @@
   home.file."scripts".source = ../../scripts;
 
   xdg.configFile."ghostty/config.ghostty".source = ../../dotfiles/config.ghostty;
-  xdg.dataFile."nvim/site/autoload/airline/themes/airline_theme.vim".source =
-    ../../dotfiles/airline-theme.vim;
+  xdg.dataFile."nvim/site/autoload/airline/themes/catppuccin_macchiato.vim".source =
+    ../../dotfiles/airline/catppuccin_macchiato.vim;
+  xdg.dataFile."nvim/site/autoload/airline/themes/catppuccin_latte.vim".source =
+    ../../dotfiles/airline/catppuccin_latte.vim;
 
   imports = [
     ./units/common/bat.nix
