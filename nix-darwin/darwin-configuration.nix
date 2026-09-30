@@ -127,6 +127,7 @@
       "vlc"
       "wireshark-app"
       "zed"
+      "paseo"
     ];
 
     # Casks from third-party taps must be marked `trusted:` since Homebrew 6.
