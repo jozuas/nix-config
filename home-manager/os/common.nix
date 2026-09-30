@@ -67,6 +67,7 @@
 
     ## Vibes
     pkgs.unstable.claude-code
+    pkgs.unstable.paseo
   ];
 
   programs = {
