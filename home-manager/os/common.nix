@@ -25,6 +25,7 @@
     # CLI Tools
     pkgs.cloc
     pkgs.delta
+    pkgs.gh
     pkgs.yazi
     pkgs.jq
     pkgs.fd
