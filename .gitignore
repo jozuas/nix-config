@@ -6,5 +6,4 @@ nixos/cachix/*
 
 # Vibes
 .claude
-.cursor
 .mcp.json

@@ -115,10 +115,6 @@
                       enable = true;
                       user = username;
                       autoMigrate = true;
-                      # Also install Homebrew under the Intel prefix
-                      # (/usr/local) via Rosetta 2, so x86-64 packages can be
-                      # installed with `arch -x86_64 brew install <pkg>`.
-                      enableRosetta = true;
                     };
                   }
                 )
