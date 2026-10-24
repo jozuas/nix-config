@@ -10,3 +10,5 @@ macos-icon = retro
 macos-option-as-alt = left
 
 auto-update = download
+
+shell-integration-features = ssh-terminfo,ssh-env
