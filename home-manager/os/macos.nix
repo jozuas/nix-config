@@ -15,6 +15,9 @@
     pkgs.unstable.ghostty-bin
     pkgs.fontconfig
     pkgs.pinentry_mac
+    pkgs.imagemagick
+    # nixpkgs renames the binary to `backblaze-b2` (Boost also ships a `b2`)
+    (pkgs.unstable.backblaze-b2.override { execName = "b2"; })
   ];
 
   # Resolve pinentry through the profile symlink instead of the store path

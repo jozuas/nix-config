@@ -72,7 +72,14 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = true; # `brew update` before installing
+      # Don't `brew update` before installing. When Homebrew auto-updates it
+      # re-execs itself with a stripped PATH, so Bundle can no longer find `mas`
+      # and every `masApps` entry fails with "mas installation failed" (this
+      # Homebrew has no .git, so it auto-updates on every run). Formula/cask
+      # metadata is still refreshed from the API below, so `upgrade` stays
+      # current; run `brew update` by hand to update Homebrew itself.
+      autoUpdate = false;
+      extraEnv.HOMEBREW_FORCE_API_AUTO_UPDATE = "1";
       upgrade = true; # upgrade outdated formulae/casks
       cleanup = "zap"; # delete any leftover config for packages not listed below
       # Recent Homebrew refuses `brew bundle install --cleanup` without an
@@ -86,30 +93,22 @@
       "aaf2tbz/tap"
     ];
 
-    # CLI formulae (`brew list`)
+    # CLI formulae (`brew list`). `mas` is the Mac App Store CLI used for `masApps`.
     brews = [
-      "b2-tools"
-      "git"
-      "icu4c@77"
-      "imagemagick"
+      "mas"
     ];
 
     # GUI apps (`brew list --cask`).
     casks = [
       "alfred"
-      "arc"
+      "ungoogled-chromium"
       "betterdisplay"
       "calibre"
-      "dash"
       "discord"
       "firefox@developer-edition"
-      "ghostty"
       "linear"
-      "microsoft-auto-update"
-      "microsoft-office"
       "notunes"
       "obsidian"
-      "pika"
       "proton-mail"
       "proton-pass"
       "protonvpn"
@@ -119,13 +118,39 @@
       "sublime-merge"
       "tableplus"
       "tailscale-app"
-      "telegram-desktop"
       "transmission"
       "vlc"
       "wireshark-app"
       "zed"
       "paseo"
     ];
+
+    # Mac App Store apps (`mas list`). Requires being signed into the App Store.
+    # With `cleanup = "zap"`, current Homebrew Bundle *uninstalls* (moves to the
+    # Trash) every App Store app not listed here as soon as this set is non-empty,
+    # so it must list all of them. (nix-darwin's option docs still claim otherwise.)
+    masApps = {
+      "Affinity Designer 2" = 1616831348;
+      "Affinity Photo 2" = 1616822987;
+      "Affinity Publisher 2" = 1606941598;
+      DigiDoc4 = 1370791134;
+      Flighty = 1358823008;
+      "Kagi Search" = 1622835804;
+      LocalSend = 1661733229;
+      "Magic Disk Benchmark" = 1608793370;
+      "Microsoft Excel" = 462058435;
+      "Microsoft Outlook" = 985367838;
+      "Microsoft Word" = 462054704;
+      OneDrive = 823766827;
+      Parcel = 375589283;
+      Pika = 6739170421; # paid ($2.99): buy it in the App Store first, mas can't purchase
+      "Prime Video" = 545519333;
+      Slack = 803453959;
+      Telegram = 747648890; # native macOS client, updated by the App Store
+      "Web eID" = 1576665083;
+      WhatsApp = 310633997;
+      Xcode = 497799835;
+    };
 
     # Casks from third-party taps must be marked `trusted:` since Homebrew 6.
     # nix-darwin's `casks` option can't emit that key, and `onActivation.cleanup`
