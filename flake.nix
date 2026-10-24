@@ -5,6 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    # release-26.05 commit bumping Nix to 2.34.9 for the October 2026 Nix
+    # security advisory. Drop once the nixos-26.05 channel ships it.
+    nixpkgs-nix-fix.url = "github:NixOS/nixpkgs/6425db51c93c7ff6653e5af54a6daaab8b39b120";
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +31,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      nixpkgs-nix-fix,
       nix-darwin,
       home-manager,
       nix-homebrew,
@@ -127,6 +132,7 @@
           specialArgs = mkSpecialArgs args;
           modules = [
             (nixpkgsModule system)
+            { nix.package = nixpkgs-nix-fix.legacyPackages.${system}.nixVersions.nix_2_34; }
             mainModule
             hmModule
             (homeManagerModule args)
