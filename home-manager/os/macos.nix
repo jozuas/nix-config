@@ -35,6 +35,10 @@
     zsh = {
       sessionVariables = {
         DICTIONARY = "$HOME/Library/Spelling/en_GB";
+        # nixpkgs' claude-code wrapper defaults this to "system", which on
+        # macOS only picks up the keychain's custom CAs, not Apple's public
+        # roots, so TLS to api.anthropic.com fails. Keep the bundled roots too.
+        CLAUDE_CODE_CERT_STORE = "bundled,system";
       };
       shellAliases = {
         ussh = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
